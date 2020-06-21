@@ -1,0 +1,16 @@
+body {
+   padding-left: 5%;
+   background-color: aliceblue;
+}
+
+p, footer, table, hr {
+   text-align: justify
+}
+
+.sidenote, .marginnote {
+  color: red
+}
+
+h1.title {
+   font-weight: bold
+}

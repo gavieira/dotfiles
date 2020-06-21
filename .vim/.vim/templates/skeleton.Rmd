@@ -1,0 +1,65 @@
+---
+title: |
+  RMarkdown Template for Managing  
+  Academic Affiliations 
+subtitle: |
+  Also Deals with Cross References and  
+  Reference Abbreviations for MS-Word Output
+author:
+  - Duke A Caboom, MD:
+      email: duke.a.caboom@utuktoyaktuk.edu
+      institute: [UofT]
+      correspondence: true
+  - Justin d'Ottawa, PhD:
+      email: justin@uottawa.ca
+      institute: [UofO]
+      correspondence: false
+institute:
+  - UofT: University of Tuktoyaktuk, CXVG+62 Tuktoyaktuk, Inuvik, Unorganized, NT Canada
+  - UofO: University of Ottawa, 75 Laurier Ave E, Ottawa, ON K1N 6N5, Canada
+abstract: |
+  **Introduction**: There's a big scientific problem out there. I know how to fix it.
+  
+  **Methods**: My experiments are pure genius.
+  
+  **Results**: Now you have your proof.
+  
+  **Conclusion**: Give me more grant money.
+journal: "An awesome journal"
+date: ""
+toc: false
+output:
+ bookdown::tufte_html2:
+    pandoc_args:
+      - --citation-abbreviations=../Extras/abbreviations.json
+      - --filter=pandoc-crossref
+      - --lua-filter=../Extras/scholarly-metadata.lua
+      - --lua-filter=../Extras/author-info-blocks.lua
+      - --css=../Extras/styles.css 
+ bookdown::word_document2:
+    pandoc_args:
+      - --citation-abbreviations=../Extras/abbreviations.json
+      - --filter=pandoc-crossref
+      - --lua-filter=../Extras/scholarly-metadata.lua
+      - --lua-filter=../Extras/author-info-blocks.lua
+      - --reference-doc=../Extras/Reference_Document.docx
+ bookdown::pdf_document2:
+      pandoc_args:
+      - --citation-abbreviations=../Extras/abbreviations.json
+      - --filter=pandoc-crossref
+      - --lua-filter=../Extras/scholarly-metadata.lua
+      - --lua-filter=../Extras/author-info-blocks.lua
+bibliography: "../Extras/mybibfile.bib"
+csl: "../Extras/clinical-mass-spectrometry.csl"
+keywords: "CRAN, R, RMarkdown, RStudio, YAML"
+---
+
+# Introduction
+
+# Material and Methods
+
+# Results
+
+# Discussion
+
+# References
