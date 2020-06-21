@@ -15,11 +15,12 @@ SCRIPTPATH=$(dirname "$SCRIPT")
 echo "creating symbolic links in $HOME:"
 
 # create symbolic link to this repo's .vimrc file
-ln -s $scriptpath/.vimrc $HOME/.vimrc
+echo ln -s $scriptpath/.vimrc $HOME/.vimrc
+ln -s $SCRIPTPATH/.vimrc ~/.vimrc
 echo ".vimrc symlink created"
 
 # copy this repo's .vim dir
-cp $SCRIPTPATH/.vim $HOME/.vim
+cp -r $SCRIPTPATH/.vim $HOME/.vim
 echo ".vim directory copied"
 
 # Installing vim plugins:
@@ -39,11 +40,12 @@ sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O 
 #echo ".oh-my-zsh directory symlink created"
 
 # Create symbolic link to repo's .zshrc file
+rm $HOME/.zshrc # Removes the oh-my-zsh .zshrc file
 ln -s $SCRIPTPATH/.zshrc $HOME/.zshrc
 echo ".zshrc symlink created"
 
 # Adding the command-line fuzzy finder - https://github.com/junegunn/fzf
-echo "Installing the command-line fuzzy finder." 
-yes | git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf && $HOME/.fzf/install
+#echo "Installing the command-line fuzzy finder." 
+#yes | git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf && $HOME/.fzf/install
 
 echo "Finished!!"
