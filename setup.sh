@@ -33,13 +33,25 @@ echo ".tmux.conf symlink created"
 
 # Install .oh-my-zsh
 echo "Installing oh-my-zsh"
-sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" && echo "exit"
-
-
+sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" --skip-chsh --unattended 
 
 # Create symbolic link to repo's .oh-my-zsh dir
 #ln -s $SCRIPTPATH/.oh-my-zsh $HOME/.oh-my-zsh
 #echo ".oh-my-zsh directory symlink created"
+
+
+
+# Installing plugins/themes for zsh shell:
+
+#zhs autosuggestions:
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+#zsh syntax highlighting:
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+
+
+
 
 # Create symbolic link to repo's .zshrc file
 rm $HOME/.zshrc # Removes the oh-my-zsh .zshrc file

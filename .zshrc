@@ -121,4 +121,4 @@ source $ZSH/oh-my-zsh.sh
 SAVEHIST=100000 
 
 # Command line fuzzy finder - https://github.com/junegunn/fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
