@@ -76,7 +76,7 @@ Plug 'preservim/nerdtree' "File browser
 
 Plug 'ron89/thesaurus_query.vim' "Multi-language Thesaurus 
 
-Plug 'powerline/powerline' "Line with information about mode/file
+Plug 'powerline/powerline', {'do': 'python3 ./setup.py build'} "Line with information about mode/file
 
 Plug 'vim-pandoc/vim-rmarkdown'
 
@@ -84,6 +84,6 @@ Plug 'vim-pandoc/vim-pandoc'
 
 Plug 'vim-pandoc/vim-pandoc-syntax'
 
-"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --all' }
 
 call plug#end()

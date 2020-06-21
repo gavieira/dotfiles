@@ -18,17 +18,25 @@ echo "creating symbolic links in $HOME:"
 ln -s $scriptpath/.vimrc $HOME/.vimrc
 echo ".vimrc symlink created"
 
-# create symbolic link to repo's .vim dir
-ln -s $SCRIPTPATH/.vim $HOME/.vim
-echo ".vim directory symlink created"
+# copy this repo's .vim dir
+cp $SCRIPTPATH/.vim $HOME/.vim
+echo ".vim directory copied"
+
+# Installing vim plugins:
+vim +'PlugInstall --sync' +qa
+echo "vim plugins installed"
 
 # Create symbolic link to repo's .tmux_conf file
 ln -s $SCRIPTPATH/.tmux.conf $HOME/.tmux.conf
 echo ".tmux.conf symlink created"
 
+# Install .oh-my-zsh
+echo "Installing oh-my-zsh"
+sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+
 # Create symbolic link to repo's .oh-my-zsh dir
-ln -s $SCRIPTPATH/.oh-my-zsh $HOME/.oh-my-zsh
-echo ".oh-my-zsh directory symlink created"
+#ln -s $SCRIPTPATH/.oh-my-zsh $HOME/.oh-my-zsh
+#echo ".oh-my-zsh directory symlink created"
 
 # Create symbolic link to repo's .zshrc file
 ln -s $SCRIPTPATH/.zshrc $HOME/.zshrc
