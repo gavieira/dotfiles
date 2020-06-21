@@ -33,7 +33,9 @@ echo ".tmux.conf symlink created"
 
 # Install .oh-my-zsh
 echo "Installing oh-my-zsh"
-sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" && echo "exit"
+
+
 
 # Create symbolic link to repo's .oh-my-zsh dir
 #ln -s $SCRIPTPATH/.oh-my-zsh $HOME/.oh-my-zsh
