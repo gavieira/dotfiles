@@ -64,7 +64,7 @@ fi
 
 # Create symbolic link to .p10k.zsh
 rm $HOME/.p10k.zsh
-ln -s Dropbox/repos/dotfiles/.p10k.zsh $HOME/.p10k.zsh
+ln -s $SCRIPTPATH/.p10k.zsh $HOME/.p10k.zsh
 echo ".p10k.zsh symlink created"
 
 # Create symbolic link to repo's .zshrc file
