@@ -1,6 +1,10 @@
 FROM alpine
 MAINTAINER gavieira <gabrieldeusdeth@gmail.com>
 
+## Setting HOME variable
+
+ENV HOME /root
+
 ## Copying repo to home folder
 
 COPY / $HOME 
