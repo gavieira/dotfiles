@@ -69,6 +69,7 @@ ZSH_THEME="bira"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git
+	 tmux
 	 zsh-autosuggestions
 	 zsh-syntax-highlighting
 	)
@@ -104,7 +105,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Activating vim mode
  set -o vi
- #bindkey jj vi-cmd-mode # Disabled because of conflict with vim keys in tab complete menu
+ bindkey ff vi-cmd-mode # used ff to avoid conflict with vim keys in tab complete menu
 
 # Changing some bindings for autosuggestion:
  bindkey '^N' autosuggest-fetch

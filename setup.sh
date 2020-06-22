@@ -34,15 +34,9 @@ echo ".tmux.conf symlink created"
 echo "Installing oh-my-zsh"
 sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" --skip-chsh --unattended --keep-zshrc
 
-# Create symbolic link to repo's .oh-my-zsh dir
-#ln -s $SCRIPTPATH/.oh-my-zsh $HOME/.oh-my-zsh
-#echo ".oh-my-zsh directory symlink created"
-
 
 
 # Installing plugins/themes for zsh shell:
-
-#zhs autosuggestions:
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 #zsh syntax highlighting:
@@ -50,19 +44,10 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 
 
-
-
 # Create symbolic link to repo's .zshrc file
 ZSHRC=$HOME/.zshrc
-if [[ -f "$ZSHRC" ]]; then
-	echo "Found .zshrc file. changing its name to .zshrc_old"
-	mv $ZSHRC "$ZSHRC"_old
-fi
+rm $ZSHRC #Removes previous .zshrc file
 ln -s $SCRIPTPATH/.zshrc $ZSHRC
 echo ".zshrc symlink created"
-
-# Adding the command-line fuzzy finder - https://github.com/junegunn/fzf
-#echo "Installing the command-line fuzzy finder." 
-#yes | git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf && $HOME/.fzf/install
 
 echo "Finished!!"
