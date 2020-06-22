@@ -15,7 +15,6 @@ SCRIPTPATH=$(dirname "$SCRIPT")
 echo "creating symbolic links in $HOME:"
 
 # create symbolic link to this repo's .vimrc file
-echo ln -s $scriptpath/.vimrc $HOME/.vimrc
 ln -s $SCRIPTPATH/.vimrc ~/.vimrc
 echo ".vimrc symlink created"
 
@@ -33,7 +32,7 @@ echo ".tmux.conf symlink created"
 
 # Install .oh-my-zsh
 echo "Installing oh-my-zsh"
-sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" --skip-chsh --unattended 
+sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" --skip-chsh --unattended --keep-zshrc
 
 # Create symbolic link to repo's .oh-my-zsh dir
 #ln -s $SCRIPTPATH/.oh-my-zsh $HOME/.oh-my-zsh
@@ -54,8 +53,12 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 
 # Create symbolic link to repo's .zshrc file
-rm $HOME/.zshrc # Removes the oh-my-zsh .zshrc file
-ln -s $SCRIPTPATH/.zshrc $HOME/.zshrc
+ZSHRC=$HOME/.zshrc
+if [[ -f "$ZSHRC" ]]; then
+	echo "Found .zshrc file. changing its name to .zshrc_old"
+	mv $ZSHRC "$ZSHRC"_old
+fi
+ln -s $SCRIPTPATH/.zshrc $ZSHRC
 echo ".zshrc symlink created"
 
 # Adding the command-line fuzzy finder - https://github.com/junegunn/fzf
