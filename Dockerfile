@@ -7,7 +7,7 @@ ENV HOME /root
 
 ## Copying repo to home folder
 
-COPY / $HOME 
+COPY / $HOME/dotfiles 
 
 ## Installing all required dependencies
 
