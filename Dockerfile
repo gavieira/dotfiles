@@ -11,7 +11,7 @@ COPY / $HOME/dotfiles
 
 ## Installing all required dependencies
 
-RUN apk add git zsh tmux vim python3
+RUN apk add git zsh tmux vim python3 fontconfig curl
 
 ## Set zsh as default shell
 

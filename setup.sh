@@ -24,6 +24,7 @@ echo ".vim directory copied"
 
 # Installing vim plugins:
 vim +'PlugInstall --sync' +qa
+#vim -E -s -u "path_to_vim_rc/.vimrc" +PlugInstall +qall # From https://github.com/junegunn/vim-plug/issues/225#issuecomment-458710986
 echo "vim plugins installed"
 
 # Create symbolic link to repo's .tmux_conf file
@@ -42,6 +43,25 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.
 #zsh syntax highlighting:
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
+
+
+# INSTALL FONTS AND POWERLEVEL10k
+# Code from https://github.com/jotyGill/quickz-sh/blob/master/quickz.sh
+
+echo -e "Installing Nerd Fonts version of Hack, Roboto Mono, DejaVu Sans Mono\n"
+
+wget -q -N https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf -P ~/.fonts/
+wget -q -N https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/RobotoMono/Regular/complete/Roboto%20Mono%20Nerd%20Font%20Complete.ttf -P ~/.fonts/
+wget -q -N https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DejaVuSansMono/Regular/complete/DejaVu%20Sans%20Mono%20Nerd%20Font%20Complete.ttf -P ~/.fonts/
+
+fc-cache -fv ~/.fonts
+
+if [ -d ~/.oh-my-zsh/custom/themes/powerlevel10k ]; then
+	    cd ~/.oh-my-zsh/custom/themes/powerlevel10k && git pull
+    else
+	        git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
+fi
+
 # Create symbolic link to .p10k.zsh
 rm $HOME/.p10k.zsh
 ln -s Dropbox/repos/dotfiles/.p10k.zsh $HOME/.p10k.zsh
@@ -51,23 +71,5 @@ echo ".p10k.zsh symlink created"
 rm $HOME/.zshrc #Removes previous .zshrc file
 ln -s $SCRIPTPATH/.zshrc $HOME/.zshrc 
 echo ".zshrc symlink created"
-
-
-# INSTALL FONTS AND POWERLEVEL10k
-# Code from https://github.com/jotyGill/quickz-sh/blob/master/quickz.sh
-
-echo -e "Installing Nerd Fonts version of Hack, Roboto Mono, DejaVu Sans Mono\n"
-
-wget -q --show-progress -N https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf -P ~/.fonts/
-wget -q --show-progress -N https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/RobotoMono/Regular/complete/Roboto%20Mono%20Nerd%20Font%20Complete.ttf -P ~/.fonts/
-wget -q --show-progress -N https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DejaVuSansMono/Regular/complete/DejaVu%20Sans%20Mono%20Nerd%20Font%20Complete.ttf -P ~/.fonts/
-
-fc-cache -fv ~/.fonts
-
-if [ -d ~/.oh-my-zsh/custom/themes/powerlevel10k ]; then
-	    cd ~/.oh-my-zsh/custom/themes/powerlevel10k && git pull
-    else
-	        git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
-fi
 
 echo "Finished!!"
