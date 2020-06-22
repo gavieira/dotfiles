@@ -84,6 +84,6 @@ Plug 'vim-pandoc/vim-pandoc'
 
 Plug 'vim-pandoc/vim-pandoc-syntax'
 
-Plug 'junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': 'bash ./install --all' } "fuzzy finder. Has to be installed using bash shell
+Plug 'junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': 'bash ./install --all --no-zsh' } "fuzzy finder. Has to be installed using bash shell
 
 call plug#end()
