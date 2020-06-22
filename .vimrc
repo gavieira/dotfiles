@@ -84,6 +84,6 @@ Plug 'vim-pandoc/vim-pandoc'
 
 Plug 'vim-pandoc/vim-pandoc-syntax'
 
-Plug 'junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': 'sh ./install --all' }
 
 call plug#end()
