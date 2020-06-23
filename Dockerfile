@@ -13,6 +13,7 @@ COPY / $HOME/dotfiles
 
 RUN apk update && \
 apk add git zsh bash tmux vim python3 fontconfig curl py3-setuptools && \
+ln -s $(which python3) /usr/bin/python &&\
 sh $HOME/dotfiles/setup.sh 
 
 ## Set zsh as default shell
