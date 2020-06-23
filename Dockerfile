@@ -13,12 +13,15 @@ COPY / $HOME/dotfiles
 
 RUN apk update && \
 apk add git zsh bash tmux vim python3 fontconfig curl py3-setuptools && \
-ln -s $(which python3) /usr/bin/python &&\
-sh $HOME/dotfiles/setup.sh 
+ln -s $(which python3) /usr/bin/python
 
-## Set zsh as default shell
+## Set zsh as default shell - Some programs, like autojump, need to be installed under zsh or bash
 
 ENV SHELL /bin/zsh
+
+## Run installation script
+
+RUN sh $HOME/dotfiles/setup.sh 
 
 ## Finally, set containers to open up at the $HOME directory
 
