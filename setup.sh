@@ -22,11 +22,17 @@ sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O 
 
 
 # Installing plugins/themes for zsh shell:
+echo "Installing plugins/themes for zsh"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 #zsh syntax highlighting:
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
+#autojump:
+echo "Installing autojump"
+AUTOJUMP_DIR=$HOME/.oh-my-zsh/custom/plugins/autojump
+git clone https://github.com/wting/autojump.git $AUTOJUMP_DIR
+cd $AUTOJUMP_DIR && ./install.py && cd -
 
 # INSTALL FONTS AND POWERLEVEL10k
 # Code from https://github.com/jotyGill/quickz-sh/blob/master/quickz.sh
