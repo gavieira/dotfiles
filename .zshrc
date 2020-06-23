@@ -116,7 +116,7 @@ source $ZSH/oh-my-zsh.sh
  bindkey ff vi-cmd-mode # used ff to avoid conflict with vim keys in tab complete menu
 
 # Changing some bindings for autosuggestion:
- bindkey '^N' autosuggest-fetch
+ # bindkey '^N' autosuggest-fetch
  # bindkey '^\n' autosuggest-execute #Not working properly
  bindkey '^ ' autosuggest-accept
 
