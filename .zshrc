@@ -125,8 +125,9 @@ source $ZSH/oh-my-zsh.sh
  bindkey -M menuselect 'l' vi-forward-char
  bindkey -M menuselect 'j' vi-down-line-or-history
 
-# Higher history size
+# History options
 SAVEHIST=100000 
+HIST_EXPIRE_DUPS_FIRST #Removes duplicated commands from history before identical ones
 
 # Command line fuzzy finder - https://github.com/junegunn/fzf
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
