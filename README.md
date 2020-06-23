@@ -20,4 +20,15 @@ There are other dependencies (python3, fc-cache and bash for instance), but they
 
 Run `sh /path/to/dotfiles/setup.py` to install the same terminal configuration in your machine. You can also check the [docker image](https://hub.docker.com/repository/docker/gavieira/myterminal). 
 
+```
+##Pulling image:
+docker pull gavieira/myterminal:latest
+
+##Creating and running container:
+docker run --name termtest -it -e TERM gavieira/myterminal /bin/zsh
+
+##Starting container:
+docker start -i termtest
+```
+
 **Attention**: The setup script will remove previous zsh/tmux/vim configuration files in your home directory.
