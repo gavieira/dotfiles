@@ -9,18 +9,15 @@ ENV HOME /root
 
 COPY / $HOME/dotfiles 
 
-## Installing all required dependencies
+## Installing all required dependencies and run installation script
 
 RUN apk update && \
-apk add git zsh bash tmux vim python3 fontconfig curl py3-setuptools
+apk add git zsh bash tmux vim python3 fontconfig curl py3-setuptools && \
+sh $HOME/dotfiles/setup.sh 
 
 ## Set zsh as default shell
 
-RUN sed -i 's/\/bin\/ash/\/bin\/zsh/g' /etc/passwd
-
-## Run installation script
-
-RUN sh $HOME/dotfiles/setup.sh 
+ENV SHELL /bin/zsh
 
 ## Finally, set containers to open up at the $HOME directory
 

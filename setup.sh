@@ -12,6 +12,12 @@ SCRIPT=$(readlink -f "$0")
 # Absolute path this script is in, thus /home/user/bin
 SCRIPTPATH=$(dirname "$SCRIPT")
 
+echo "removing previous dotfiles:"
+rm $HOME/.vimrc
+rm $HOME/.zshrc #Removes previous .zshrc file
+rm $HOME/.p10k.zsh
+rm $HOME/.tmux.conf
+
 echo "creating symbolic links in $HOME:"
 
 # create symbolic link to this repo's .vimrc file
@@ -63,12 +69,10 @@ if [ -d ~/.oh-my-zsh/custom/themes/powerlevel10k ]; then
 fi
 
 # Create symbolic link to .p10k.zsh
-rm $HOME/.p10k.zsh
 ln -s $SCRIPTPATH/.p10k.zsh $HOME/.p10k.zsh
 echo ".p10k.zsh symlink created"
 
 # Create symbolic link to repo's .zshrc file
-rm $HOME/.zshrc #Removes previous .zshrc file
 ln -s $SCRIPTPATH/.zshrc $HOME/.zshrc 
 echo ".zshrc symlink created"
 
