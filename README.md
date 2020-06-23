@@ -1,2 +1,23 @@
 # dotfiles
-My zsh-tmux-vim configuration
+
+My zsh-tmux-vim configuration. Tested on Linux only.
+
+## Prerequisites
+
+You will need to install zsh, tmux and in your machine, as well as change the default shell to zsh
+
+```
+##On debian-based distros (e.g. Ubuntu):
+sudo apt update && sudo apt install zsh tmux vim && chsh -s (which zsh)
+
+##On arch-based distros (e.g. Manjaro):
+sudo pacman -Syu zsh tmux vim && chsh -s (which zsh)
+```
+
+There are other dependencies (python3, fc-cache and bash for instance), but they are probably already installed in your system.
+
+## Installation
+
+Run `sh /path/to/dotfiles/setup.py` to install the same terminal configuration in your machine. You can also check the [docker image](https://hub.docker.com/repository/docker/gavieira/myterminal). 
+
+**Attention**: The setup script will remove previous zsh/tmux/vim configuration files in your home directory.
