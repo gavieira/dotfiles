@@ -12,7 +12,7 @@ COPY / $HOME/dotfiles
 ## Installing all required dependencies and run installation script
 
 RUN apk update && \
-apk add git zsh bash tmux vim python3 fontconfig curl py3-setuptools && \
+apk add git zsh bash tmux vim python3 fontconfig wget curl py3-setuptools && \
 ln -s $(which python3) /usr/bin/python
 
 ## Set zsh as default shell - Some programs, like autojump, need to be installed under zsh or bash
