@@ -14,7 +14,7 @@ sudo apt update && sudo apt install zsh tmux vim && chsh -s (which zsh)
 sudo pacman -Syu zsh tmux vim && chsh -s (which zsh)
 ```
 
-There are other dependencies (python3, fc-cache and bash for instance), but they are probably already installed in your system.
+There are other dependencies (python3, fc-cache, xclip and xsel for instance), but they are probably already installed in your system.
 
 ## Installation
 
