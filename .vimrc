@@ -45,8 +45,8 @@ nnoremap <silent> <special> <F3> :! $SHELL<RETURN>
 "Set enter to add newline in normal mode
 :nnoremap <ENTER> o<ESC>
 
-"Set ff to esc insert mode - used it instead of jj to avoid conflicts with zsh tab completion usig hjkl 
-inoremap ff <ESC>
+"Set vv to esc insert mode - used it instead of jj to avoid conflicts with zsh tab completion usig hjkl 
+inoremap vv <ESC>
 
 "Set commands to edit and source dotfiles (.vimrc, .tmux.conf, .zhsrc) in a vertical splitted
 "window
