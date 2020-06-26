@@ -6,32 +6,16 @@
     {
         "command": "notebook:hide-cell-outputs",
         "keys": [
-            "Z",
-            "C"
+            "Shift Z",
+            "Shift C"
         ],
         "selector": "body"
     },
     {
         "command": "notebook:show-cell-outputs",
         "keys": [
-            "Z",
-            "O"
-        ],
-        "selector": "body"
-    },
-    {
-        "command": "notebook:show-cell-code",
-        "keys": [
             "Shift Z",
             "Shift O"
-        ],
-        "selector": "body"
-    },
-    {
-        "command": "notebook:hide-cell-code",
-        "keys": [
-            "Shift Z",
-            "Shift C"
         ],
         "selector": "body"
     }
