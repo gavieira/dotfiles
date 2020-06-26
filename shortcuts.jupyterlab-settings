@@ -1,0 +1,39 @@
+{
+    // My custom shortcuts for jupyterlab
+    // Copy and paste it into your user preferences
+    // in the keyboard shortcuts settings (Ctrl+,)
+    "shortcuts": [
+    {
+        "command": "notebook:hide-cell-outputs",
+        "keys": [
+            "Z",
+            "C"
+        ],
+        "selector": "body"
+    },
+    {
+        "command": "notebook:show-cell-outputs",
+        "keys": [
+            "Z",
+            "O"
+        ],
+        "selector": "body"
+    },
+    {
+        "command": "notebook:show-cell-code",
+        "keys": [
+            "Shift Z",
+            "Shift O"
+        ],
+        "selector": "body"
+    },
+    {
+        "command": "notebook:hide-cell-code",
+        "keys": [
+            "Shift Z",
+            "Shift C"
+        ],
+        "selector": "body"
+    }
+ ]
+}
