@@ -13,7 +13,7 @@ SCRIPT=$(readlink -f "$0")
 SCRIPTPATH=$(dirname "$SCRIPT")
 
 # copy this repo's .vim dir
-cp -r $SCRIPTPATH/.vim $HOME/.vim
+cp -r $SCRIPTPATH/.vim $HOME
 echo ".vim directory copied"
 
 # Install .oh-my-zsh
