@@ -35,7 +35,7 @@ output:
       - --filter=pandoc-crossref
       - --lua-filter=$HOME/.vim/Extras/scholarly-metadata.lua
       - --lua-filter=$HOME/.vim/Extras/author-info-blocks.lua
-      - --css=../Extras/styles.css 
+      - --css=$HOME/.vim/Extras/styles.css 
  bookdown::word_document2:
     pandoc_args:
       - --citation-abbreviations=$HOME/.vim/Extras/abbreviations.json

@@ -12,9 +12,6 @@ SCRIPT=$(readlink -f "$0")
 # Absolute path this script is in, thus /home/user/bin
 SCRIPTPATH=$(dirname "$SCRIPT")
 
-# copy this repo's .vim dir
-cp -r $SCRIPTPATH/.vim $HOME
-echo ".vim directory copied"
 
 # Install .oh-my-zsh
 echo "Installing oh-my-zsh"
@@ -78,5 +75,9 @@ rm $HOME/.zshrc #Removes previous .zshrc file
 ln -s $SCRIPTPATH/.zshrc $HOME/.zshrc 
 echo ".zshrc symlink created"
 
+# Create symbolic link in .vim to repos's directories 
+ln -s $SCRIPTPATH/templates $HOME/.vim/templates
+ln -s $SCRIPTPATH/Extras $HOME/.vim/Extras
+echo "Repo's directories symlinks created in ~/.vim "
 
 echo "Finished!!"
