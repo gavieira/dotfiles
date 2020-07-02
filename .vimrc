@@ -3,6 +3,7 @@ set linebreak
 set hls "Search highlighting
 set ic 
 set clipboard+=unnaeddplus "use system clipboard
+set modeline "file-specific setting changes on first or last line https://www.howtoforge.com/tutorial/vim-modeline-settings/
 ":let g:markdown_folding = 1 
 let mapleader = "\<Space>"
 
@@ -42,6 +43,14 @@ nnoremap <silent> <special> <F2> :NERDTreeToggle<RETURN>
 set splitbelow 
 nnoremap <silent> <special> <F3> :! $SHELL<RETURN>
 
+"Markdown previewing with F4
+nmap <F4> <Plug>MarkdownPreviewToggle
+
+"Set Rmarkdown to F5 (pdf) and F6 (word) 
+nnoremap <silent> <special> <F5> :RMarkdown! pdf<RETURN>
+nnoremap <silent> <special> <F6> :RMarkdown! pdf<RETURN>
+
+
 "Set enter to add newline in normal mode
 ":nnoremap <ENTER> o<ESC>
 
@@ -61,7 +70,7 @@ nnoremap <leader>sz :! source ~/.zshrc<cr>
 nnoremap <expr> j v:count ? 'j' : 'gj'
 nnoremap <expr> k v:count ? 'k' : 'gk'
 
-
+"Install vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -87,5 +96,7 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'junegunn/fzf', { 'dir': '$HOME/.fzf', 'do': 'bash ./install --all' } "fuzzy finder. Has to be installed using bash shell
 
 Plug 'tpope/vim-surround'
+
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 call plug#end()
