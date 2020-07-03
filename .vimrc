@@ -48,7 +48,7 @@ nmap <F4> <Plug>MarkdownPreviewToggle
 
 "Set Rmarkdown to F5 (pdf) and F6 (word) 
 nnoremap <silent> <special> <F5> :RMarkdown! pdf<RETURN>
-nnoremap <silent> <special> <F6> :RMarkdown! pdf<RETURN>
+nnoremap <silent> <special> <F6> :RMarkdown! word<RETURN>
 
 
 "Set enter to add newline in normal mode
