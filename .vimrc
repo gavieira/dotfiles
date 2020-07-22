@@ -56,7 +56,7 @@ nnoremap <silent> <special> <F7> :RMarkdown! html<RETURN>
 ":nnoremap <ENTER> o<ESC>
 
 "Set vv to esc insert mode - used it instead of jj to avoid conflicts with zsh tab completion usig hjkl 
-"inoremap vv <ESC>
+inoremap vv <ESC>
 
 "Set jj to esx insert mode
 inoremap jj <ESC>
