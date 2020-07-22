@@ -46,16 +46,20 @@ nnoremap <silent> <special> <F3> :! $SHELL<RETURN>
 "Markdown previewing with F4
 nmap <F4> <Plug>MarkdownPreviewToggle
 
-"Set Rmarkdown to F5 (pdf) and F6 (word) 
+"Set Rmarkdown to F5 (pdf), F6 (word) and F7 (html)
 nnoremap <silent> <special> <F5> :RMarkdown! pdf<RETURN>
 nnoremap <silent> <special> <F6> :RMarkdown! word<RETURN>
+nnoremap <silent> <special> <F7> :RMarkdown! html<RETURN>
 
 
 "Set enter to add newline in normal mode
 ":nnoremap <ENTER> o<ESC>
 
 "Set vv to esc insert mode - used it instead of jj to avoid conflicts with zsh tab completion usig hjkl 
-inoremap vv <ESC>
+"inoremap vv <ESC>
+
+"Set jj to esx insert mode
+inoremap jj <ESC>
 
 "Set commands to edit and source dotfiles (.vimrc, .tmux.conf, .zhsrc) in a vertical splitted
 "window

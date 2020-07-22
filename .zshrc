@@ -1,3 +1,6 @@
+#TMUX plugin options
+#export ZSH_TMUX_AUTOSTART=true
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -181,4 +184,3 @@ unset __conda_setup
 
 # Change locale (needed for some applications such as mira, but will break some powerlevel10k configurations)
 #export LC_ALL=C
-
