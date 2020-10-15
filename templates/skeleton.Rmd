@@ -63,3 +63,5 @@ keywords: "CRAN, R, RMarkdown, RStudio, YAML"
 # Discussion
 
 # References
+
+# vim: noautoindent

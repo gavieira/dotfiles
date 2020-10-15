@@ -1,0 +1,21 @@
+---
+title: |
+  RMarkdown Template for Managing  
+  Academic Affiliations 
+subtitle: |
+  Also Deals with Cross References and  
+  Reference Abbreviations for MS-Word Output
+author:
+  - Duke A Caboom, MD:
+      email: duke.a.caboom@utuktoyaktuk.edu
+      institute: [UofT]
+      correspondence: true
+  - Justin d'Ottawa, PhD:
+      email: justin@uottawa.ca
+      institute: [UofO]
+      correspondence: false
+---
+
+# Introduction
+
+# vim: noautoindent
