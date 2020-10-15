@@ -72,8 +72,8 @@ nnoremap <leader>ez :vsplit ~/.zshrc<cr>
 nnoremap <leader>sz :! source ~/.zshrc<cr>
 
 "Make j and k go only one wrap in long lines
-nnoremap <expr> j v:count ? 'j' : 'gj'
-nnoremap <expr> k v:count ? 'k' : 'gk'
+"nnoremap <expr> j v:count ? 'j' : 'gj'
+"nnoremap <expr> k v:count ? 'k' : 'gk'
 
 "Install vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
