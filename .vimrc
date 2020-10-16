@@ -7,6 +7,11 @@ set modeline "file-specific setting changes on first or last line https://www.ho
 ":let g:markdown_folding = 1 
 let mapleader = "\<Space>"
 
+" Spell check
+set spell
+
+" Avoid autoindent
+set noautoindent
 
 """ Powerline
 set rtp+=~/.vim/plugged/powerline/build/lib/powerline/bindings/vim
@@ -84,11 +89,11 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'https://github.com/sedm0784/vim-you-autocorrect.git' "For simple autocorrection
+"Plug 'https://github.com/sedm0784/vim-you-autocorrect.git' "For simple autocorrection
 
 Plug 'preservim/nerdtree' "File browser 
 
-Plug 'ron89/thesaurus_query.vim' "Multi-language Thesaurus 
+"Plug 'ron89/thesaurus_query.vim' "Multi-language Thesaurus 
 
 Plug 'powerline/powerline', {'do': 'python3 ./setup.py build'} "Line with information about mode/file
 
