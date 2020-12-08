@@ -11,7 +11,7 @@ let mapleader = "\<Space>"
 set spell
 
 " Avoid autoindent
-set noautoindent
+"set noautoindent
 
 """ Powerline
 set rtp+=~/.vim/plugged/powerline/build/lib/powerline/bindings/vim
@@ -110,3 +110,7 @@ Plug 'tpope/vim-surround'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 call plug#end()
+
+
+"Set noautoindent for rmarkdown files
+autocmd BufRead,BufNewFile *Rmd setlocal noautoindent
