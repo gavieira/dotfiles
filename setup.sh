@@ -45,6 +45,9 @@ fc-cache -fv ~/.fonts
 # Make snap fonts work again
 rm -rf ~/.cache/fontconfig && fc-cache -r -v
 
+# If snap fonts are not working, run the command below (requires sudo)
+#rm -rf ~/.cache/fontconfig && sudo fc-cache -r -v
+
 if [ -d ~/.oh-my-zsh/custom/themes/powerlevel10k ]; then
 	    cd ~/.oh-my-zsh/custom/themes/powerlevel10k && git pull
     else
