@@ -42,6 +42,9 @@ wget -q --show-progress -N https://github.com/ryanoasis/nerd-fonts/raw/master/pa
 
 fc-cache -fv ~/.fonts
 
+# Make snap fonts work again
+rm -rf ~/.cache/fontconfig && fc-cache -r -v
+
 if [ -d ~/.oh-my-zsh/custom/themes/powerlevel10k ]; then
 	    cd ~/.oh-my-zsh/custom/themes/powerlevel10k && git pull
     else
