@@ -34,6 +34,8 @@ from libqtile.utils import guess_terminal
 mod = "mod4"
 terminal = guess_terminal()
 
+##### KEY BINDINGS #####
+
 keys = [
     # Switch between windows in current stack pane
     Key([mod], "k", lazy.layout.down(),
@@ -71,6 +73,14 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown qtile"),
     Key([mod], "r", lazy.spawncmd(),
         desc="Spawn a command using a prompt widget"),
+
+    #Zoom into current pane (NOT WORKING YET)
+    #Key([mod], "z", lazy.window.toggle.fullscreen(), desc="Toggle in and out of current pane"),
+
+    #Runs dmenu with mod key
+    #Key([mod], lazy.window.toggle.fullscreen(), desc="Toggle in and out of current pane"),
+
+
 ]
 
 groups = [Group(i) for i in "asdfuiop"]
@@ -90,6 +100,8 @@ for i in groups:
         #     desc="move focused window to group {}".format(i.name)),
     ])
 
+#### LAYOUTS ####
+
 layouts = [
     layout.Max(),
     layout.Stack(num_stacks=2),
@@ -97,8 +109,8 @@ layouts = [
     # layout.Bsp(),
     # layout.Columns(),
     # layout.Matrix(),
-    # layout.MonadTall(),
-    # layout.MonadWide(),
+     layout.MonadTall(),
+     layout.MonadWide(),
     # layout.RatioTile(),
     # layout.Tile(),
     # layout.TreeTab(),
@@ -106,9 +118,23 @@ layouts = [
     # layout.Zoomy(),
 ]
 
+
+#### CLICKABLE EVENTS #####
+
+def open_nmtui(qtile):
+    lazy.spawn('nmtui')
+    qtile.cmd.spawn('nmtui')
+
+def open_pavucontrol(qtile):
+    lazy.spawn('pavucontrol')
+    qtile.cmd.spawn('pavucontrol')
+
+#### SCREENS/WIDGETS #####
+
 widget_defaults = dict(
     font='sans',
     fontsize=12,
+    #foreground='#000000',
     padding=3,
 )
 extension_defaults = widget_defaults.copy()
@@ -127,16 +153,29 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.TextBox("default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 widget.Systray(),
-                widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
-                widget.QuickExit(),
+                widget.TextBox("VOL:",
+                    mouse_callbacks={'Button1': open_pavucontrol}),
+                #widget.Volume(),
+                #widget.Wlan(interface=['wlp1s0','wlp3s0']),
+                widget.Volume(
+                    mouse_callbacks={'Button2': open_pavucontrol}),
+                widget.Wlan(interface='wlp3s0',
+                    mouse_callbacks={'Button1': open_nmtui}),
+                widget.BatteryIcon(),
+                widget.CPU(background=['#f2d81a'], foreground='#000000'),
+                widget.Memory(background=['#f2d81a'], foreground='#000000'),
+                widget.Clock(format='%d-%b %a %I:%M %p', background=['#33ff6b'], foreground='#000000')
             ],
             24,
+            #background=['#4a65ec', '#98a8fc'], #List in background makes a gradient of colors
+            #opacity=0.5,
         ),
+        wallpaper = "/home/gabriel/.config/qtile/wallpapers/fedora33.jpg",
+        wallpaper_mode = "fill",
     ),
 ]
+
 
 # Drag floating layouts.
 mouse = [
