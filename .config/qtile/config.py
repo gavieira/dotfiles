@@ -1,28 +1,7 @@
-# Copyright (c) 2010 Aldo Cortesi
-# Copyright (c) 2010, 2014 dequis
-# Copyright (c) 2012 Randall Ma
-# Copyright (c) 2012-2014 Tycho Andersen
-# Copyright (c) 2012 Craig Barnes
-# Copyright (c) 2013 horsik
-# Copyright (c) 2013 Tao Sauvage
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in
-# all copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
+#Qtile configuration file
+
+#Since this config uses the Wlan widget, this config needs iwlib (https://pypi.org/project/iwlib/)
+#This config does not support multiple monitors. For more info on how to set it up, look at https://github.com/qtile/qtile/wiki/screens 
 
 from typing import List  # noqa: F401
 
@@ -38,19 +17,19 @@ terminal = guess_terminal()
 
 keys = [
     # Switch between windows in current stack pane
-    Key([mod], "k", lazy.layout.down(),
+    Key([mod], "k", lazy.layout.up(),
         desc="Move focus down in stack pane"),
-    Key([mod], "j", lazy.layout.up(),
+    Key([mod], "j", lazy.layout.down(),
         desc="Move focus up in stack pane"),
 
     # Move windows up or down in current stack
-    Key([mod, "control"], "k", lazy.layout.shuffle_down(),
+    Key([mod, "control"], "k", lazy.layout.shuffle_up(),
         desc="Move window down in current stack "),
-    Key([mod, "control"], "j", lazy.layout.shuffle_up(),
+    Key([mod, "control"], "j", lazy.layout.shuffle_down(),
         desc="Move window up in current stack "),
 
     # Switch window focus to other pane(s) of stack
-    Key([mod], "space", lazy.layout.next(),
+   Key([mod], "space", lazy.layout.next(),
         desc="Switch window focus to other pane(s) of stack"),
 
     # Swap panes of split stack
@@ -74,16 +53,17 @@ keys = [
     Key([mod], "r", lazy.spawncmd(),
         desc="Spawn a command using a prompt widget"),
 
-    #Zoom into current pane (NOT WORKING YET)
-    #Key([mod], "z", lazy.window.toggle.fullscreen(), desc="Toggle in and out of current pane"),
+    #Zoom into current pane
+    Key([mod], "z", lazy.window.toggle_fullscreen(), desc="Toggle in and out of current pane"),
 
     #Runs dmenu with mod key
-    #Key([mod], lazy.window.toggle.fullscreen(), desc="Toggle in and out of current pane"),
+    #Key([mod], lazy.(), desc="Toggle in and out of current pane"),
 
 
 ]
 
-groups = [Group(i) for i in "asdfuiop"]
+#groups = [Group(i) for i in "asdfuiop"]
+groups = [Group(i) for i in "123456"]
 
 for i in groups:
     keys.extend([
@@ -122,12 +102,10 @@ layouts = [
 #### CLICKABLE EVENTS #####
 
 def open_nmtui(qtile):
-    lazy.spawn('nmtui')
-    qtile.cmd.spawn('nmtui')
+    qtile.cmd_spawn(f'{terminal} -e nmtui')
 
 def open_pavucontrol(qtile):
-    lazy.spawn('pavucontrol')
-    qtile.cmd.spawn('pavucontrol')
+    qtile.cmd_spawn('pavucontrol')
 
 #### SCREENS/WIDGETS #####
 
@@ -141,7 +119,7 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        bottom=bar.Bar(
+        top=bar.Bar(
             [
                 widget.CurrentLayout(),
                 widget.GroupBox(),
@@ -155,17 +133,18 @@ screens = [
                 ),
                 widget.Systray(),
                 widget.TextBox("VOL:",
-                    mouse_callbacks={'Button1': open_pavucontrol}),
-                #widget.Volume(),
-                #widget.Wlan(interface=['wlp1s0','wlp3s0']),
-                widget.Volume(
-                    mouse_callbacks={'Button2': open_pavucontrol}),
-                widget.Wlan(interface='wlp3s0',
+                    mouse_callbacks = {'Button1': open_pavucontrol}),
+                widget.Volume(),
+                widget.TextBox("WIFI:",
+                    mouse_callbacks = {'Button1': open_nmtui}),
+                widget.Wlan(interface='wlp1s0',
                     mouse_callbacks={'Button1': open_nmtui}),
                 widget.BatteryIcon(),
+                #widget.CPUGraph(width=25),
+                #widget.MemoryGraph(width=25, fill_color='#9e0000',  graph_color='#ff5757'),
                 widget.CPU(background=['#f2d81a'], foreground='#000000'),
                 widget.Memory(background=['#f2d81a'], foreground='#000000'),
-                widget.Clock(format='%d-%b %a %I:%M %p', background=['#33ff6b'], foreground='#000000')
+                widget.Clock(format='%a, %d-%b %R', background=['#33ff6b'], foreground='#000000')
             ],
             24,
             #background=['#4a65ec', '#98a8fc'], #List in background makes a gradient of colors
