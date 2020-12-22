@@ -9,6 +9,20 @@
 
 set $mod Mod4
 
+#Setting vim keybindings
+set $vimleft h
+set $vimdown j
+set $vimup k
+set $vimright l
+
+#Setting wallpaper dir:
+set $wallpapers ~/Dropbox/repos/dotfiles/wallpapers
+
+#Setting default programs
+set $browser qutebrowser
+set $pdf zathura
+set $music clementine
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:monospace 8
@@ -38,8 +52,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# Start a terminal. Tries to use alacritty and gets default terminal if it fails
+bindsym $mod+Return exec alacritty || i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -53,10 +67,10 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+ccedilla focus right
+bindsym $mod+$vimleft focus left
+bindsym $mod+$vimdown focus down
+bindsym $mod+$vimup focus up
+bindsym $mod+$vimright focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -65,10 +79,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+ccedilla move right
+bindsym $mod+Shift+$vimleft move left
+bindsym $mod+Shift+$vimdown move down
+bindsym $mod+Shift+$vimup move up
+bindsym $mod+Shift+$vimright move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -77,7 +91,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+g split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -104,16 +118,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
+set $ws1 "1.Web"
+set $ws2 "2.Term"
+set $ws3 "3.Docs"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10"
+set $ws10 "10.Music"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -154,10 +168,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym ccedilla resize grow width 10 px or 10 ppt
+        bindsym $vimleft resize shrink width 10 px or 10 ppt
+        bindsym $vimup resize grow height 10 px or 10 ppt
+        bindsym $vimdown resize shrink height 10 px or 10 ppt
+        bindsym $vimright resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -178,3 +192,38 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+
+
+##### SETTING APPLICATION KEYBINDINGS #####
+
+bindsym $mod+b exec $browser
+bindsym $mod+p exec $pdf
+bindsym $mod+m exec $music
+
+
+#### ASSIGNING APPS TO WORKSPACES ####
+# The "(?i)" makes the interpretation of the app variables case-insensitive
+
+assign [class="(?i)$browser"] $ws1
+assign [class="(?i)$pdf"] $ws3
+assign [class="(?i)$music"] $ws10
+assign [class="Alacritty" instance="Allacrity" title="cmus v.2.8.0"] $ws10
+assign [class="Spotify"] $ws10
+
+###### SETTING STARTUP APPLICATIONS ######
+exec --no-startup-id xrandr --output VGA1 --right-of LVDS1 
+exec --no-startup-id dropbox 
+
+# For some reason, redshift is not working on Manjaro i3 #
+# In order for it to work, a cronjob was created: https://askubuntu.com/questions/513294/why-i-cant-add-redshift-to-startup"
+#exec --no-startup-id redhsift -O 3500
+#exec --no-startup-id redhsift-gtk 
+
+#Setting wallpapers permanetly (needs feh)
+#Will randomly pick one image from the wallpapers directory
+exec_always --no-startup-id feh --bg-scale --randomize $wallpapers/*
+
+
+#Setting cmus to open automatically on workspace 10
+exec --no-startup-id "alacritty --class cmus -e cmus"
+assign [class="Alacritty" instance="cmus"] $ws10

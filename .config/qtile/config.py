@@ -150,7 +150,7 @@ screens = [
             #background=['#4a65ec', '#98a8fc'], #List in background makes a gradient of colors
             #opacity=0.5,
         ),
-        wallpaper = "/home/gabriel/.config/qtile/wallpapers/fedora33.jpg",
+        wallpaper = "/home/gabriel/Dropbox/repos/dotfiles/wallpapers/fedora33.jpg",
         wallpaper_mode = "fill",
     ),
 ]
@@ -200,3 +200,10 @@ focus_on_window_activation = "smart"
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
+
+#Function to run some programs at startup (NOT WORKING YET)
+def startup_run(qtile):
+    qtile.cmd_spawn(f'{terminal} -e dropbox')
+    qtile.cmd_spawn(f'{terminal} -e redshift')
+
+#startup_run()
