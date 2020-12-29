@@ -23,6 +23,7 @@ set $browser qutebrowser
 set $pdf zathura
 set $music clementine
 set $video smplayer
+set $localhost "firefox -new-window http://localhost:8888/"
 
 #Setting monitors
 set $monitor1 LVDS1
@@ -125,16 +126,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1.Work"
-set $ws2 "2.Web"
-set $ws3 "3.Docs"
-set $ws4 "4.Vid"
+set $ws1 "1:Work"
+set $ws2 "2:Web"
+set $ws3 "3:Docs"
+set $ws4 "4:Vid"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10.Music"
+set $ws10 "10:Music"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -198,14 +199,25 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
 	position top
+	separator_symbol "|"
+	workspace_buttons yes
+	tray_output primary
+	strip_workspace_numbers no
+	strip_workspace_name no
+	#i3bar_command i3bar --transparency
         status_command i3status
 }
 
-##### CUSTOM WORKSPACE KEYBINDINGS #####
+##### CUSTOM KEYBINDINGS #####
 
 bindsym $mod+Control+$vimleft move workspace to output left
 bindsym $mod+Control+$vimright move workspace to output right
 
+
+bindsym $mod+q split toggle
+#bindsym $mod+Shift+g layout splith
+#bindsym $mod+Shift+v layout splitv
+#bindsym $mod+t layout toggle splith splitv 
 
 ##### ASSIGNING WORKSPACES TO MONITORS #####
 
@@ -220,16 +232,16 @@ workspace $ws8  output $monitor2 $monitor3
 workspace $ws9  output $monitor2 $monitor3
 workspace $ws10  output $monitor2 $monitor3
 
-#MAKE THIS TOGGLE OUTPUT
-bindsym $mod+Control+$vimup move workspace prev_on_output
-bindsym $mod+Control+$vimdown move workspace next_on_output
+#MAKE THIS MOVE THROUGH WORKSPACES
+bindsym $mod+Control+$vimup workspace prev
+bindsym $mod+Control+$vimdown workspace next
 
 ##### SETTING CUSTOM OPTIONS/KEYBINDINGS #####
 
 # Navigation
 
 #Back and forth two workspaces
-workspace_auto_back_and_forth yes #Pressing the workspace key twice will return to previous workspace
+#workspace_auto_back_and_forth yes #Pressing the workspace key twice will return to previous workspace
 bindsym $mod+ccedilla workspace back_and_forth
 
 #Focus on window activation
@@ -244,6 +256,7 @@ bindsym $mod+b exec $browser
 bindsym $mod+p exec $pdf
 bindsym $mod+m exec $music
 bindsym $mod+n exec $video
+bindsym $mod+u exec worspace $ws1, exec $localhost
 
 
 #### ASSIGNING APPS TO WORKSPACES ####
@@ -272,17 +285,21 @@ for_window [class="(?i)$video"] focus
 assign [class="mpv"] $ws4
 for_window [class="mpv"] focus
 
-
 assign [class="vlc"] $ws4
 
-assign [class="Alacritty" instance="Allacrity" title="cmus v.2.8.0"] $ws10
 for_window [class="Spotify"] move to workspace $ws10, workspace $ws10
 
 ###### SETTING STARTUP APPLICATIONS ######
 
 #Monitors
-exec_always --no-startup-id xrandr --output $monitor2 --right-of LVDS1 
-exec_always --no-startup-id xrandr --output $monitor3 --right-of LVDS1 
+
+#Monitor 2 - 1920x1080 
+exec_always xrandr --output $monitor1 --primary --mode 1366x768 --pos 0x0 --rotate normal --output DP1 --off --output $monitor3 --off --output $monitor2 --mode 1366x768 --pos 1366x0 --rotate normal --output VIRTUAL1 --off
+ 
+
+#Monitor 3 - 1920x1080 
+exec_always xrandr --output $monitor1 --primary --mode 1366x768 --pos 0x0 --rotate normal --output DP1 --off --output $monitor3 --mode 1920x1080 --pos 1366x0 --rotate normal --output $monitor2 --off --output VIRTUAL1 --off
+
 
 #Dropbox
 exec --no-startup-id dropbox 
@@ -300,8 +317,7 @@ exec_always --no-startup-id feh --bg-scale --randomize $wallpapers/*
 exec_always --no-startup-id xset s off && xset -dpms
 
 #Setting cmus to open automatically on workspace 10
-exec --no-startup-id "alacritty --class cmus -e cmus" # It's a nice idea to have this command as an alias for cmus
-
+exec --no-startup-id 'alacritty --class cmus -e cmus' # It's a nice idea to have this command as an alias for cmus
 assign [class="Alacritty" instance="cmus"] $ws10
 
 # Media player controls for cmus
@@ -310,6 +326,7 @@ bindsym XF86AudioPlay exec "cmus-remote -u"
 bindsym XF86AudioNext exec "cmus-remote -n"
 bindsym XF86AudioPrev exec "cmus-remote -r"
 
+# Open Localhost in 
 
 ##### COLORS #####
 
@@ -319,3 +336,4 @@ bindsym XF86AudioPrev exec "cmus-remote -r"
 
 #client.focused          #4C7899 #50ABEF #FFFFFF #2E9EF4   #285577
 #client.unfocused        #333333 #285577 #888888 #292D2E   #222222
+
