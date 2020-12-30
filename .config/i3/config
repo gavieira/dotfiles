@@ -19,10 +19,12 @@ set $vimright l
 set $wallpapers ~/Dropbox/repos/dotfiles/wallpapers
 
 #Setting default programs
+set $email neomutt
 set $browser qutebrowser
 set $pdf zathura
 set $music clementine
 set $video smplayer
+set $localhost "firefox -new-window http://localhost:8888/"
 
 #Setting monitors
 set $monitor1 LVDS1
@@ -125,16 +127,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1.Work"
-set $ws2 "2.Web"
-set $ws3 "3.Docs"
-set $ws4 "4.Vid"
+set $ws1 "1:Work"
+set $ws2 "2:Web"
+set $ws3 "3:Docs"
+set $ws4 "4:Vid"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10.Music"
+set $ws10 "10:Music"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -206,6 +208,10 @@ bar {
 bindsym $mod+Control+$vimleft move workspace to output left
 bindsym $mod+Control+$vimright move workspace to output right
 
+bindsym $mod+q split toggle
+#bindsym $mod+Shift+g layout splith
+#bindsym $mod+Shift+v layout splitv
+#bindsym $mod+t layout toggle splith splitv
 
 ##### ASSIGNING WORKSPACES TO MONITORS #####
 
@@ -300,7 +306,7 @@ exec_always --no-startup-id feh --bg-scale --randomize $wallpapers/*
 exec_always --no-startup-id xset s off && xset -dpms
 
 #Setting cmus to open automatically on workspace 10
-exec --no-startup-id "alacritty --class cmus -e cmus" # It's a nice idea to have this command as an alias for cmus
+exec_always --no-startup-id "alacritty --class cmus -e cmus" # It's a nice idea to have this command as an alias for cmus
 
 assign [class="Alacritty" instance="cmus"] $ws10
 
