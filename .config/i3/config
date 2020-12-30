@@ -19,6 +19,7 @@ set $vimright l
 set $wallpapers ~/Dropbox/repos/dotfiles/wallpapers
 
 #Setting default programs
+set $email neomutt
 set $browser qutebrowser
 set $pdf zathura
 set $music clementine
@@ -171,8 +172,8 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
+        
+	# Pressing left will shrink the window’s width.
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
@@ -192,7 +193,6 @@ mode "resize" {
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
-
 bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -256,8 +256,9 @@ bindsym $mod+b exec $browser
 bindsym $mod+p exec $pdf
 bindsym $mod+m exec $music
 bindsym $mod+n exec $video
-bindsym $mod+u exec worspace $ws1, exec $localhost
 
+bindsym $mod+u exec $localhost
+for_window [class="(?i)firefox" title="^Jupyter.*"] move to workspace $ws1, workspace $ws1
 
 #### ASSIGNING APPS TO WORKSPACES ####
 # The "(?i)" makes the interpretation of the app variables case-insensitive
@@ -289,6 +290,9 @@ assign [class="vlc"] $ws4
 
 for_window [class="Spotify"] move to workspace $ws10, workspace $ws10
 
+# Change title for all windows
+for_window [class=".*"] title_format "<b>%title</b> | class=%class | instance=%instance"
+
 ###### SETTING STARTUP APPLICATIONS ######
 
 #Monitors
@@ -303,6 +307,11 @@ exec_always xrandr --output $monitor1 --primary --mode 1366x768 --pos 0x0 --rota
 
 #Dropbox
 exec --no-startup-id dropbox 
+
+#email client (NOT WORKING)
+#exec --no-startup-id 'alacritty --class $email -e $email'
+#for_window [class='Alacritty' instance=$email] move scratchpad
+#for_window [class='Alacritty' instance=$email] move to workspace $ws6
 
 # For some reason, redshift is not working on Manjaro i3 #
 # In order for it to work, a cronjob was created: https://askubuntu.com/questions/513294/why-i-cant-add-redshift-to-startup"
@@ -326,7 +335,13 @@ bindsym XF86AudioPlay exec "cmus-remote -u"
 bindsym XF86AudioNext exec "cmus-remote -n"
 bindsym XF86AudioPrev exec "cmus-remote -r"
 
-# Open Localhost in 
+
+#Moving email client to scratchpad
+bindsym $mod+Shift+minus move scratchpad
+#Showing scratchpad window
+bindsym $mod+Shift+s scratchpad show
+
+
 
 ##### COLORS #####
 
@@ -336,4 +351,3 @@ bindsym XF86AudioPrev exec "cmus-remote -r"
 
 #client.focused          #4C7899 #50ABEF #FFFFFF #2E9EF4   #285577
 #client.unfocused        #333333 #285577 #888888 #292D2E   #222222
-
