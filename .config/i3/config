@@ -227,8 +227,8 @@ workspace $ws9  output $monitor2 $monitor3
 workspace $ws10  output $monitor2 $monitor3
 
 #MAKE THIS TOGGLE OUTPUT
-bindsym $mod+Control+$vimup move workspace prev_on_output
-bindsym $mod+Control+$vimdown move workspace next_on_output
+bindsym $mod+Control+$vimup workspace prev_on_output
+bindsym $mod+Control+$vimdown workspace next_on_output
 
 ##### SETTING CUSTOM OPTIONS/KEYBINDINGS #####
 
@@ -250,6 +250,9 @@ bindsym $mod+b exec $browser
 bindsym $mod+p exec $pdf
 bindsym $mod+m exec $music
 bindsym $mod+n exec $video
+
+bindsym $mod+u exec $localhost
+for_window [class="(?i)firefox" title="^Jupyter.*"] move to workspace $ws1, workspace $ws1
 
 
 #### ASSIGNING APPS TO WORKSPACES ####
