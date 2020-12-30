@@ -3,12 +3,14 @@
 #Since this config uses the Wlan widget, this config needs iwlib (https://pypi.org/project/iwlib/)
 #This config does not support multiple monitors. For more info on how to set it up, look at https://github.com/qtile/qtile/wiki/screens 
 
+import subprocess
 from typing import List  # noqa: F401
 
 from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
+
 
 mod = "mod4"
 terminal = guess_terminal()
@@ -117,6 +119,7 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+
 screens = [
     Screen(
         top=bar.Bar(
@@ -202,8 +205,8 @@ focus_on_window_activation = "smart"
 wmname = "LG3D"
 
 #Function to run some programs at startup (NOT WORKING YET)
-def startup_run(qtile):
-    qtile.cmd_spawn(f'{terminal} -e dropbox')
-    qtile.cmd_spawn(f'{terminal} -e redshift')
+def startup_run():
+    subprocess.Popen('dropbox', shell=True)
+    subprocess.Popen('redshift-gtk', shell=True)
 
-#startup_run()
+startup_run()
