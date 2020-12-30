@@ -167,7 +167,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -200,6 +200,12 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
 	position top
+	separator_symbol "|"
+	workspace_buttons yes
+	tray_output primary
+	strip_workspace_numbers no
+	strip_workspace_name no
+	#i3bar_command i3bar --transparency
         status_command i3status
 }
 
@@ -237,6 +243,11 @@ bindsym $mod+Control+$vimdown workspace next_on_output
 #Back and forth two workspaces
 workspace_auto_back_and_forth yes #Pressing the workspace key twice will return to previous workspace
 bindsym $mod+ccedilla workspace back_and_forth
+
+
+#Mouse won't warp to center of focused window
+mouse_warping none
+
 
 #Focus on window activation
 #focus_on_window_activation smart
@@ -341,3 +352,20 @@ bindsym XF86AudioPrev exec "cmus-remote -r"
 
 #client.focused          #4C7899 #50ABEF #FFFFFF #2E9EF4   #285577
 #client.unfocused        #333333 #285577 #888888 #292D2E   #222222
+
+#Exit mode for i3
+mode "exit: [l]ogout, [r]eboot, [s]hutdown" {
+
+  bindsym l exec i3-msg exit
+
+  bindsym r exec systemctl reboot
+
+  bindsym s exec systemctl shutdown
+
+  bindsym Escape mode "default"
+
+  bindsym $mod+Shift+e mode "default"
+
+}
+
+bindsym $mod+Shift+e mode "exit: [l]ogout, [r]eboot, [s]hutdown"

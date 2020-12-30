@@ -1,0 +1,25 @@
+## MAIN CONFIGURATION
+set imap_user = "gabrieldeusdeth@gmail.com"
+
+set smtp_url = "smtp://gabrieldeusdeth@smtp.gmail.com:587/"
+set from = "gabrieldeusdeth@gmail.com"
+set realname = "Gabriel Alves Vieira"
+
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set postponed="+[Gmail]/Drafts"
+
+set header_cache=~/.mutt/cache/headers
+set message_cachedir=~/.mutt/cache/bodies
+set certificate_file=~/.mutt/certificates
+
+set move = no
+
+# TWEAKS
+set ssl_force_tls = yes
+set abort_nosubject = no
+set mail_check = 60
+set timeout = 10
+set sort = "reverse-date-received"
+set signature = "~/.mutt/signature"
+set copy = no
