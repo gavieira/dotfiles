@@ -284,14 +284,22 @@ for_window [class="mpv"] focus
 
 assign [class="vlc"] $ws4
 
-assign [class="Alacritty" instance="Allacrity" title="cmus v.2.8.0"] $ws10
 for_window [class="Spotify"] move to workspace $ws10, workspace $ws10
+
+# Change title for all windows
+for_window [class=".*"] title_format "<b>%title</b> | class=%class | instance=%instance"
 
 ###### SETTING STARTUP APPLICATIONS ######
 
 #Monitors
-exec_always --no-startup-id xrandr --output $monitor2 --right-of LVDS1 
-exec_always --no-startup-id xrandr --output $monitor3 --right-of LVDS1 
+
+#Monitor 2 - 1920x1080
+exec_always xrandr --output $monitor1 --primary --mode 1366x768 --pos 0x0 --rotate normal --output DP1 --off --output $monitor3 --off --output $monitor2 --mode 1366x768 --pos 1366x0 --rotate normal --output VIRTUAL1 --off
+
+
+#Monitor 3 - 1920x1080
+exec_always xrandr --output $monitor1 --primary --mode 1366x768 --pos 0x0 --rotate normal --output DP1 --off --output $monitor3 --mode 1920x1080 --pos 1366x0 --rotate normal --output $monitor2 --off --output VIRTUAL1 --off
+
 
 #Dropbox
 exec --no-startup-id dropbox 
