@@ -300,9 +300,14 @@ exec_always xrandr --output $monitor1 --primary --mode 1366x768 --pos 0x0 --rota
 #Monitor 3 - 1920x1080
 exec_always xrandr --output $monitor1 --primary --mode 1366x768 --pos 0x0 --rotate normal --output DP1 --off --output $monitor3 --mode 1920x1080 --pos 1366x0 --rotate normal --output $monitor2 --off --output VIRTUAL1 --off
 
-
 #Dropbox
 exec --no-startup-id dropbox 
+
+#email client (NOT WORKING)
+#exec_always --no-startup-id 'alacritty --class $email -e $email'
+#for_window [class='Alacritty' instance=$email] move scratchpad
+#for_window [class='Alacritty' instance=$email] move to workspace $ws6
+
 
 # For some reason, redshift is not working on Manjaro i3 #
 # In order for it to work, a cronjob was created: https://askubuntu.com/questions/513294/why-i-cant-add-redshift-to-startup"
