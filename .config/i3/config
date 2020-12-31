@@ -22,7 +22,8 @@ set $wallpapers ~/Dropbox/repos/dotfiles/wallpapers
 set $email neomutt
 set $browser qutebrowser
 set $pdf zathura
-set $music clementine
+#set $music clementine
+set $music alacritty --class cmus -e cmus 
 set $video smplayer
 set $localhost "firefox -new-window http://localhost:8888/"
 
@@ -283,7 +284,11 @@ assign [class="Mendeley Desktop"] $ws3
 for_window [class="Mendeley Desktop"] focus
 
 assign [class="(?i)$music"] $ws10
+for_window [class="(?i)$music"] focus 
 
+
+assign [class="Alacritty" instance="cmus"] $ws10
+for_window [class="Alacritty" instance="cmus"] focus 
 
 assign [class="(?i)$video"] $ws4
 for_window [class="(?i)$video"] focus 
@@ -333,9 +338,8 @@ exec_always --no-startup-id feh --bg-scale --randomize $wallpapers/*
 exec_always --no-startup-id xset s off && xset -dpms
 
 #Setting cmus to open automatically on workspace 10
-exec_always --no-startup-id "alacritty --class cmus -e cmus" # It's a nice idea to have this command as an alias for cmus
+#exec --no-startup-id "alacritty --class cmus -e cmus" # It's a nice idea to have this command as an alias for cmus
 
-assign [class="Alacritty" instance="cmus"] $ws10
 
 # Media player controls for cmus
 bindsym XF86AudioPlay exec "cmus-remote -u" 

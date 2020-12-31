@@ -1,5 +1,6 @@
 ## MAIN CONFIGURATION
 set imap_user = "gabrieldeusdeth@gmail.com"
+set imap_pass = `pass gabrieldeusdeth@gmail.com`
 
 set smtp_url = "smtp://gabrieldeusdeth@smtp.gmail.com:587/"
 set from = "gabrieldeusdeth@gmail.com"
