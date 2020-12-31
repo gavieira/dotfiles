@@ -153,7 +153,7 @@ screens = [
             #background=['#4a65ec', '#98a8fc'], #List in background makes a gradient of colors
             #opacity=0.5,
         ),
-        wallpaper = "/home/gabriel/Dropbox/repos/dotfiles/wallpapers/fedora33.jpg",
+        wallpaper = "~/.config/qtile/wallpaper/wallpaper-arch.png",
         wallpaper_mode = "fill",
     ),
 ]

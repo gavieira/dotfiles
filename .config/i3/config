@@ -16,7 +16,7 @@ set $vimup k
 set $vimright l
 
 #Setting wallpaper dir:
-set $wallpapers ~/Dropbox/repos/dotfiles/wallpapers
+set $wallpapers ~/.config/i3/wallpapers
 
 #Setting default programs
 set $email neomutt
