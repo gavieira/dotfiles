@@ -1,6 +1,6 @@
 # dotfiles
 
-My zsh-tmux-vim configuration. Tested on Linux only.
+My WM-zsh-tmux-vim configuration.
 
 ## Prerequisites
 
@@ -32,3 +32,7 @@ docker start -i termtest
 ```
 
 **Attention**: The setup script will remove previous zsh/tmux/vim configuration files in your home directory.
+
+## Window Manager
+
+I have dotfiles for both i3 and qtile (adpated from https://github.com/projetinho-bioinfo/dotfiles) WMs, as well as some applications (mpv, cmus, zathura, etc...)
