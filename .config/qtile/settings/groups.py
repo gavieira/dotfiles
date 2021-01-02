@@ -5,7 +5,7 @@ group_settings = [
         "1",
         {
             "label": "",
-            "layout": "monadwide",
+            "layout": "monadtall",
         }
     ),
     (
