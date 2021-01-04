@@ -338,12 +338,9 @@ exec_always --no-startup-id feh --bg-scale --randomize $wallpapers/*
 #Keep screen always on:
 exec_always --no-startup-id xset s off && xset -dpms
 
-#Add Menu and Caps_Lock keys to mod4 list
-exec --no-startup-id xmodmap -e "add mod4 = Menu Caps_Lock"
-#exec --no-startup-id
+#Add Menu and Caps_Lock keys to mod4 list (somehow Caps did not work with xmodmap)
+exec --no-startup-id setxkbmap -option caps:super && xmodmap -e "add mod4 = Menu"
 
-#exec --no-startup-id setxkbmap -option menu:super 
-#exec --no-startup-id setxkbmap -option caps:super 
 
 #Setting cmus to open automatically on workspace 10
 #exec --no-startup-id "alacritty --class cmus -e cmus" # It's a nice idea to have this command as an alias for cmus
