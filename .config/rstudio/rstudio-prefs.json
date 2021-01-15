@@ -1,0 +1,11 @@
+{
+    "document_author": "Gabriel Alves Vieira",
+    "rmd_preferred_template_path": "/home/gabriel/R/x86_64-pc-linux-gnu-library/3.6/rticles/rmarkdown/templates/peerj_article",
+    "reuse_sessions_for_project_links": true,
+    "jobs_tab_visibility": "shown",
+    "editor_keybindings": "vim",
+    "posix_terminal_shell": "zsh",
+    "save_workspace": "never",
+    "load_workspace": false,
+    "editor_theme": "Solarized Dark"
+}
