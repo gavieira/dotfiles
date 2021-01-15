@@ -11,7 +11,7 @@
 #   qute://help/settings.html
 
 #Setting dark mode
-config.set("colors.webpage.darkmode.enabled", True)
+#config.set("colors.webpage.darkmode.enabled", True)
 
 
 # Uncomment this to still load settings configured via autoconfig.yml

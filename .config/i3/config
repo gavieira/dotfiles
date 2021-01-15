@@ -102,7 +102,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+g split h
+bindsym $mod+c split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -213,10 +213,27 @@ bar {
 
 ##### CUSTOM WORKSPACE KEYBINDINGS #####
 
+#bindsym $mod+Mod1+n move scratchpad 
+bindsym $mod+Mod1+space scratchpad show
+bindsym $mod+Mod1+m scratchpad show
+bindsym $mod+minus move scratchpad 
+bindsym $mod+Shift+m scratchpad show
+
+
 bindsym $mod+Control+$vimleft move workspace to output left
 bindsym $mod+Control+$vimright move workspace to output right
 
-bindsym $mod+c split toggle
+bindsym $mod+Mod1+$vimleft move workspace to output left
+bindsym $mod+Mod1+$vimright move workspace to output right
+
+bindsym $mod+Mod1+$vimup workspace prev_on_output
+bindsym $mod+Mod1+$vimdown workspace next_on_output
+
+#Could remap these to do something else...
+bindsym $mod+Control+$vimup workspace prev_on_output 
+bindsym $mod+Control+$vimdown workspace next_on_output
+
+bindsym $mod+g split toggle
 #bindsym $mod+Shift+g layout splith
 #bindsym $mod+Shift+v layout splitv
 #bindsym $mod+t layout toggle splith splitv
@@ -228,15 +245,12 @@ workspace $ws2  output $monitor2 $monitor3
 workspace $ws3  output $monitor2 $monitor3
 workspace $ws4  output $monitor2 $monitor3
 workspace $ws5  output $monitor2 $monitor3
-workspace $ws6  output $monitor2 $monitor3
-workspace $ws7  output $monitor2 $monitor3
-workspace $ws8  output $monitor2 $monitor3
-workspace $ws9  output $monitor2 $monitor3
+#workspace $ws6  output $monitor2 $monitor3
+#workspace $ws7  output $monitor2 $monitor3
+#workspace $ws8  output $monitor2 $monitor3
+#workspace $ws9  output $monitor2 $monitor3
 workspace $ws10  output $monitor2 $monitor3
 
-#MAKE THIS TOGGLE OUTPUT
-bindsym $mod+Control+$vimup workspace prev_on_output
-bindsym $mod+Control+$vimdown workspace next_on_output
 
 ##### SETTING CUSTOM OPTIONS/KEYBINDINGS #####
 
@@ -244,8 +258,11 @@ bindsym $mod+Control+$vimdown workspace next_on_output
 
 #Back and forth two workspaces
 workspace_auto_back_and_forth yes #Pressing the workspace key twice will return to previous workspace
+bindsym Shift+ccedilla workspace back_and_forth
 bindsym $mod+ccedilla workspace back_and_forth
 
+#bindsym $mod+Mod1+h focus output left
+#bindsym $mod+Mod1+l focus output right
 
 #Mouse won't warp to center of focused window
 mouse_warping none
@@ -282,14 +299,14 @@ for_window [class="(?i)firefox"] focus
 for_window [class="(?i)$pdf"] focus
 
 assign [class="Mendeley Desktop"] $ws3
-for_window [class="Mendeley Desktop"] focus
+#for_window [class="Mendeley Desktop"] focus
 
 assign [class="(?i)$music"] $ws10
 for_window [class="(?i)$music"] focus 
 
 
-assign [class="Alacritty" instance="cmus"] $ws10
-for_window [class="Alacritty" instance="cmus"] focus 
+#assign [class="Alacritty" instance="cmus"] $ws10
+for_window [class="Alacritty" instance="cmus"] move scratchpad focus 
 
 assign [class="(?i)$video"] $ws4
 for_window [class="(?i)$video"] focus 
@@ -339,11 +356,11 @@ exec_always --no-startup-id feh --bg-scale --randomize $wallpapers/*
 exec_always --no-startup-id xset s off && xset -dpms
 
 #Add Menu and Caps_Lock keys to mod4 list (somehow Caps did not work with xmodmap)
-exec --no-startup-id setxkbmap -option caps:super && xmodmap -e "add mod4 = Menu"
+exec --no-startup-id setxkbmap -option caps:super && xmodmap -e "keycode 135 = Super_L"
 
 
-#Setting cmus to open automatically on workspace 10
-#exec --no-startup-id "alacritty --class cmus -e cmus" # It's a nice idea to have this command as an alias for cmus
+#Setting cmus to open automatically on system start
+exec --no-startup-id "alacritty --class cmus -e cmus" # It's a nice idea to have this command as an alias for cmus
 
 
 # Media player controls for cmus
@@ -363,13 +380,15 @@ bindsym XF86AudioPrev exec "cmus-remote -r"
 #client.unfocused        #333333 #285577 #888888 #292D2E   #222222
 
 #Exit mode for i3
-mode "exit: [l]ogout, [r]eboot, [s]hutdown" {
+mode "exit: [l]ogout, [r]eboot, [s]hutdown, [c]hange user" {
 
   bindsym l exec i3-msg exit
 
   bindsym r exec systemctl reboot
 
-  bindsym s exec systemctl shutdown
+  bindsym s exec shutdown now
+
+  bindsym c exec dm-tool switch-to-greeter 
 
   bindsym Escape mode "default"
 
@@ -377,7 +396,7 @@ mode "exit: [l]ogout, [r]eboot, [s]hutdown" {
 
 }
 
-bindsym $mod+Shift+e mode "exit: [l]ogout, [r]eboot, [s]hutdown"
+bindsym $mod+Shift+e mode "exit: [l]ogout, [r]eboot, [s]hutdown, [c]hange user"
 
 #Vim mode that uses hjkl as arrow keys (needs xdotools):
 
