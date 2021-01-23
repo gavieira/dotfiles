@@ -7,6 +7,7 @@
     "posix_terminal_shell": "zsh",
     "save_workspace": "never",
     "load_workspace": false,
-    "editor_theme": "Solarized Dark",
-    "soft_wrap_r_files": true
+    "editor_theme": "Chrome",
+    "soft_wrap_r_files": true,
+    "font_size_points": 7
 }
