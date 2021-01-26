@@ -1,0 +1,21 @@
+{
+    "newTerminal": "Alt+Shift+R",
+    "synctexSearch": "Ctrl+F8",
+    "startLauncherJob": "",
+    "focusNextPane": "Ctrl+Alt+Down",
+    "focusPreviousPane": "Ctrl+Alt+Up",
+    "previousTab": "Alt+k",
+    "nextTab": "Alt+j",
+    "activateConsole": "Alt+2",
+    "activateSource": "Alt+1",
+    "activateTerminal": "Alt+Shift+T",
+    "activateEnvironment": "Alt+3",
+    "activateHelp": "Alt+4",
+    "helpKeyboardShortcuts": "",
+    "clearWorkspace": "Alt+Delete",
+    "fold": "|Alt+Cmd+L|Cmd+F1",
+    "foldAll": "",
+    "activateFindInFiles": "Ctrl+F6",
+    "showEditMenu": "Alt+Shift+E",
+    "executeCode": "Alt+Enter"
+}
