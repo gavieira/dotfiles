@@ -19,8 +19,12 @@ set $vimright l
 set $wallpapers ~/.config/i3/wallpapers
 
 #Setting default programs
+set $conference zoom
+set $ide rstudio-bin
+set $text emacs
 set $email neomutt
-set $browser qutebrowser
+set $browser brave
+#set $browser qutebrowser
 set $pdf zathura
 #set $music clementine
 set $music alacritty --class cmus -e cmus 
@@ -213,7 +217,7 @@ bar {
 
 ##### CUSTOM WORKSPACE KEYBINDINGS #####
 
-#bindsym $mod+Mod1+n move scratchpad 
+bindsym $mod+Shift+n move scratchpad 
 bindsym $mod+Mod1+space scratchpad show
 bindsym $mod+Mod1+m scratchpad show
 bindsym $mod+minus move scratchpad 
@@ -276,10 +280,13 @@ mouse_warping none
 
 # Applications
 
+bindsym $mod+z exec $conference
 bindsym $mod+b exec $browser
 bindsym $mod+p exec $pdf
 bindsym $mod+m exec $music
 bindsym $mod+n exec $video
+bindsym $mod+t exec $text
+bindsym $mod+i exec $ide
 
 bindsym $mod+u exec $localhost
 for_window [class="(?i)firefox" title="^Jupyter.*"] move to workspace $ws1, workspace $ws1
@@ -288,8 +295,11 @@ for_window [class="(?i)firefox" title="^Jupyter.*"] move to workspace $ws1, work
 #### ASSIGNING APPS TO WORKSPACES ####
 # The "(?i)" makes the interpretation of the app variables case-insensitive
 
+assign [class="(?i)$ide"] $ws1
+#for_window [class="(?i)$ide"] focus 
+
 assign [class="(?i)$browser"] $ws2
-for_window [class="(?i)$browser"] focus 
+#for_window [class="(?i)$browser"] focus 
 
 assign [class="(?i)firefox"] $ws2
 for_window [class="(?i)firefox"] focus
