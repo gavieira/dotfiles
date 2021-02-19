@@ -30,6 +30,8 @@ set $pdf zathura
 set $music alacritty --class cmus -e cmus 
 set $video smplayer
 set $localhost "firefox -new-window http://localhost:8888/"
+set $youtube_watch "~/.config/youtube_watch.sh"
+bindsym $mod+y exec $youtube_watch
 
 #Setting monitors
 set $monitor1 LVDS1

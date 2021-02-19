@@ -13,7 +13,7 @@ settings:
       w: session-save
       wq: quit --save
       wqa: quit --save
-      z: set-cmd-text :spawn mpv {url} --ytdl-format="bestvideo[height<=?480]+bestaudio" 
+      z: set-cmd-text :spawn mpv {url} --ytdl-format="bestvideo[height<=?480]+bestaudio"
   auto_save.session:
     global: true
   bindings.commands:
@@ -21,4 +21,5 @@ settings:
       normal:
         D: hint links spawn alacritty -e youtube-dl {hint-url}
         e: spawn mpv {url}
+        yf: hint links yank
         ç: hint links spawn mpv {hint-url}
