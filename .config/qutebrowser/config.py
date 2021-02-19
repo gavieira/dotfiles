@@ -139,3 +139,10 @@ config.set('content.notifications', False, 'https://www.reddit.com')
 #   - false
 #   - ask
 config.set('content.register_protocol_handler', True, 'https://mail.google.com?extsrc=mailto&url=%25s')
+
+## Custom keybindings
+
+config.bind('ç', 'hint links spawn mpv {hint-url}')
+config.bind('D', 'hint links spawn st -e youtube-dl {hint-url}')
+config.bind('e', 'spawn mpv {url}')
+config.bind('z', ':spawn')

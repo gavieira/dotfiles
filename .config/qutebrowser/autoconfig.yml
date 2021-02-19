@@ -6,7 +6,19 @@
 
 config_version: 2
 settings:
-  content.notifications:
-    https://www.reddit.com: false
-  content.register_protocol_handler:
-    https://mail.google.com?extsrc=mailto&url=%25s: true
+  aliases:
+    global:
+      q: close
+      qa: quit
+      w: session-save
+      wq: quit --save
+      wqa: quit --save
+      z: set-cmd-text :spawn mpv {url} --ytdl-format="bestvideo[height<=?480]+bestaudio" 
+  auto_save.session:
+    global: true
+  bindings.commands:
+    global:
+      normal:
+        D: hint links spawn alacritty -e youtube-dl {hint-url}
+        e: spawn mpv {url}
+        ç: hint links spawn mpv {hint-url}
