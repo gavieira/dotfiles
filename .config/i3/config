@@ -308,7 +308,7 @@ for_window [class="(?i)firefox"] focus
 
 # Opens pdf in ws3 and focus on the newly created window
 assign [class="(?i)$pdf"] $ws3
-for_window [class="(?i)$pdf"] focus
+#for_window [class="(?i)$pdf"] focus
 
 assign [class="Mendeley Desktop"] $ws3
 #for_window [class="Mendeley Desktop"] focus
@@ -324,8 +324,8 @@ assign [class="(?i)$video"] $ws4
 for_window [class="(?i)$video"] focus 
 
 
-assign [class="mpv"] $ws4
-for_window [class="mpv"] focus
+#assign [class="mpv"] $ws4
+#for_window [class="mpv"] focus
 
 
 assign [class="vlc"] $ws4
