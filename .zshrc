@@ -118,6 +118,7 @@ source $ZSH/oh-my-zsh.sh
 # Activating vim mode
  set -o vi
  bindkey vv vi-cmd-mode # used vv to avoid conflict with vim keys in tab complete menu
+ bindkey jk vi-cmd-mode
 
 # Changing some bindings for autosuggestion:
  # bindkey '^N' autosuggest-fetch
