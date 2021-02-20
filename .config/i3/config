@@ -122,7 +122,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+#bindsym $mod+Shift+space floating toggle
 
 
 # change focus between tiling / floating windows
@@ -226,17 +226,17 @@ bindsym $mod+Mod1+m scratchpad show
 bindsym $mod+minus move scratchpad 
 bindsym $mod+Shift+m scratchpad show
 
-# If window goes to floating, set its size and position
+# If window goes to floating, set its size and position (works only once)
 #bindsym $mod+Control+space floating toggle ; [floating] resize set 480px 240px ; move position 885 540 
 
 #ppt (percentage) works in more resolutions and puts the window more or less where it should be
-bindsym $mod+Control+space floating toggle; sticky toggle; resize set 400 200; move absolute position 70ppt 70ppt
+bindsym $mod+Shift+space floating toggle; sticky toggle; [floating] resize set 400 200; move absolute position 70ppt 70ppt
 
 # sticky toggle to add/remove video from all workspaces
 bindsym $mod+x sticky toggle
 
-
-#bindsym $mod+Shift+space floating toggle
+#Rebind the default floating toggle
+bindsym $mod+Control+space floating toggle
 
 
 bindsym $mod+Control+$vimleft move workspace to output left
