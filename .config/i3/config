@@ -219,13 +219,13 @@ bar {
 
 ##### CUSTOM WORKSPACE KEYBINDINGS #####
 
-#bindsym $mod+Shift+n move scratchpad 
-bindsym $mod+n move scratchpad 
+#bindsym $mod+Shift+m move scratchpad 
+bindsym $mod+m move scratchpad 
 bindsym $mod+Mod1+space scratchpad show
-bindsym $mod+Mod1+m scratchpad show
+bindsym $mod+Mod1+n scratchpad show
 bindsym $mod+minus move scratchpad 
 #bindsym $mod+Shift+m scratchpad show
-bindsym $mod+m scratchpad show
+bindsym $mod+n scratchpad show
 
 # If window goes to floating, set its size and position (works only once)
 #bindsym $mod+Control+space floating toggle ; [floating] resize set 480px 240px ; move position 885 540 
