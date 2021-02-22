@@ -219,11 +219,13 @@ bar {
 
 ##### CUSTOM WORKSPACE KEYBINDINGS #####
 
-bindsym $mod+Shift+n move scratchpad 
+#bindsym $mod+Shift+n move scratchpad 
+bindsym $mod+n move scratchpad 
 bindsym $mod+Mod1+space scratchpad show
 bindsym $mod+Mod1+m scratchpad show
 bindsym $mod+minus move scratchpad 
-bindsym $mod+Shift+m scratchpad show
+#bindsym $mod+Shift+m scratchpad show
+bindsym $mod+m scratchpad show
 
 # If window goes to floating, set its size and position (works only once)
 #bindsym $mod+Control+space floating toggle ; [floating] resize set 480px 240px ; move position 885 540 
@@ -298,8 +300,8 @@ mouse_warping none
 bindsym $mod+z exec $conference
 bindsym $mod+b exec $browser
 #bindsym $mod+p exec $pdf # Haven't been using this at all
-bindsym $mod+m exec $music
-bindsym $mod+n exec $video
+bindsym $mod+Shift+m exec $music
+#bindsym $mod+Shift+n exec $video
 bindsym $mod+t exec $text
 bindsym $mod+i exec $ide
 bindsym $mod+p exec $youtube_watch
