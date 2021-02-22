@@ -229,7 +229,8 @@ bindsym $mod+Shift+m scratchpad show
 #bindsym $mod+Control+space floating toggle ; [floating] resize set 480px 240px ; move position 885 540 
 
 #ppt (percentage) works in more resolutions and puts the window more or less where it should be
-bindsym $mod+Shift+space floating toggle; sticky toggle; [floating] resize set 400 200; move absolute position 70ppt 70ppt
+#bindsym $mod+Shift+space floating toggle; sticky toggle; [floating] resize set 400 200; move absolute position 70ppt 70ppt
+bindsym $mod+Shift+space floating toggle; sticky toggle; [floating] resize set 400px 200px; move absolute position 71ppt 70ppt
 
 # sticky toggle to add/remove video from all workspaces
 bindsym $mod+x sticky toggle
