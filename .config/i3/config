@@ -422,6 +422,7 @@ mode "exit: [l]ogout, [r]eboot, [s]hutdown, [c]hange user" {
 
   bindsym $mod+Shift+e mode "default"
 
+  bindsym Return mode "default"
 }
 
 bindsym $mod+Shift+e mode "exit: [l]ogout, [r]eboot, [s]hutdown, [c]hange user"
