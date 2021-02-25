@@ -33,7 +33,7 @@ browser linkhandler
 macro , open-in-browser
 macro t set browser "qndl" ; open-in-browser ; set browser linkhandler
 macro a set browser "tsp youtube-dl --add-metadata -xic -f bestaudio/best" ; open-in-browser ; set browser linkhandler
-macro v set browser "dunstify 'Playing newsboat link' && i3 exec 'mpv --fullscreen=no'" ; open-in-browser ; set browser linkhandler
+macro v set browser "dunstify 'Playing newsboat link' && i3 exec 'mpv --profile=podcast --fullscreen=no'" ; open-in-browser ; set browser linkhandler
 #macro v set browser "setsid -f mpv" ; open-in-browser ; set browser linkhandler
 macro w set browser "lynx" ; open-in-browser ; set browser linkhandler
 macro d set browser "dmenuhandler" ; open-in-browser ; set browser linkhandler

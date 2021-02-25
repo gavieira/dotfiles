@@ -31,6 +31,7 @@ set $music alacritty --class cmus -e cmus
 set $video smplayer
 set $localhost "firefox -new-window http://localhost:8888/"
 set $youtube_watch "~/.config/youtube_watch.sh"
+set $screenshot flameshot gui
 
 #Setting monitors
 set $monitor1 LVDS1
@@ -306,6 +307,7 @@ bindsym $mod+t exec $text
 bindsym $mod+i exec $ide
 bindsym $mod+p exec $youtube_watch
 bindsym $mod+u exec $youtube_watch
+bindsym Print exec $screenshot
 
 bindsym $mod+y exec $localhost
 for_window [class="(?i)firefox" title="^Jupyter.*"] move to workspace $ws1, workspace $ws1
