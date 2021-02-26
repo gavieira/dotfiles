@@ -17,5 +17,5 @@
     "foldAll": "",
     "activateFindInFiles": "Ctrl+F6",
     "showEditMenu": "Alt+Shift+E",
-    "executeCode": "Alt+Enter"
+    "executeCode": "|Ctrl+Enter|Alt+Enter"
 }
