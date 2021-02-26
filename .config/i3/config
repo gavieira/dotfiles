@@ -316,6 +316,7 @@ for_window [class="(?i)firefox" title="^Jupyter.*"] move to workspace $ws1, work
 #### ASSIGNING APPS TO WORKSPACES ####
 # The "(?i)" makes the interpretation of the app variables case-insensitive
 
+assign [class="(?i)RStudio"] $ws1
 assign [class="(?i)$ide"] $ws1
 #for_window [class="(?i)$ide"] focus 
 
