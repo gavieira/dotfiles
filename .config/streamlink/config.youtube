@@ -1,0 +1,5 @@
+## Quality
+#Obs: youtube does not provide fps options
+#Hence, there is no '720p' and '720p30', like twitch. Only '720p' is available
+#stream-sorting-excludes>720p
+#default-stream=best

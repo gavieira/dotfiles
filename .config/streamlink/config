@@ -1,1 +1,8 @@
+## Player
+
 player=mpv
+#player-no-close
+
+## Quality
+stream-sorting-excludes>720p60
+default-stream=720p60,720p,best

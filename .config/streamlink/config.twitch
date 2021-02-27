@@ -1,0 +1,8 @@
+## Quality
+#stream-sorting-excludes>720p60
+#stream-sorting-excludes>1080p
+#default-stream=best
+#default-stream=720p60,720p,480p,best
+
+## Disable ads
+twitch-disable-ads
