@@ -69,7 +69,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # Start a terminal. Tries to use alacritty and gets default terminal if it fails
-bindsym $mod+Return exec alacritty || i3-sensible-terminal
+bindsym $mod+Return exec lxterminal || termite || alacritty || i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -381,6 +381,9 @@ exec --no-startup-id dropbox
 # In order for it to work, a cronjob was created: https://askubuntu.com/questions/513294/why-i-cant-add-redshift-to-startup"
 #exec --no-startup-id redhsift -O 3500
 #exec --no-startup-id redhsift-gtk 
+
+#Seems to work for redshift:
+exec --no-startup-id systemctl --user start redshift-gtk.service
 
 #Setting wallpapers permanetly (needs feh)
 #Will randomly pick one image from the wallpapers directory
