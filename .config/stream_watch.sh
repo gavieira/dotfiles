@@ -4,7 +4,7 @@
 
 notify-send -t 3000 "Playing Video" "$(xclip -o)";
 
-if [[ $(xclip -o) == https://www.twitch.tv* ]] 
+if [[ $(xclip -o) == https://www.twitch.tv* || $(xclip -o) == https://www.crunchyroll.com/* ]] 
 then
   streamlink "$(xclip -o)" || mpv "$(xclip -o)"
 else
