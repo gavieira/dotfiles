@@ -2,15 +2,18 @@
 # originally by Kris Occhipinti
 # https://www.youtube.com/watch?v=FsQuGplQvrw
 
-notify-send -t 3000 "Playing Video" "$(xclip -o)";
+#This xclip command works both with Brave and qutebrowser
+link=$(xclip -o -selection clipboard)
 
-if [[ $(xclip -o) == https://www.twitch.tv* || $(xclip -o) == https://www.crunchyroll.com/* ]] 
+notify-send -t 3000 "Playing Video" "$link";
+
+if [[ $link == https://www.twitch.tv* || $link == https://www.crunchyroll.com/* ]] 
 then
-  streamlink "$(xclip -o)" || mpv "$(xclip -o)"
+  streamlink "$link" || mpv "$link"
 else
-  mpv "$(xclip -o)"
+  mpv "$link"
 fi
 
 #This should work as well (no need for the if)
 #First tries to open with streamlink. If it fails, uses mpv as fallback option.
-#streamlink "$(xclip -o)" || mpv "$(xclip -o)"
+#streamlink "$link" || mpv "$link"
