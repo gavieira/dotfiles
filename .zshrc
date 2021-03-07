@@ -185,3 +185,6 @@ unset __conda_setup
 
 # Change locale (needed for some applications such as mira, but will break some powerlevel10k configurations)
 #export LC_ALL=C
+
+#Adding directories to PATH variable:
+export PATH="$HOME/.local/bin:$PATH"
