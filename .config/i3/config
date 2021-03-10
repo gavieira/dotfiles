@@ -31,6 +31,7 @@ set $music alacritty --class cmus -e cmus
 set $video smplayer
 set $localhost "firefox -new-window http://localhost:8888/"
 set $stream_watch "~/.config/stream_watch.sh"
+set $goyabu_script "python ~/.config/goyabu_playlist.py $(xclip -o -selection clipboard)"
 set $screenshot flameshot gui
 
 #Setting monitors
@@ -305,8 +306,8 @@ bindsym $mod+Shift+m exec $music
 #bindsym $mod+Shift+n exec $video
 bindsym $mod+t exec $text
 bindsym $mod+i exec $ide
-bindsym $mod+p exec $stream_watch
 bindsym $mod+u exec $stream_watch
+bindsym $mod+p exec $goyabu_script
 bindsym Print exec $screenshot
 
 bindsym $mod+y exec $localhost
@@ -381,8 +382,6 @@ exec --no-startup-id dropbox
 # In order for it to work, a cronjob was created: https://askubuntu.com/questions/513294/why-i-cant-add-redshift-to-startup"
 #exec --no-startup-id redhsift -O 3500
 #exec --no-startup-id redhsift-gtk 
-
-#Seems to work for redshift:
 exec --no-startup-id systemctl --user start redshift-gtk.service
 
 #Setting wallpapers permanetly (needs feh)
