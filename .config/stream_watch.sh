@@ -7,7 +7,7 @@ link=$(xclip -o -selection clipboard)
 
 notify-send -t 3000 "Playing Video" "$link";
 
-if [[ $link == https://www.twitch.tv* || $link == https://www.crunchyroll.com/* ]] 
+if [[ $link == https://www.twitch.tv* && $link !=  https://www.twitch.tv/videos* || $link == https://www.crunchyroll.com/* ]] 
 then
   streamlink "$link" || mpv "$link"
 else
