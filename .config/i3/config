@@ -345,7 +345,7 @@ assign [class="(?i)$video"] $ws4
 for_window [class="(?i)$video"] focus 
 
 
-#assign [class="mpv"] $ws4
+assign [class="mpv"] $ws4
 #for_window [class="mpv"] focus
 #for_window [class="mpv"] floating enable resize set 480px 240px move position 875 530
 #for_window [class="mpv" floating] resize set 480px 240px #Only works once
