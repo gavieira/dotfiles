@@ -64,8 +64,9 @@ nnoremap <silent> <special> <F7> :RMarkdown! html<RETURN>
 "Set vv to esc insert mode - used it instead of jj to avoid conflicts with zsh tab completion usig hjkl 
 inoremap vv <ESC>
 
-"Set jj to esx insert mode
+"Set jj and jk to esx insert mode
 inoremap jj <ESC>
+inoremap jk <ESC>
 
 "Set commands to edit and source dotfiles (.vimrc, .tmux.conf, .zhsrc) in a vertical splitted
 "window
