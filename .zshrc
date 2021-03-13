@@ -82,6 +82,10 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(git
 	 tmux
 	 autojump
+	 emacs
+	 pass
+	 rsync
+	 sudo
 	 zsh-autosuggestions
 	 zsh-syntax-highlighting
 	)
