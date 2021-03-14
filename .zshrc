@@ -82,6 +82,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(git
 	 tmux
 	 autojump
+	 dircycle
 	 emacs
 	 pass
 	 rsync
@@ -118,11 +119,23 @@ export LANG=en_US.UTF-8
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias cp="rsync -ah --progress"
+alias v="vim"
 
 # Activating vim mode
  set -o vi
  bindkey vv vi-cmd-mode # used vv to avoid conflict with vim keys in tab complete menu
  bindkey jk vi-cmd-mode
+
+# Adding keys for dircycle:
+# Ctrl+Shift+arrows
+ bindkey "\e[1;6D" insert-cycledleft
+ bindkey "\e[1;6C" insert-cycledright
+# Shift+arrows (need to remove tmux bindings if activated)
+# bindkey "\e[1;2D" insert-cycledleft
+# bindkey "\e[1;2C" insert-cycledright
+# Alt+arrows (need to remove tmux bindings if activated)
+ bindkey "\e[1;3D" insert-cycledleft
+ bindkey "\e[1;3C" insert-cycledright
 
 # Changing some bindings for autosuggestion:
  # bindkey '^N' autosuggest-fetch
