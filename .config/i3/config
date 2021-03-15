@@ -240,7 +240,7 @@ bindsym $mod+Shift+space floating toggle; sticky toggle; [floating] resize set 4
 bindsym $mod+x sticky toggle
 
 #Rebind the default floating toggle
-bindsym $mod+Control+space floating toggle
+bindsym $mod+Control+space floating toggle; move absolute position center
 
 
 bindsym $mod+Control+$vimleft move workspace to output left
@@ -280,7 +280,9 @@ workspace $ws10  output $monitor2 $monitor3
 # Floating windows
 
 # Setting floating window maximum size
-floating_maximum_size 1280 x 720
+#floating_maximum_size 1280 x 720
+floating_maximum_size 852 x 480
+
 
 # Navigation
 
