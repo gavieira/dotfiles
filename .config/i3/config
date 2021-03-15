@@ -277,6 +277,11 @@ workspace $ws10  output $monitor2 $monitor3
 
 ##### SETTING CUSTOM OPTIONS/KEYBINDINGS #####
 
+# Floating windows
+
+# Setting floating window maximum size
+floating_maximum_size 1280 x 720
+
 # Navigation
 
 #Back and forth two workspaces
