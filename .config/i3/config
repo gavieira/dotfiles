@@ -19,6 +19,7 @@ set $vimright l
 set $wallpapers ~/.config/i3/wallpapers
 
 #Setting default programs
+set $references zotero
 set $conference zoom
 set $ide rstudio-bin
 set $text emacs
@@ -309,7 +310,8 @@ mouse_warping none
 
 # Applications
 
-bindsym $mod+z exec $conference
+bindsym $mod+z exec $references
+bindsym $mod+Shift+z exec $conference
 bindsym $mod+b exec $browser
 #bindsym $mod+p exec $pdf # Haven't been using this at all
 bindsym $mod+Shift+m exec $music
@@ -336,6 +338,10 @@ assign [class="(?i)$browser"] $ws2
 
 assign [class="(?i)firefox"] $ws2
 for_window [class="(?i)firefox"] focus
+
+# Opens zathura in ws3 and focus on the newly created window
+assign [class="(?i)$references"] $ws3
+#for_window [class="(?i)$pdf"] focus
 
 # Opens pdf in ws3 and focus on the newly created window
 #assign [class="(?i)$pdf"] $ws3
