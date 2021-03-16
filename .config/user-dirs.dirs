@@ -1,0 +1,2 @@
+#Copied from Luke Smith's dotfiles
+XDG_DESKTOP_DIR="$HOME/"

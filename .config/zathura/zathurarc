@@ -1,2 +1,17 @@
 set sandbox none
 set selection-clipboard clipboard
+
+map f toggle_fullscreen
+map [fullscreen] f toggle_fullscreen
+
+map F follow
+map [fullscreen] F follow
+
+map d quit
+map [fullscreen] d quit
+
+map m toggle_page_mode
+map [fullscreen] m toggle_page_mode
+
+map = zoom in
+map [fullscreen] = zoom in
