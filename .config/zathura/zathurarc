@@ -15,3 +15,6 @@ map [fullscreen] m toggle_page_mode
 
 map = zoom in
 map [fullscreen] = zoom in
+
+map <Space> toggle_statusbar
+map [fullscreen] <Space> toggle_statusbar
