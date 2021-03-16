@@ -130,16 +130,19 @@ alias v="vim"
 # Ctrl+Shift+arrows
  bindkey "\e[1;6D" insert-cycledleft
  bindkey "\e[1;6C" insert-cycledright
+# Ctrl+Shift+h/l
+ bindkey "^H" insert-cycledleft
+ bindkey "^L" insert-cycledright
 # Shift+arrows (need to remove tmux bindings if activated)
 # bindkey "\e[1;2D" insert-cycledleft
 # bindkey "\e[1;2C" insert-cycledright
 # Alt+arrows (need to remove tmux bindings if activated)
- bindkey "\e[1;3D" insert-cycledleft
- bindkey "\e[1;3C" insert-cycledright
+# bindkey "\e[1;3D" insert-cycledleft
+# bindkey "\e[1;3C" insert-cycledright
 
 # Changing some bindings for autosuggestion:
- # bindkey '^N' autosuggest-fetch
- # bindkey '^\n' autosuggest-execute #Not working properly
+#  bindkey '^N' autosuggest-fetch
+#  bindkey '^\n' autosuggest-execute #Not working properly
  bindkey '^ ' autosuggest-accept
 
 # Use vim keys in tab complete menu:
