@@ -121,6 +121,10 @@ export LANG=en_US.UTF-8
 alias cp="rsync -ah --progress"
 alias v="vim"
 
+#Aliases for wps office
+alias wpspread="et"
+alias wpspres="wpp"
+
 # Activating vim mode
  set -o vi
  bindkey vv vi-cmd-mode # used vv to avoid conflict with vim keys in tab complete menu
