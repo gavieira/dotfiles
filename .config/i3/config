@@ -338,7 +338,7 @@ assign [class="(?i)firefox"] $ws2
 for_window [class="(?i)firefox"] focus
 
 # Opens pdf in ws3 and focus on the newly created window
-assign [class="(?i)$pdf"] $ws3
+#assign [class="(?i)$pdf"] $ws3
 #for_window [class="(?i)$pdf"] focus
 
 assign [class="Mendeley Desktop"] $ws3
