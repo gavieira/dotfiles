@@ -120,6 +120,8 @@ export LANG=en_US.UTF-8
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias cp="rsync -rltzuv --progress"
 alias v="vim"
+alias s="sudo"
+alias l="ls -ltrah"
 
 #Aliases for wps office
 alias wpspread="et"

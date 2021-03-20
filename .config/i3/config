@@ -247,6 +247,8 @@ bindsym $mod+x sticky toggle
 bindsym $mod+Control+space floating toggle; move absolute position center
 
 
+bindsym $mod+Control+Left move workspace to output left
+bindsym $mod+Control+Right move workspace to output right
 bindsym $mod+Control+$vimleft move workspace to output left
 bindsym $mod+Control+$vimright move workspace to output right
 
