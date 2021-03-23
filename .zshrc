@@ -122,6 +122,7 @@ alias cp="rsync -rltzuv --progress"
 alias v="vim"
 alias s="sudo"
 alias l="ls -ltrah"
+alias m="mpv"
 
 #Aliases for wps office
 alias wpspread="et"

@@ -1,5 +1,10 @@
 set sandbox none
 set selection-clipboard clipboard
+#set search-hadjust false
+#set incremental-search false
+#set n-completion-items 0
+set window-height 3000
+set window-width 3000
 
 map f toggle_fullscreen
 map [fullscreen] f toggle_fullscreen
@@ -7,14 +12,29 @@ map [fullscreen] f toggle_fullscreen
 map F follow
 map [fullscreen] F follow
 
+map <C-f> display_link
+map [fullscreen] <C-f> display_link
+
 map d quit
 map [fullscreen] d quit
 
-map m toggle_page_mode
-map [fullscreen] m toggle_page_mode
+map p toggle_page_mode
+map [fullscreen] p toggle_page_mode
 
 map = zoom in
 map [fullscreen] = zoom in
 
 map <Space> toggle_statusbar
 map [fullscreen] <Space> toggle_statusbar
+
+map > jumplist forward
+map [fullscrenn] > jumplist forward
+
+map < jumplist backward
+map [fullscrenn] < jumplist backward
+
+map m jumplist forward
+map [fullscrenn] m jumplist forward
+
+map n jumplist backward
+map [fullscrenn] n jumplist backward

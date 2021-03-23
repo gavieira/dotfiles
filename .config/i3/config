@@ -19,6 +19,7 @@ set $vimright l
 set $wallpapers ~/.config/i3/wallpapers
 
 #Setting default programs
+set $pomodoro pomotroid
 set $references zotero
 set $conference zoom
 set $ide rstudio-bin
@@ -226,12 +227,16 @@ bar {
 ##### CUSTOM WORKSPACE KEYBINDINGS #####
 
 #bindsym $mod+Shift+m move scratchpad 
-bindsym $mod+m move scratchpad 
+#bindsym $mod+m move scratchpad 
 bindsym $mod+Mod1+space scratchpad show
 bindsym $mod+Mod1+n scratchpad show
 bindsym $mod+minus move scratchpad 
 #bindsym $mod+Shift+m scratchpad show
-bindsym $mod+n scratchpad show
+#bindsym $mod+n scratchpad show
+
+bindsym $mod+m scratchpad show
+bindsym $mod+n move scratchpad 
+
 
 # If window goes to floating, set its size and position (works only once)
 #bindsym $mod+Control+space floating toggle ; [floating] resize set 480px 240px ; move position 885 540 
@@ -321,7 +326,8 @@ bindsym $mod+Shift+m exec $music
 bindsym $mod+t exec $text
 bindsym $mod+i exec $ide
 bindsym $mod+u exec $stream_watch
-bindsym $mod+p exec $goyabu_script
+bindsym $mod+Shift+u exec $goyabu_script
+bindsym $mod+p exec $pomodoro
 bindsym Print exec $screenshot
 
 bindsym $mod+y exec $localhost
