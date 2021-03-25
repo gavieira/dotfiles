@@ -123,6 +123,7 @@ alias v="vim"
 alias s="sudo"
 alias l="ls -ltrah"
 alias m="mpv"
+alias du="du -h --max-depth=1 ."
 
 #Aliases for wps office
 alias wpspread="et"

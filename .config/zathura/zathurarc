@@ -6,14 +6,14 @@ set selection-clipboard clipboard
 set window-height 3000
 set window-width 3000
 
-map f toggle_fullscreen
-map [fullscreen] f toggle_fullscreen
+#map f toggle_fullscreen
+#map [fullscreen] f toggle_fullscreen
 
-map F follow
-map [fullscreen] F follow
+#map F follow
+#map [fullscreen] F follow
 
-map <C-f> display_link
-map [fullscreen] <C-f> display_link
+#map <C-f> display_link
+#map [fullscreen] <C-f> display_link
 
 map d quit
 map [fullscreen] d quit
@@ -33,8 +33,8 @@ map [fullscrenn] > jumplist forward
 map < jumplist backward
 map [fullscrenn] < jumplist backward
 
-map m jumplist forward
-map [fullscrenn] m jumplist forward
+map n jumplist forward
+map [fullscrenn] n jumplist forward
 
-map n jumplist backward
-map [fullscrenn] n jumplist backward
+map m jumplist backward
+map [fullscrenn] m jumplist backward
