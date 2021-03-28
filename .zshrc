@@ -124,6 +124,7 @@ alias s="sudo"
 alias l="ls -ltrah"
 alias m="mpv"
 alias du="du -h --max-depth=1 ."
+alias rr="ranger"
 
 #Aliases for wps office
 alias wpspread="et"
