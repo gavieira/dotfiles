@@ -227,15 +227,16 @@ bar {
 ##### CUSTOM WORKSPACE KEYBINDINGS #####
 
 #bindsym $mod+Shift+m move scratchpad 
-#bindsym $mod+m move scratchpad 
 bindsym $mod+Mod1+space scratchpad show
 bindsym $mod+Mod1+n scratchpad show
 bindsym $mod+minus move scratchpad 
 #bindsym $mod+Shift+m scratchpad show
+
+#bindsym $mod+m move scratchpad 
 #bindsym $mod+n scratchpad show
 
-bindsym $mod+m scratchpad show
 bindsym $mod+n move scratchpad 
+bindsym $mod+m scratchpad show
 
 
 # If window goes to floating, set its size and position (works only once)
@@ -337,9 +338,11 @@ for_window [class="(?i)firefox" title="^Jupyter.*"] move to workspace $ws1, work
 #### ASSIGNING APPS TO WORKSPACES ####
 # The "(?i)" makes the interpretation of the app variables case-insensitive
 
+assign [class="(?i)$conference"] $ws1
 assign [class="(?i)RStudio"] $ws1
 assign [class="(?i)$ide"] $ws1
 #for_window [class="(?i)$ide"] focus 
+
 
 assign [class="(?i)$browser"] $ws2
 #for_window [class="(?i)$browser"] focus 

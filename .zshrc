@@ -125,6 +125,7 @@ alias l="ls -ltrah"
 alias m="mpv"
 alias du="du -h --max-depth=1 ."
 alias rr="ranger"
+alias z="zathura"
 
 #Aliases for wps office
 alias wpspread="et"
