@@ -219,3 +219,6 @@ unset __conda_setup
 
 #Adding directories to PATH variable:
 export PATH="$HOME/.local/bin:$PATH"
+
+#Setting termite as default TERM
+export TERM=termite
