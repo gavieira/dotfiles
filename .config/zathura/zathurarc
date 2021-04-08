@@ -28,13 +28,19 @@ map <Space> toggle_statusbar
 map [fullscreen] <Space> toggle_statusbar
 
 map > jumplist forward
-map [fullscrenn] > jumplist forward
+map [fullscreen] > jumplist forward
 
 map < jumplist backward
-map [fullscrenn] < jumplist backward
+map [fullscreen] < jumplist backward
 
 map n jumplist forward
-map [fullscrenn] n jumplist forward
+map [fullscreen] n jumplist forward
 
 map m jumplist backward
-map [fullscrenn] m jumplist backward
+map [fullscreen] m jumplist backward
+
+map <C-l> jumplist forward
+map [fullscreen] <C-l> jumplist forward
+
+map <C-h> jumplist backward
+map [fullscreen] <C-h> jumplist backward
