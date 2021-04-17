@@ -1,0 +1,16 @@
+[Core Performance]
+TextHinting=Enabled
+
+[General]
+ShellOpenFileInTabs=true
+SwitchToTabIfOpen=true
+
+[Main View]
+ShowLeftPanel=false
+
+[PageView]
+ShowScrollBars=false
+TrimMargins=true
+
+[Reviews]
+QuickAnnotationTools=<tool name="Yellow Highlighter" id="1" type="highlight"><engine color="#ffff00" type="TextSelector"><annotation color="#ffffff00" type="Highlight"/></engine><shortcut>1</shortcut></tool>,<tool name="Green Highlighter" id="2" type="highlight"><engine color="#00ff00" type="TextSelector"><annotation color="#ff00ff00" type="Highlight"/></engine><shortcut>2</shortcut></tool>,<tool id="3" type="underline"><engine color="#ff0000" type="TextSelector"><annotation color="#ffff0000" type="Underline"/></engine><shortcut>3</shortcut></tool>,<tool name="Insert Text" id="4" type="typewriter"><engine type="PickPoint" block="true"><annotation textColor="#000000" color="#00ffffff" width="0" type="Typewriter"/></engine><shortcut>4</shortcut></tool>,<tool id="5" type="note-inline"><engine color="#ffff00" hoverIcon="tool-note-inline" type="PickPoint" block="true"><annotation textColor="#ff000000" color="#ffffff00" type="FreeText"/></engine><shortcut>5</shortcut></tool>,<tool id="6" type="note-linked"><engine color="#ffff00" hoverIcon="tool-note" type="PickPoint"><annotation color="#ffffff00" icon="Note" type="Text"/></engine><shortcut>6</shortcut></tool>
