@@ -7,20 +7,23 @@ set selection-clipboard clipboard
 #set window-height 3000
 #set window-width 3000
 
-#map f toggle_fullscreen
-#map [fullscreen] f toggle_fullscreen
+map f toggle_fullscreen
+map [fullscreen] f toggle_fullscreen
 
-#map F follow
-#map [fullscreen] F follow
+map F follow
+map [fullscreen] F follow
 
-#map <C-f> display_link
-#map [fullscreen] <C-f> display_link
+map <C-f> display_link
+map [fullscreen] <C-f> display_link
 
 map d quit
 map [fullscreen] d quit
 
 map p toggle_page_mode
 map [fullscreen] p toggle_page_mode
+
+map i recolor
+map [fullscreen] i recolor
 
 map = zoom in
 map [fullscreen] = zoom in
