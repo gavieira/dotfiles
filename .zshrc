@@ -127,6 +127,7 @@ alias du="du -h --max-depth=1 ."
 alias rr="ranger"
 alias z="zathura"
 alias o="xdg-open"
+alias tkssa="pkill -f tmux" #Kills all tmux sessions
 
 #Aliases for wps office
 alias wpspread="et"
