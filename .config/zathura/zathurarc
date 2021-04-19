@@ -40,8 +40,14 @@ map [fullscreen] > jumplist forward
 map < jumplist backward
 map [fullscreen] < jumplist backward
 
-map M jumplist forward
-map [fullscreen] M jumplist forward
+map ] jumplist forward
+map [fullscreen] ] jumplist forward
+
+map [ jumplist backward
+map [fullscreen] [ jumplist backward
+
+map m jumplist forward
+map [fullscreen] m jumplist forward
 
 map m jumplist backward
 map [fullscreen] m jumplist backward
