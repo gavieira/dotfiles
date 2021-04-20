@@ -57,6 +57,8 @@ bind -f common c toggle continue
 bind -f common q quit
 bind -f common p push pl-create 
 bind -f common P push pl-rename 
+bind -f common M win-mv-before
+bind -f common m win-mv-after
 
 bind -f library h win-next
 bind -f library l win-next
