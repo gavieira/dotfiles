@@ -368,8 +368,8 @@ assign [class="(?i)$music"] $ws10
 for_window [class="(?i)$music"] focus 
 
 
-#assign [class="Alacritty" instance="cmus"] $ws10
-for_window [class="Alacritty" instance="cmus"] move scratchpad focus 
+assign [class="Alacritty" instance="cmus"] $ws10
+#for_window [class="Alacritty" instance="cmus"] move scratchpad focus 
 
 assign [class="(?i)$video"] $ws4
 for_window [class="(?i)$video"] focus 
@@ -426,7 +426,7 @@ exec --no-startup-id setxkbmap -option caps:super && xmodmap -e "keycode 135 = S
 
 
 #Setting cmus to open automatically on system start
-exec --no-startup-id "alacritty --class cmus -e cmus" # It's a nice idea to have this command as an alias for cmus
+#exec --no-startup-id "alacritty --class cmus -e cmus" # It's a nice idea to have this command as an alias for cmus
 
 
 # Media player controls for cmus
