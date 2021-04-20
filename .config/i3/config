@@ -231,12 +231,13 @@ bar {
 bindsym $mod+Mod1+space scratchpad show
 bindsym $mod+Mod1+n scratchpad show
 bindsym $mod+minus move scratchpad 
+bindsym $mod+equal scratchpad show
 #bindsym $mod+Shift+m scratchpad show
 
 #bindsym $mod+m move scratchpad 
 #bindsym $mod+n scratchpad show
 
-bindsym $mod+n move scratchpad 
+#bindsym $mod+n move scratchpad 
 bindsym $mod+m scratchpad show
 
 
