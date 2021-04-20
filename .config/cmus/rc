@@ -57,6 +57,7 @@ bind -f common c toggle continue
 bind -f common q quit
 bind -f common p push pl-create 
 bind -f common P push pl-rename 
+bind -f common A push add ~/Music/
 bind -f common M win-mv-before
 bind -f common m win-mv-after
 
