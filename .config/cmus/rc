@@ -28,9 +28,9 @@ set format_trackwin= %F %= %d
 set altformat_trackwin= %F %= %d
 set format_playlist= %F %= %d
 set altformat_playlist= %F %= %d
-set format_current= %f
+set format_current= %F
 #set format_current= %a: %l: %02n
-set altformat_current= %f
+set altformat_current= %F
 
 #set format_statusline= %{status} %F%= %1{continue}%1{follow}%1{repeat}%1{shuffle} %{?show_playback_position?%{position} %{?duration?/ %{duration} }?%{?duration?%{duration} }} 
 
