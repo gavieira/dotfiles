@@ -1,1 +1,60 @@
 #Cmus config files
+
+
+#colorscheme default
+#colorscheme dracula
+#colorscheme solarized-dark
+#colorscheme jellybeans
+#colorscheme zenburn
+#colorscheme night
+
+
+#General options
+
+cd ~/Music
+set auto_expand_albums_follow=true
+set mouse=true
+set start_view=playlist
+
+#Format strings
+
+# From 'man cmus':
+#   Format Strings
+#       Format strings control display of tracks in library, playlist and play queue views.
+#
+#       Note: altformat_* options are used when there are no tags available.
+
+set altformat_title= %F
+set format_trackwin= %F %= %d
+set altformat_trackwin= %F %= %d
+set format_playlist= %F %= %d
+set altformat_playlist= %F %= %d
+
+
+
+#Bindings
+
+bind -f common 1 view playlist
+bind -f common 2 view browser
+bind -f common 3 view tree
+bind -f common 4 view queue
+bind -f common 5 view settings
+
+bind -f common H seek -5
+bind -f common L seek +5
+bind -f common J vol -10%
+bind -f common K vol +10%
+bind -f common v win-toggle
+bind -f common space player-pause
+bind -f common > player-next
+bind -f common < player-prev
+bind -f common R toggle repeat_current
+
+bind -f library h win-next
+bind -f library l win-next
+
+bind -f browser h browser-up
+bind -f browser l win-activate
+
+bind -f playlist h win-next
+bind -f playlist l win-next
