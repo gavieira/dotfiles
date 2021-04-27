@@ -78,7 +78,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightne
 floating_modifier $mod
 
 # Start a terminal. Tries to use alacritty and gets default terminal if it fails
-bindsym $mod+Return exec lxterminal || termite || alacritty || i3-sensible-terminal
+bindsym $mod+Return exec $terminal || termite || alacritty || i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
