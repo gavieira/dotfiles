@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Script to run multiple episodes from goyabu.com
+Script to run multiple episodes from animeyabu.com
 
 Author: Gabriel Alves Vieira
 email: gabrieldeusdeth@gmail.com

@@ -19,6 +19,7 @@ set $vimright l
 set $wallpapers ~/.config/i3/wallpapers
 
 #Setting default programs
+set $terminal lxterminal
 set $libreoffice_instance soffice
 set $pomodoro pomotroid
 set $references zotero
@@ -30,6 +31,7 @@ set $browser brave
 #set $browser qutebrowser
 set $pdf zathura
 #set $music clementine
+#set $music cmus
 set $music alacritty --class cmus -e cmus 
 set $video smplayer
 set $localhost "firefox -new-window http://localhost:8888/"
@@ -325,11 +327,12 @@ bindsym $mod+Shift+z exec $conference
 bindsym $mod+b exec $browser
 #bindsym $mod+p exec $pdf # Haven't been using this at all
 bindsym $mod+Shift+m exec $music
+#bindsym $mod+Shift+m exec $terminal -e $music; $ws10 #For pcs without alacritty
 #bindsym $mod+Shift+n exec $video
 bindsym $mod+t exec $text
 bindsym $mod+i exec $ide
 bindsym $mod+u exec $stream_watch
-bindsym $mod+Shift+u exec $goyabu_script
+bindsym $mod+Shift+u exec $animeyabu_script
 bindsym $mod+p exec $pomodoro
 bindsym Print exec $screenshot
 
