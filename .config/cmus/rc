@@ -51,6 +51,8 @@ bind -f common J vol -10%
 bind -f common K vol +10%
 bind -f common v win-toggle
 bind -f common space player-pause
+bind -f common } player-next
+bind -f common { player-prev
 bind -f common > player-next
 bind -f common < player-prev
 bind -f common R toggle repeat_current
