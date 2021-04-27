@@ -28,27 +28,27 @@ set format_trackwin= %F %= %d
 set altformat_trackwin= %F %= %d
 set format_playlist= %F %= %d
 set altformat_playlist= %F %= %d
-set format_current= %f
+set format_current= %F
 #set format_current= %a: %l: %02n
-set altformat_current= %f
+set altformat_current= %F
 
 #set format_statusline= %{status} %F%= %1{continue}%1{follow}%1{repeat}%1{shuffle} %{?show_playback_position?%{position} %{?duration?/ %{duration} }?%{?duration?%{duration} }} 
 
 
 #Bindings
 
-#bind -f common 1 view playlist
-#bind -f common 2 view browser
-#bind -f common 3 view tree
-#bind -f common 4 view queue
-#bind -f common 5 view settings
+bind -f common 1 view playlist
+bind -f common 2 view browser
+bind -f common 3 view tree
+bind -f common 4 view queue
+bind -f common 5 view settings
 
 bind -f common H seek -5
 bind -f common L seek +5
+bind -f common J win-mv-after
+bind -f common K win-mv-before
 bind -f common [ seek -5
 bind -f common ] seek +5
-bind -f common J vol -10%
-bind -f common K vol +10%
 bind -f common v win-toggle
 bind -f common space player-pause
 bind -f common } player-next
@@ -57,6 +57,14 @@ bind -f common > player-next
 bind -f common < player-prev
 bind -f common R toggle repeat_current
 bind -f common r toggle repeat
+bind -f common c toggle continue
+bind -f common q quit
+#bind -f common q quit -i
+bind -f common p push pl-create 
+bind -f common P push pl-rename 
+bind -f common A push add ~/Music/
+bind -f common M win-mv-before
+bind -f common m win-mv-after
 
 bind -f library left win-next
 bind -f library right win-next
@@ -68,7 +76,7 @@ bind -f browser right win-activate
 bind -f browser h browser-up
 bind -f browser l win-activate
 
-bind -f playlist left win-next
-bind -f playlist right win-next
+bind -f library left win-next
+bind -f library right win-next
 bind -f playlist h win-next
 bind -f playlist l win-next
