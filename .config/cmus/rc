@@ -76,7 +76,7 @@ bind -f browser right win-activate
 bind -f browser h browser-up
 bind -f browser l win-activate
 
-bind -f library left win-next
-bind -f library right win-next
+bind -f playlist left win-next
+bind -f playlist right win-next
 bind -f playlist h win-next
 bind -f playlist l win-next
