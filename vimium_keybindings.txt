@@ -2,7 +2,7 @@
 map J nextTab
 map K previousTab
 map D removeTab
-map U restoreTab
+map u restoreTab
 map <c-f> scrollPageDown
 map <c-b> scrollPageUp
 map s scrollPageUp

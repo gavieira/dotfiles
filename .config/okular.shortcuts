@@ -1,6 +1,6 @@
 [Shortcuts]
 annotationToolBar=none
-annotation_arrow=Alt+9
+annotation_arrow=Alt+9;\s
 annotation_bookmark=Ctrl+Shift+B
 annotation_constrain_ratio_angle=none
 annotation_ellipse=none
@@ -20,16 +20,16 @@ annotation_settings_pin=none
 annotation_settings_width=none
 annotation_squiggle=Alt+3
 annotation_straight_line=none
-annotation_strike_out=Alt+4
+annotation_strike_out=Alt+4;\s
 annotation_typewriter=Alt+5
 annotation_underline=Alt+2
 bookmark_add=Ctrl+B
 close_find_bar=Esc
 edit_copy=Y; Ctrl+C
 edit_find=Ctrl+F; /
-edit_find_next=N
-edit_find_prev=Shift+N
-edit_redo=R
+edit_find_next=N;\s
+edit_find_prev=Shift+N; Alt+Shift+N
+edit_redo=R;\s
 edit_select_all=Ctrl+A
 edit_select_all_current_page=none
 edit_undo=U
@@ -126,6 +126,6 @@ view_scroll_up=Shift+Up
 view_toggle_forms=none
 view_trim_margins=C
 view_trim_selection=none
-view_zoom_in==
+view_zoom_in==;\s
 view_zoom_out=-
 zoom_to=none
