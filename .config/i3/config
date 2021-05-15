@@ -312,8 +312,8 @@ floating_maximum_size 852 x 480
 
 #Back and forth two workspaces
 workspace_auto_back_and_forth yes #Pressing the workspace key twice will return to previous workspace
-bindsym Shift+ccedilla workspace back_and_forth
 bindsym $mod+ccedilla workspace back_and_forth
+bindsym $mod+Tab workspace back_and_forth
 
 #bindsym $mod+Mod1+h focus output left
 #bindsym $mod+Mod1+l focus output right
