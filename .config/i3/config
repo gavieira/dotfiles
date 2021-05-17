@@ -41,6 +41,7 @@ set $screenshot flameshot gui
 
 #Setting monitors
 set $monitor1 LVDS1
+set $altmonitor1 eDP1
 set $monitor2 VGA1
 set $monitor3 HDMI1
 
@@ -404,12 +405,15 @@ for_window [class=".*"] title_format "<b>%title</b> | class=%class | instance=%i
 
 #Monitors
 
+#Autorandr
+exec_always autorandr --change
+
 #Monitor 2 - 1920x1080
-exec_always xrandr --output $monitor1 --primary --mode 1366x768 --pos 0x0 --rotate normal --output DP1 --off --output $monitor3 --off --output $monitor2 --mode 1366x768 --pos 1366x0 --rotate normal --output VIRTUAL1 --off
+#exec_always xrandr --output $monitor1 --primary --mode 1366x768 --pos 0x0 --rotate normal --output DP1 --off --output $monitor3 --off --output $monitor2 --mode 1366x768 --pos 1366x0 --rotate normal --output VIRTUAL1 --off
 
 
 #Monitor 3 - 1920x1080
-exec_always xrandr --output $monitor1 --primary --mode 1366x768 --pos 0x0 --rotate normal --output DP1 --off --output $monitor3 --mode 1920x1080 --pos 1366x0 --rotate normal --output $monitor2 --off --output VIRTUAL1 --off
+#exec_always xrandr --output $monitor1 --primary --mode 1366x768 --pos 0x0 --rotate normal --output DP1 --off --output $monitor3 --mode 1920x1080 --pos 1366x0 --rotate normal --output $monitor2 --off --output VIRTUAL1 --off
 
 #Dropbox
 exec --no-startup-id dropbox 
