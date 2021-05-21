@@ -2,7 +2,7 @@ set number
 set linebreak
 set hls "Search highlighting
 set ic 
-set clipboard+=unnaeddplus "use system clipboard
+set clipboard+=unnamedplus "use system clipboard
 set modeline "file-specific setting changes on first or last line https://www.howtoforge.com/tutorial/vim-modeline-settings/
 ":let g:markdown_folding = 1 
 let mapleader = "\<Space>"
@@ -14,9 +14,9 @@ set spell
 "set noautoindent
 
 """ Powerline
-set rtp+=~/.vim/plugged/powerline/build/lib/powerline/bindings/vim
-set laststatus=2
-set t_Co=256
+"set rtp+=~/.vim/plugged/powerline/build/lib/powerline/bindings/vim
+"set laststatus=2
+"set t_Co=256
 
 "Add terminal to bottom
 ":set splitbelow
