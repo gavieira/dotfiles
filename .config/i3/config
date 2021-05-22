@@ -20,6 +20,7 @@ set $wallpapers ~/.config/i3/wallpapers
 
 #Setting default programs
 set $terminal lxterminal
+set $torrent transmission-gtk
 set $libreoffice_instance soffice
 set $pomodoro pomotroid
 set $references zotero
@@ -341,6 +342,7 @@ bindsym $mod+Shift+m exec $music
 #bindsym $mod+Shift+m exec $terminal -e $music; $ws10 #For pcs without alacritty
 #bindsym $mod+Shift+n exec $video
 bindsym $mod+t exec $text
+bindsym $mod+Shift+t exec $torrent
 bindsym $mod+i exec $ide
 bindsym $mod+u exec $stream_watch
 bindsym $mod+Shift+u exec $animeyabu_script
