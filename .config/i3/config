@@ -35,7 +35,7 @@ set $pdf zathura
 #set $music cmus
 set $music alacritty --class cmus -e cmus 
 set $video smplayer
-set $localhost "firefox -new-window http://localhost:8888/"
+#set $localhost "firefox -new-window http://localhost:8888/"
 set $stream_watch "~/.config/stream_watch.sh"
 set $goyabu_script "python ~/.config/goyabu_playlist.py $(xclip -o -selection clipboard)"
 set $screenshot flameshot gui
@@ -349,8 +349,8 @@ bindsym $mod+Shift+u exec $animeyabu_script
 bindsym $mod+p exec $pomodoro
 bindsym Print exec $screenshot
 
-bindsym $mod+y exec $localhost
-for_window [class="(?i)firefox" title="^Jupyter.*"] move to workspace $ws1, workspace $ws1
+#bindsym $mod+y exec $localhost
+#for_window [class="(?i)firefox" title="^Jupyter.*"] move to workspace $ws1, workspace $ws1
 
 
 #### ASSIGNING APPS TO WORKSPACES ####
@@ -421,6 +421,11 @@ exec_always autorandr --change
 
 #Dropbox
 exec --no-startup-id dropbox 
+
+#Torrent
+#exec --no-startup-id $torrent
+#Line below works for transmission:
+exec --no-startup-id $torrent --minimized 
 
 #email client (NOT WORKING)
 #exec_always --no-startup-id 'alacritty --class $email -e $email'
