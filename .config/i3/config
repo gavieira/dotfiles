@@ -441,7 +441,7 @@ exec --no-startup-id systemctl --user start redshift-gtk.service
 
 #Setting wallpapers permanetly (needs feh)
 #Will randomly pick one image from the wallpapers directory
-exec_always --no-startup-id feh --bg-scale --randomize $wallpapers/*
+exec_always --no-startup-id feh --bg-scale --randomize $wallpapers/ankh-morpork.jpg
 
 #Keep screen always on:
 exec_always --no-startup-id xset s off && xset -dpms
