@@ -411,8 +411,8 @@ for_window [class=".*"] title_format "<b>%title</b> | class=%class | instance=%i
 
 #Monitors
 
-#Autorandr
-exec_always autorandr --change
+#Autorandr - Only needed if autorandr.service is disabled
+#exec_always autorandr --change
 
 #Monitor 2 - 1920x1080
 #exec_always xrandr --output $monitor1 --primary --mode 1366x768 --pos 0x0 --rotate normal --output DP1 --off --output $monitor3 --off --output $monitor2 --mode 1366x768 --pos 1366x0 --rotate normal --output VIRTUAL1 --off
