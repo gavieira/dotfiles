@@ -29,7 +29,8 @@ set $screencast obs
 set $ide rstudio-bin
 set $text emacs
 set $email neomutt
-set $browser brave
+set $browser firefox
+#set $browser brave
 #set $browser qutebrowser
 set $pdf zathura
 #set $music clementine

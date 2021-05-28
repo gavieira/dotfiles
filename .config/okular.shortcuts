@@ -1,4 +1,5 @@
 [Shortcuts]
+add_digital_signature=none
 annotationToolBar=none
 annotation_arrow=Alt+9;\s
 annotation_bookmark=Ctrl+Shift+B
@@ -28,7 +29,7 @@ close_find_bar=Esc; Alt+Space
 edit_copy=Y; Ctrl+C
 edit_find=Ctrl+F; /
 edit_find_next=N;\s
-edit_find_prev=Alt+Return; Alt+Shift+N
+edit_find_prev=Alt+Return; Shift+N
 edit_redo=Ctrl+R;\s
 edit_select_all=Ctrl+A
 edit_select_all_current_page=none
