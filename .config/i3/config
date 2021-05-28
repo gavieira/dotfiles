@@ -25,6 +25,7 @@ set $libreoffice_instance soffice
 set $pomodoro pomotroid
 set $references zotero
 set $conference zoom
+set $screencast obs
 set $ide rstudio-bin
 set $text emacs
 set $email neomutt
@@ -348,6 +349,7 @@ bindsym $mod+u exec $stream_watch
 bindsym $mod+Shift+u exec $animeyabu_script
 bindsym $mod+p exec $pomodoro
 bindsym Print exec $screenshot
+bindsym $mod+o exec $screencast
 
 #bindsym $mod+y exec $localhost
 #for_window [class="(?i)firefox" title="^Jupyter.*"] move to workspace $ws1, workspace $ws1
