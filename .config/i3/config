@@ -41,6 +41,7 @@ set $video smplayer
 set $stream_watch "~/.config/stream_watch.sh"
 set $goyabu_script "python ~/.config/goyabu_playlist.py $(xclip -o -selection clipboard)"
 set $screenshot flameshot gui
+set $sysmonitor conky
 
 #Setting monitors
 set $monitor1 LVDS1
@@ -421,6 +422,9 @@ for_window [class=".*"] title_format "<b>%title</b> | class=%class | instance=%i
 
 #Dropbox
 exec --no-startup-id dropbox 
+
+#System monitor
+#exec --no-startup-id $sysmonitor
 
 #Torrent
 #exec --no-startup-id $torrent
