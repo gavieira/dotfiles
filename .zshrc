@@ -118,7 +118,7 @@ export LANG=en_US.UTF-8
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias cp="rsync -rltzuv --progress"
+alias cp="rsync -rltzzuv --progress"
 alias v="vim"
 alias s="sudo"
 alias l="ls -ltrah"
