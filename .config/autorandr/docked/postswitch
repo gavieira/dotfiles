@@ -2,3 +2,6 @@
 
 #Setting tv sound
 pactl set-card-profile 0 output:hdmi-surround
+
+#Setting wallpaper on second monitor
+feh --bg-fill  ~/.config/i3/wallpapers/ankh-morpork.jpg 
