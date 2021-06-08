@@ -222,6 +222,7 @@ unset __conda_setup
 export PATH="$HOME/.local/bin:$PATH"
 
 #Setting environmental variables
+export BLASTDB="$HOME/blastdb"
 
 #Setting termite as default TERM
 export TERM=termite

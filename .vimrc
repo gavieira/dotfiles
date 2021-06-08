@@ -8,7 +8,7 @@ set modeline "file-specific setting changes on first or last line https://www.ho
 let mapleader = "\<Space>"
 
 " Spell check
-set spell
+"set spell
 
 " Avoid autoindent
 "set noautoindent
@@ -30,6 +30,8 @@ set spell
 "Disable folding for markdown files
 autocmd BufNewFile,BufRead *.md set nofoldenable
 
+"Set spellcheck for specific files
+au BufReadPost,BufNewFile *.md,*.Rmd,*.tex setlocal spell
 
 "Set templates
 if has("autocmd")
