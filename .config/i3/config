@@ -451,7 +451,7 @@ exec_always --no-startup-id feh --bg-scale --randomize $wallpapers/ankh-morpork.
 exec_always --no-startup-id xset s off && xset -dpms
 
 #Add Menu and Caps_Lock keys to mod4 list (somehow Caps did not work with xmodmap)
-exec --no-startup-id setxkbmap -option caps:super && xmodmap -e "keycode 135 = Super_L"
+exec_always --no-startup-id setxkbmap -option caps:super && xmodmap -e "keycode 135 = Super_L"
 
 
 #Setting cmus to open automatically on system start
