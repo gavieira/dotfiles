@@ -54,4 +54,8 @@
 ;; they are implemented.
 
 ;; setting latex
-(setq org-latex-pdf-process '("latexmk -pdflatex='%latex -shell-escape -interaction nonstopmode' -pdf -output-directory=%o -f %f"))
+;;(setq org-latex-pdf-process '("latexmk -pdflatex='%latex -shell-escape -interaction nonstopmode' -pdf -output-directory=%o -f %f"))
+
+
+;; setting paencite as default cite type for org-reftex-citation
+(setq reftex-cite-format "\\autocite{%l}")
