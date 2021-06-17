@@ -58,4 +58,4 @@
 
 
 ;; setting paencite as default cite type for org-reftex-citation
-(setq reftex-cite-format "\\autocite{%l}")
+(setq reftex-cite-format "\\parencite{%l}")
