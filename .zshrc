@@ -226,3 +226,6 @@ export BLASTDB="$HOME/blastdb"
 
 #Setting termite as default TERM
 export TERM=termite
+
+#Setting shortcus to nnn extensions
+export NNN_PLUG='g:fzcd;p:mpv;s:subliminal;f:autojump;j:autojump;t:nmount;v:imgview'

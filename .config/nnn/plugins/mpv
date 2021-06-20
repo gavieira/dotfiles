@@ -1,0 +1,4 @@
+#!/usr/bin/zsh
+
+nohup mpv *(".mkv"|".mp4"|".avi") > /dev/null 2>&1 &
+
