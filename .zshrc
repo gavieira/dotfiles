@@ -125,6 +125,7 @@ alias l="ls -ltrah"
 alias m="mpv"
 alias du="du -h --max-depth=1 ."
 alias rr="ranger"
+alias n="nnn"
 alias z="zathura"
 alias o="xdg-open"
 alias tkssa="pkill -f tmux" #Kills all tmux sessions
