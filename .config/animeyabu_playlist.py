@@ -77,6 +77,6 @@ if __name__ == "__main__":
     page_list = get_pages(args.url)
     #print(page_list)
     episode_list = get_episodes(page_list)
-    print(episode_list)
-    print(len(episode_list))
+    #print(episode_list)
+    #print(len(episode_list))
     launch_mpv(episode_list)
