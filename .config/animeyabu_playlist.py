@@ -49,7 +49,7 @@ def get_episodes(page_list):
     for page in page_list:
         soup = get_soup(get_html(page))
         for tag in soup.find_all("div", 
-                                 {"class": "anime-episode"}):
+                                 {"class": "video"}):
             episode_list.append(tag.find('a')['href'])
     return episode_list
 
@@ -57,26 +57,26 @@ def get_episodes(page_list):
 
 def launch_mpv(episode_list):
     episodes = " ".join(episode_list)
-    mpv = subprocess.run(f"notify-send -t 3000 'Playing goyabu playlist' && mpv {episodes}", shell=True)
+    mpv = subprocess.run(f"notify-send -t 3000 'Playing animeyabu playlist' && mpv {episodes}", shell=True)
     return mpv
 
 
 #URL's for testing
-#url = "https://goyabu.com/assistir/captain-tsubasa-2018/"
-#url = "https://goyabu.com/assistir/naruto-shippuden-online-hd/"
-#url = "https://goyabu.com/assistir/yakusoku-no-neverland-2nd-season/"
+#url = "https://animeyabu.com/assistir/captain-tsubasa-2018/"
+#url = "https://animeyabu.com/assistir/naruto-shippuden-online-hd/"
+#url = "https://animeyabu.com/assistir/yakusoku-no-neverland-2nd-season/"
 
 def getArgs():
-    parser = argparse.ArgumentParser(description="Plays entire playlists from goyabu on mpv")
-    parser.add_argument("url", type=str, metavar="URL", help="Url of the goyabu playlist")
+    parser = argparse.ArgumentParser(description="Plays entire playlists from animeyabu on mpv")
+    parser.add_argument("url", type=str, metavar="URL", help="Url of the animeyabu playlist")
     return parser.parse_args()
 
 if __name__ == "__main__":
     args = getArgs()
-    subprocess.run(f"notify-send -t 3000 'Loading goyabu playlist\n {args.url}'", shell=True)
+    subprocess.run(f"notify-send -t 3000 'Loading animeyabu playlist\n {args.url}'", shell=True)
     page_list = get_pages(args.url)
     #print(page_list)
     episode_list = get_episodes(page_list)
-    #print(episode_list)
-    #print(len(episode_list))
+    print(episode_list)
+    print(len(episode_list))
     launch_mpv(episode_list)
