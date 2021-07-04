@@ -39,7 +39,7 @@ set $music alacritty --class cmus -e cmus
 set $video smplayer
 #set $localhost "firefox -new-window http://localhost:8888/"
 set $stream_watch "~/.config/stream_watch.sh"
-set $goyabu_script "python ~/.config/goyabu_playlist.py $(xclip -o -selection clipboard)"
+set $animeyabu_script "python ~/.config/animeyabu_playlist.py $(xclip -o -selection clipboard)"
 set $screenshot flameshot gui
 set $sysmonitor conky
 
