@@ -360,7 +360,7 @@ bindsym $mod+o exec $screencast
 #### ASSIGNING APPS TO WORKSPACES ####
 # The "(?i)" makes the interpretation of the app variables case-insensitive
 
-assign [instance="(?i)$libreoffice_instance"] $ws1
+#assign [instance="(?i)$libreoffice_instance"] $ws1
 assign [class="(?i)$conference"] $ws1
 assign [class="(?i)RStudio"] $ws1
 assign [class="(?i)$ide"] $ws1
