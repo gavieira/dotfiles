@@ -232,4 +232,4 @@ export TERM=termite
 export NNN_PLUG='g:fzcd;p:mpv;s:subliminal;f:autojump;j:autojump;t:nmount;v:imgview'
 
 #Removing zsh's autocorrect entirely
-unsetopt correct
+unsetopt correct_all
