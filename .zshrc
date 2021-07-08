@@ -53,7 +53,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
- ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -230,6 +230,3 @@ export TERM=termite
 
 #Setting shortcus to nnn extensions
 export NNN_PLUG='g:fzcd;p:mpv;s:subliminal;f:autojump;j:autojump;t:nmount;v:imgview'
-
-#Removing zsh's autocorrect entirely
-unsetopt correct_all
