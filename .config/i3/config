@@ -441,7 +441,7 @@ exec --no-startup-id $torrent --minimized
 # In order for it to work, a cronjob was created: https://askubuntu.com/questions/513294/why-i-cant-add-redshift-to-startup"
 #exec --no-startup-id redhsift -O 3500
 #exec --no-startup-id redhsift-gtk 
-exec --no-startup-id systemctl --user start redshift-gtk.service
+#exec --no-startup-id systemctl --user start redshift-gtk.service
 
 #Setting wallpapers permanetly (needs feh)
 #Will randomly pick one image from the wallpapers directory
