@@ -18,8 +18,29 @@ settings:
     global: true
   bindings.commands:
     global:
+      caret:
+        <Alt+Space>: mode-leave
+      command:
+        <Alt+Space>: mode-leave
+      hint:
+        <Alt+Space>: mode-leave
+      insert:
+        <Alt+Space>: mode-leave
       normal:
         D: hint links spawn alacritty -e youtube-dl {hint-url}
+        d: scroll-page 0 0.5
         e: spawn mpv {url}
+        s: scroll-page 0 -0.5
+        x: tab-close
         yf: hint links yank
         ç: hint links spawn mpv {hint-url}
+      passthrough:
+        <Alt+Space>: mode-leave
+      prompt:
+        <Alt+Space>: mode-leave
+      register:
+        <Alt+Space>: mode-leave
+      yesno:
+        <Alt+Space>: mode-leave
+  content.notifications.enabled:
+    https://www.reddit.com: false
