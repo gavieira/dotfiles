@@ -120,6 +120,7 @@ export LANG=en_US.UTF-8
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias cp="rsync -rltzzuv --progress"
 alias v="vim"
+alias top="htop"
 alias s="sudo"
 alias l="ls -ltrah"
 alias m="mpv"
@@ -128,7 +129,7 @@ alias rr="ranger"
 alias n="nnn"
 alias z="zathura"
 alias o="xdg-open"
-alias tkssa="pkill -f tmux" #Kills all tmux sessions
+alias tkass="pkill -f tmux" #Kills all tmux sessions
 
 #Aliases for wps office
 alias wpspread="et"
