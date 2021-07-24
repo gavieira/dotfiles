@@ -30,6 +30,7 @@ settings:
         D: hint links spawn alacritty -e youtube-dl {hint-url}
         d: scroll-page 0 0.5
         e: spawn mpv {url}
+        q: tab-close
         s: scroll-page 0 -0.5
         x: tab-close
         yf: hint links yank
