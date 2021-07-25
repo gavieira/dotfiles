@@ -27,6 +27,8 @@ settings:
       insert:
         <Alt+Space>: mode-leave
       normal:
+        <Backspace>: zoom
+        '=': zoom-in
         D: hint links spawn alacritty -e youtube-dl {hint-url}
         d: scroll-page 0 0.5
         e: spawn mpv {url}
