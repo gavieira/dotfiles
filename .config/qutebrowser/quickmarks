@@ -13,4 +13,5 @@ yi https://yts.mx/
 yf https://yts.mx/
 aur https://aur.archlinux.org/
 pb https://pirate-bay-proxy.org/eng/
-ja http://localhost:9117/UI/Dashboard
+ja http://localhost:9117
+je http://10.0.0.105:8096
