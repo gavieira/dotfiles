@@ -71,6 +71,7 @@ bind -f library right win-next
 bind -f library h win-next
 bind -f library l win-next
 
+bind -f browser space player-pause
 bind -f browser left browser-up
 bind -f browser right win-activate
 bind -f browser h browser-up
