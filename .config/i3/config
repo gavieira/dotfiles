@@ -26,7 +26,7 @@ set $pomodoro pomotroid
 set $references zotero
 set $conference zoom
 set $screencast obs
-set $ide rstudio-bin
+set $ide rstudio-daily-bin
 set $text emacs
 set $email neomutt
 set $browser firefox
