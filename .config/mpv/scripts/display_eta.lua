@@ -25,17 +25,11 @@ function display_eta()
 
 		local format_string = same_day and "%H:%M" or "%H:%M (%A)"
 		local formatted_time = os.date(format_string, end_time)
-		-- Other variables
-		local playlist_pos = mp.get_property_native("playlist-pos-1")
-		local playlist_count = mp.get_property_native("playlist-count")
-		local media_title = mp.get_property_native("media-title")
-		local clock = mp.get_property_native("clock")
-		local playtime_remaining = mp.get_property_osd("playtime-remaining")
 
-		mp.osd_message("(" .. playlist_pos .. "/" .. playlist_count .. ") " .. media_title .. "\nPlayback speed: " .. playback_speed .. "\nSystem time is " .. clock .. "\nPlaytime remaining: " .. playtime_remaining .. "\nETA: " .. formatted_time, 3)
+		mp.osd_message("Speed: " .. playback_speed .."x" .. "\nSystem time: " .. os.date("%H:%M") ..  "\nETA: " .. formatted_time, 3)
 	else
 		mp.osd_message("Unable to estimate ending time")
 	end
 end
 
-mp.add_key_binding("u", SCRIPT_COMMAND_NAME, display_eta)
+mp.add_key_binding("y", SCRIPT_COMMAND_NAME, display_eta)
