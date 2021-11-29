@@ -32,7 +32,7 @@ function display_eta()
 		local clock = mp.get_property_native("clock")
 		local playtime_remaining = mp.get_property_osd("playtime-remaining")
 
-		mp.osd_message("(" .. playlist_pos .. "/" .. playlist_count .. ") " .. media_title .. "\nPlayback speed: " .. playback_speed .. "\nSystem time is " .. clock .. "\nPlaytime remaining: " .. playtime_remaining .. "\nETA: " .. formatted_time, 2)
+		mp.osd_message("(" .. playlist_pos .. "/" .. playlist_count .. ") " .. media_title .. "\nPlayback speed: " .. playback_speed .. "\nSystem time is " .. clock .. "\nPlaytime remaining: " .. playtime_remaining .. "\nETA: " .. formatted_time, 3)
 	else
 		mp.osd_message("Unable to estimate ending time")
 	end
