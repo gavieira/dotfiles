@@ -23,10 +23,10 @@ function display_eta()
 		local end_time_table = os.date("*t", end_time)
 		local same_day = current_time_table.year == end_time_table.year and current_time_table.month == end_time_table.month and current_time_table.day == end_time_table.day
 
-		local format_string = same_day and "%H:%M" or "%H:%M (%A)"
+		local format_string = same_day and "%H:%M %p" or "%H:%M %p (%A)"
 		local formatted_time = os.date(format_string, end_time)
 
-		mp.osd_message("Speed: " .. playback_speed .."x" .. "\nSystem time: " .. os.date("%H:%M") ..  "\nETA: " .. formatted_time, 3)
+		mp.osd_message("Speed: " .. playback_speed .."x" .. "\nSystem Time: " .. os.date("%H:%M %p") ..  "\nETA: " .. formatted_time, 3)
 	else
 		mp.osd_message("Unable to estimate ending time")
 	end
