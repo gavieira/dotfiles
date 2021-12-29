@@ -62,18 +62,18 @@ font pango:monospace 8
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec  xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+exec  nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec  pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec  pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec  pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec  pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # use xbacklight to adjust screen brightness
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
@@ -81,8 +81,8 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightne
 
 # Alternative bindings to adjust screen brightness and volume
 
-bindsym $mod+bracketright exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status #Increase volume
-bindsym $mod+bracketleft exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status #Decrease volume
+bindsym $mod+bracketright exec  pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status #Increase volume
+bindsym $mod+bracketleft exec  pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status #Decrease volume
 
 bindsym $mod+period exec xbacklight -inc 10 # increase screen brightness
 bindsym $mod+comma exec xbacklight -dec 10 # decrease screen brightness
@@ -98,12 +98,12 @@ bindsym $mod+Shift+q kill
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+d exec  dmenu_run
 # A more modern dmenu replacement is rofi:
 #bindcode $mod+40 exec rofi -modi drun,run -show drun
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
-#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+#bindsym $mod+d exec  i3-dmenu-desktop
 
 # change focus
 bindsym $mod+$vimleft focus left
@@ -328,7 +328,7 @@ floating_maximum_size 852 x 480
 # Navigation
 
 #Back and forth two workspaces
-workspace_auto_back_and_forth yes #Pressing the workspace key twice will return to previous workspace
+#workspace_auto_back_and_forth yes #Pressing the workspace key twice will return to previous workspace
 bindsym $mod+ccedilla workspace back_and_forth
 
 #Back and forth outputs (There is a wrap around so it seems to toggle between my two monitors)
@@ -433,41 +433,41 @@ for_window [class=".*"] title_format "<b>%title</b> | class=%class | instance=%i
 #exec_always xrandr --output $monitor1 --primary --mode 1366x768 --pos 0x0 --rotate normal --output DP1 --off --output $monitor3 --mode 1920x1080 --pos 1366x0 --rotate normal --output $monitor2 --off --output VIRTUAL1 --off
 
 #Dropbox
-exec --no-startup-id dropbox 
+exec dropbox 
 
 #System monitor
-#exec --no-startup-id $sysmonitor
+#exec  $sysmonitor
 
 #Torrent
-#exec --no-startup-id $torrent
+#exec  $torrent
 #Line below works for transmission:
-exec --no-startup-id $torrent --minimized 
+exec $torrent --minimized 
 
 #email client (NOT WORKING)
-#exec_always --no-startup-id 'alacritty --class $email -e $email'
+#exec_always  'alacritty --class $email -e $email'
 #for_window [class='Alacritty' instance=$email] move scratchpad
 #for_window [class='Alacritty' instance=$email] move to workspace $ws6
 
 
 # For some reason, redshift is not working on Manjaro i3 #
 # In order for it to work, a cronjob was created: https://askubuntu.com/questions/513294/why-i-cant-add-redshift-to-startup"
-#exec --no-startup-id redhsift -O 3500
-#exec --no-startup-id redhsift-gtk 
-#exec --no-startup-id systemctl --user start redshift-gtk.service
+#exec  redhsift -O 3500
+#exec  redhsift-gtk 
+#exec  systemctl --user start redshift-gtk.service
 
 #Setting wallpapers permanetly (needs feh)
 #Will randomly pick one image from the wallpapers directory
-exec_always --no-startup-id feh --bg-scale --randomize $wallpapers/ankh-morpork.jpg
+exec_always feh --bg-scale --randomize $wallpapers/ankh-morpork.jpg
 
 #Keep screen always on:
-exec_always --no-startup-id xset s off && xset -dpms
+exec_always xset s off && xset -dpms
 
 #Add Menu and Caps_Lock keys to mod4 list (somehow Caps did not work with xmodmap)
-exec_always --no-startup-id setxkbmap -option caps:super && xmodmap -e "keycode 135 = Super_L"
+exec_always  setxkbmap -option caps:super && xmodmap -e "keycode 135 = Super_L"
 
 
 #Setting cmus to open automatically on system start
-#exec --no-startup-id "alacritty --class cmus -e cmus" # It's a nice idea to have this command as an alias for cmus
+#exec  "alacritty --class cmus -e cmus" # It's a nice idea to have this command as an alias for cmus
 
 
 # Media player controls for cmus
