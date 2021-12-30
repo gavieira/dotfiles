@@ -76,16 +76,16 @@ bindsym XF86AudioMute exec  pactl set-sink-mute @DEFAULT_SINK@ toggle && $refres
 bindsym XF86AudioMicMute exec  pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # use xbacklight to adjust screen brightness
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec light -A 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 10 # decrease screen brightness
 
 # Alternative bindings to adjust screen brightness and volume
 
 bindsym $mod+bracketright exec  pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status #Increase volume
 bindsym $mod+bracketleft exec  pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status #Decrease volume
 
-bindsym $mod+period exec xbacklight -inc 10 # increase screen brightness
-bindsym $mod+comma exec xbacklight -dec 10 # decrease screen brightness
+bindsym $mod+period exec light -A 10 # increase screen brightness
+bindsym $mod+comma exec light -U 10 # decrease screen brightness
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
