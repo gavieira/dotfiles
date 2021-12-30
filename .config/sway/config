@@ -328,7 +328,7 @@ floating_maximum_size 852 x 480
 # Navigation
 
 #Back and forth two workspaces
-#workspace_auto_back_and_forth yes #Pressing the workspace key twice will return to previous workspace
+workspace_auto_back_and_forth yes #Pressing the workspace key twice will return to previous workspace
 bindsym $mod+ccedilla workspace back_and_forth
 
 #Back and forth outputs (There is a wrap around so it seems to toggle between my two monitors)
@@ -538,7 +538,7 @@ bindsym $mod+Shift+v mode "vim mode: h for left, j for down, k for up, l for rig
 
 input type:touchpad {
     tap enabled
-    natural_scroll enabled
+#    natural_scroll enabled
 }
 
 input type:keyboard {
