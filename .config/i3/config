@@ -32,7 +32,8 @@ set $email neomutt
 set $browser firefox
 #set $browser brave
 #set $browser qutebrowser
-set $pdf zathura
+#set $pdf zathura
+set $pdf okular
 #set $music clementine
 #set $music cmus
 set $music alacritty --class cmus -e cmus 
@@ -384,6 +385,7 @@ assign [class="(?i)$browser"] $ws2
 
 # Opens zathura in ws3 and focus on the newly created window
 assign [class="(?i)$references"] $ws3
+assign [class="(?i)$pdf"] $ws3
 #for_window [class="(?i)$pdf"] focus
 #for_window [class="(?i)$pdf"] fullscreen
 
