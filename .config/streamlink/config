@@ -1,8 +1,12 @@
 ## Player
 
 player=mpv
+#player=mpv --fullscreen --volume 70
+#player=mpv --fullscreen --pause
 #player-no-close
 
 ## Quality
-stream-sorting-excludes>720p60
-default-stream=720p60,720p,best
+#stream-sorting-excludes>720p60
+#default-stream=720p60,720p,best
+stream-sorting-excludes>1080p60
+default-stream=1080p60,1080,720p60,720p,best
