@@ -147,7 +147,6 @@ bindsym $mod+e layout toggle split
 # toggle tiling / floating
 #bindsym $mod+Shift+space floating toggle
 
-
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
@@ -205,6 +204,7 @@ bindsym $mod+Control+7 [workspace=7] move workspace to output current
 bindsym $mod+Control+8 [workspace=8] move workspace to output current
 bindsym $mod+Control+9 [workspace=9] move workspace to output current
 bindsym $mod+Control+0 [workspace=10] move workspace to output current
+
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -389,6 +389,17 @@ assign [class="(?i)$references"] $ws3
 assign [class="(?i)$pdf"] $ws3
 #for_window [class="(?i)$pdf"] focus
 #for_window [class="(?i)$pdf"] fullscreen
+
+
+# Set layout tabbed for ws3 (pdf workspace)
+
+## Everytime a new window is opened on ws3, the layout reverts to tabbed
+#for_window [workspace=$ws3] layout tabbed 
+
+## Sets ws3 to tabbed on startup (executed once)
+#exec --no-startup-id "i3-msg 'workspace 2; layout tabbed'"
+
+
 
 # Opens pdf in ws3 and focus on the newly created window
 #assign [class="(?i)$pdf"] $ws3
