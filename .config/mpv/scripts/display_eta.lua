@@ -26,7 +26,7 @@ function display_eta()
 		local format_string = same_day and "%H:%M %p" or "%H:%M %p (%A)"
 		local formatted_time = os.date(format_string, end_time)
 
-		mp.osd_message("Speed: " .. playback_speed .."x" .. "\nSystem Time: " .. os.date("%H:%M %p") ..  "\nETA: " .. formatted_time, 5)
+		mp.osd_message("Speed: " .. playback_speed .."x" .. "\nSystem Time: " .. os.date("%H:%M %p") ..  "\nETA: " .. formatted_time .. "\nPlaytime remaining: " .. mp.get_property_osd("playtime-remaining"))
 	else
 		mp.osd_message("Unable to estimate ending time")
 	end
