@@ -1,4 +1,12 @@
 #!/usr/bin/zsh
 
-nohup mpv *(".mkv"|".mp4"|".avi"|".ts") > /dev/null 2>&1 &
+#This nnn plugin attempts to play all files from selection in mpv. If no file is selected, it will play all videos (mp4, mkv, and other common video formats) present in the current directory
 
+sel=${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.selection 
+
+if [ -s $sel ]
+then
+	nohup xargs -0 mpv < $sel  > /dev/null 2>&1 & 
+else
+	nohup mpv *(".mkv"|".mp4"|".avi"|".ts") > /dev/null 2>&1 &
+fi
