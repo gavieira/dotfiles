@@ -33,4 +33,4 @@ function display_eta()
 	end
 end
 
-mp.add_key_binding("y", SCRIPT_COMMAND_NAME, display_eta)
+mp.add_key_binding("", SCRIPT_COMMAND_NAME, display_eta) -- Binding will be defined in 'input.conf'
