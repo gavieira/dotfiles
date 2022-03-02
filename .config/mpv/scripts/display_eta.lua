@@ -27,7 +27,7 @@ function display_eta()
 		local formatted_time = os.date(format_string, end_time)
 		local playlist_file = "(" .. mp.get_property_osd("playlist-pos-1") .. " / " .. mp.get_property_osd("playlist-count") .. ") " .. mp.get_property_osd("media-title")
 
-		mp.osd_message(playlist_file .. "\nSpeed: " .. playback_speed .."x" .. "\nSystem Time: " .. os.date("%H:%M %p") ..  "\nETA: " .. formatted_time .. "\nPlaytime remaining: " .. mp.get_property_osd("playtime-remaining"))
+		mp.osd_message(playlist_file .. "\nSpeed: " .. playback_speed .."x" .. "\nSystem Time: " .. os.date("%H:%M %p") ..  "\nETA: " .. formatted_time .. "\nPlaytime remaining: " .. mp.get_property_osd("playtime-remaining"), 5) -- Prints all info on osd for 5 seconds
 	else
 		mp.osd_message("Unable to estimate ending time")
 	end
