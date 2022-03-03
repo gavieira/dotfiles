@@ -231,7 +231,8 @@ export BLASTDB="$HOME/blastdb"
 export TERM=termite
 
 #Setting shortcus to nnn extensions
-export NNN_PLUG='g:fzcd;p:mpv;s:subliminal;f:autojump;j:autojump;t:nmount;v:imgview'
+export NNN_PLUG='g:fzcd;p:mpv;s:subliminal;f:ffsubsync;j:autojump;t:nmount;v:imgview'
 
 #Setting default permissions for new files using umask (could be permanently changed in /etc/profile)"
 #umask 002
+#

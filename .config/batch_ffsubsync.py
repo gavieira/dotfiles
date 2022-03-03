@@ -16,8 +16,8 @@ for file in flat_list:
     sublist[file] = glob.glob(f"{basename}*srt")
 
 
-for k, v in sublist.items():
-    i = " ".join(v)
-    subprocess.run(["ffsubsync", k, "-i", i, "--overwrite-input"])
-    #for i in v:
-    #    subprocess.run(["ffsubsync", k, "-i", i, "--overwrite-input"])
+for video, subtitles in sublist.items():
+    subs = " ".join("'" + sub + "'" for sub in subtitles) #Adding quotes to subtitle files and joining them into a single string
+    command = f"ffsubsync '{video}' -i {subs} --overwrite-input"
+    #print(command)
+    subprocess.run(command, shell=True)
