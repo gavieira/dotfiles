@@ -128,6 +128,8 @@ alias du="du -h --max-depth=1 ."
 alias r="ranger"
 alias rr="ranger"
 alias n="nnn"
+#alias n="nnn -e" #The '-e' flag opens text in $VISUAL/$EDITOR/vi
+#alias nnn="nnn -e" #The '-e' flag opens text in $VISUAL/$EDITOR/vi
 alias z="zathura"
 alias o="xdg-open"
 alias tkass="pkill -f tmux" #Kills all tmux sessions
