@@ -87,8 +87,8 @@ plugins=(git
 	 pass
 	 rsync
 	 sudo
-	 zsh-autosuggestions
 	 zsh-syntax-highlighting
+	 zsh-autosuggestions
 	)
 
 source $ZSH/oh-my-zsh.sh
