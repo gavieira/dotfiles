@@ -4,6 +4,7 @@
 import subprocess
 import glob
 import os
+import shlex
 
 
 files_grabbed = [glob.glob(e) for e in ['*.mp4', '*.mkv', '*.avi']]
@@ -17,7 +18,8 @@ for file in flat_list:
 
 
 for video, subtitles in sublist.items():
-    subs = " ".join("'" + sub + "'" for sub in subtitles) #Adding quotes to subtitle files and joining them into a single string
-    command = f"ffsubsync '{video}' -i {subs} --overwrite-input"
-    #print(command)
+    video = shlex.quote(video)
+    subs = " ".join(shlex.quote(sub) for sub in subtitles) #Adding quotes to subtitle files and joining them into a single string
+    command = f"ffsubsync {video} -i {subs} --overwrite-input"
+    print(command)
     subprocess.run(command, shell=True)
