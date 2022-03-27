@@ -570,5 +570,5 @@ mode "vim mode: h for left, j for down, k for up, l for right" {
 bindsym $mod+Shift+v mode "vim mode: h for left, j for down, k for up, l for right"; exec $vim_mode_enter; 
 
 #Dunst close keybinding
-bindsym Control+Mod1+space exec dunstctl close
-#bindsym Mod1+space exec dunstctl close
+#bindsym Control+Mod1+space exec dunstctl close
+bindsym Mod1+Shift+space exec dunstctl close
