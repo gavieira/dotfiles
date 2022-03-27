@@ -1,4 +1,12 @@
 #!/usr/bin/zsh
 
-subliminal --addic7ed gavieira $(pass addic7ed) --legendastv gavieira $(pass legendastv) --opensubtitles Deusdeth $(pass opensubtitles) download -p opensubtitles -l en -l pt -l pt-BR . && 
-subliminal --addic7ed gavieira $(pass addic7ed) --legendastv gavieira $(pass legendastv) --opensubtitles Deusdeth $(pass opensubtitles) download -l en -l pt -l pt-BR .
+sel=${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.selection 
+
+if [ -s $sel ]
+then
+	xargs -0 subliminal --addic7ed gavieira $(pass addic7ed) --legendastv gavieira $(pass legendastv) --opensubtitles Deusdeth $(pass opensubtitles) download -p opensubtitles -l en -l pt -l pt-BR < $sel
+	xargs -0 subliminal --addic7ed gavieira $(pass addic7ed) --legendastv gavieira $(pass legendastv) --opensubtitles Deusdeth $(pass opensubtitles) download -l en -l pt -l pt-BR < $sel  
+else
+	subliminal --addic7ed gavieira $(pass addic7ed) --legendastv gavieira $(pass legendastv) --opensubtitles Deusdeth $(pass opensubtitles) download -p opensubtitles -l en -l pt -l pt-BR . && 
+	subliminal --addic7ed gavieira $(pass addic7ed) --legendastv gavieira $(pass legendastv) --opensubtitles Deusdeth $(pass opensubtitles) download -l en -l pt -l pt-BR .
+fi
