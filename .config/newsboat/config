@@ -33,6 +33,8 @@ bind-key j next articlelist
 bind-key k prev articlelist
 bind-key J next-feed articlelist
 bind-key K prev-feed articlelist
+#bind-key L next-feed articlelist
+#bind-key H prev-feed articlelist
 bind-key G end
 bind-key g home
 bind-key d pagedown
@@ -76,6 +78,8 @@ macro c set browser "xsel -b <<<" ; open-in-browser ; set browser linkhandler
 #macro p set browser "notify-send 'Playing newsboat link' && mpv --no-fullscreen %u >/dev/null 2>&1 &"; one; set browser firefox
 macro p set browser "mpv --no-fullscreen %u >/dev/null 2>&1 &"; one; set browser firefox
 macro d set browser "echo 'Downloading %u' &&  curl --progress-bar -C - --output-dir ~/Downloads -LO %u"; one; set browser firefox
+macro b set browser "notify-send 'Opening link in browser' && xdg-open %u >/dev/null 2>&1 &"
+macro v set browser "notify-send 'Playing newsboat link' && mpv --profile=podcast %u >/dev/null 2>&1 &"
 #macro d set browser "curl --output-dir ~/Downloads -LO"; one; set browser firefox
 
 
