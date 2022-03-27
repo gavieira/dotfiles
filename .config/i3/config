@@ -282,6 +282,7 @@ bindsym $mod+equal scratchpad show
 #bindsym $mod+n scratchpad show
 
 #bindsym $mod+n move scratchpad 
+bindsym $mod+n scratchpad show
 bindsym $mod+m scratchpad show
 
 
