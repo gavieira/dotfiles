@@ -1,8 +1,10 @@
 #General newsboat options
 #show-read-feeds no
 
-#browser xdg-open #Not working...
-run-on-startup set browser "notify-send 'Playing newsboat link' && mpv --profile=podcast %u >/dev/null 2>&1 &"
+#browser "notify-send 'Opening link with xdg-open' && xdg-open %u >/dev/null 2>&1 &"
+browser "notify-send 'Playing newsboat link' && mpv --profile=podcast %u >/dev/null 2>&1 &"
+#browser xdg-open 
+#run-on-startup set browser "notify-send 'Playing newsboat link' && mpv --profile=podcast %u >/dev/null 2>&1 &"
 #run-on-startup set browser "notify-send 'Playing newsboat link' && mpv %u >/dev/null 2>&1 &"
 
 #run-on-startup set browser 'mpv' #Working
@@ -62,7 +64,6 @@ color info red black bold
 color article white default bold
 
 
-browser linkhandler
 macro , open-in-browser
 macro t set browser "qndl" ; open-in-browser ; set browser linkhandler
 macro a set browser "tsp youtube-dl --add-metadata -xic -f bestaudio/best" ; open-in-browser ; set browser linkhandler
@@ -78,7 +79,7 @@ macro c set browser "xsel -b <<<" ; open-in-browser ; set browser linkhandler
 #macro p set browser "notify-send 'Playing newsboat link' && mpv --no-fullscreen %u >/dev/null 2>&1 &"; one; set browser firefox
 macro p set browser "mpv --no-fullscreen %u >/dev/null 2>&1 &"; one; set browser firefox
 macro d set browser "echo 'Downloading %u' &&  curl --progress-bar -C - --output-dir ~/Downloads -LO %u"; one; set browser firefox
-macro b set browser "notify-send 'Opening link in browser' && xdg-open %u >/dev/null 2>&1 &"
+macro b set browser "notify-send 'Opening link with xdg-open' && xdg-open %u >/dev/null 2>&1 &"
 macro v set browser "notify-send 'Playing newsboat link' && mpv --profile=podcast %u >/dev/null 2>&1 &"
 #macro d set browser "curl --output-dir ~/Downloads -LO"; one; set browser firefox
 
