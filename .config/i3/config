@@ -168,6 +168,16 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10:Music"
+#set $ws1 "1"
+#set $ws2 "2"
+#set $ws3 "3"
+#set $ws4 "4"
+#set $ws5 "5"
+#set $ws6 "6"
+#set $ws7 "7"
+#set $ws8 "8"
+#set $ws9 "9"
+#set $ws10 "10"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -246,12 +256,18 @@ bar {
 	position top
 	separator_symbol "|"
 	workspace_buttons yes
-	#tray_output primary
+	tray_output primary
 	strip_workspace_numbers no
 	strip_workspace_name no
 	#i3bar_command i3bar --transparency
         status_command i3status
 }
+
+#Start polybar
+
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+
 
 ##### CUSTOM WORKSPACE KEYBINDINGS #####
 
@@ -331,10 +347,11 @@ floating_maximum_size 852 x 480
 #Back and forth two workspaces
 workspace_auto_back_and_forth yes #Pressing the workspace key twice will return to previous workspace
 bindsym $mod+ccedilla workspace back_and_forth
-#bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+Tab workspace back_and_forth
 
 #Back and forth outputs (There is a wrap around so it seems to toggle between my two monitors)
-bindsym $mod+Tab focus output right
+#bindsym $mod+Tab focus output right
+#bindsym $mod+Tab workspace back_and_forth
 
 #bindsym $mod+Mod1+h focus output left
 #bindsym $mod+Mod1+l focus output right
@@ -449,6 +466,9 @@ for_window [class=".*"] title_format "<b>%title</b> | class=%class | instance=%i
 #Dropbox
 exec --no-startup-id dropbox 
 
+#dunst
+exec --no-startup-id dunst
+
 #System monitor
 #exec --no-startup-id $sysmonitor
 
@@ -548,3 +568,7 @@ mode "vim mode: h for left, j for down, k for up, l for right" {
 }
 
 bindsym $mod+Shift+v mode "vim mode: h for left, j for down, k for up, l for right"; exec $vim_mode_enter; 
+
+#Dunst close keybinding
+#bindsym Control+Mod1+space exec dunstctl close
+bindsym Mod1+space exec dunstctl close
