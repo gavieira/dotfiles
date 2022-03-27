@@ -1,8 +1,32 @@
+#General newsboat options
 #show-read-feeds no
+
+#browser xdg-open #Not working...
+run-on-startup set browser "notify-send 'Playing newsboat link' && mpv --profile=podcast %u >/dev/null 2>&1 &"
+#run-on-startup set browser "notify-send 'Playing newsboat link' && mpv %u >/dev/null 2>&1 &"
+
+#run-on-startup set browser 'mpv' #Working
+
 auto-reload yes
+external-url-viewer "scan -dc -r 'linkhandler {}'"
+goto-next-feed no
+datetime-format "%d-%b-%Y"
+articlelist-format "%4i %f %D %?T?|%-17T| ?%t"
+bind-key SPACE macro-prefix
 
-external-url-viewer "urlscan -dc -r 'linkhandler {}'"
+#Podboat options
+player "mpv"
+download-path "~/Downloads/%N"
+podlist-format "%4i [%6dMB/%6tMB] [%5p %%] [%12K] %-20S %b"
 
+
+#Arrow keys for navigation
+bind-key DOWN down
+bind-key UP up
+bind-key RIGHT open
+bind-key LEFT quit
+
+#More vim-like keys
 bind-key j down
 bind-key k up
 bind-key j next articlelist
@@ -12,6 +36,8 @@ bind-key K prev-feed articlelist
 bind-key G end
 bind-key g home
 bind-key d pagedown
+bind-key ^F pagedown
+bind-key ^B pageup
 bind-key u pageup
 bind-key l open
 bind-key h quit
@@ -21,6 +47,10 @@ bind-key N prev-unread
 bind-key D pb-download
 bind-key U show-urls
 bind-key x pb-delete
+bind-key p pb-play
+bind-key a pb-toggle-download-all
+bind-key TAB toggle-article-read
+
 
 color listnormal cyan default
 color listfocus black yellow standout bold
@@ -29,18 +59,27 @@ color listfocus_unread yellow default bold
 color info red black bold
 color article white default bold
 
+
 browser linkhandler
 macro , open-in-browser
 macro t set browser "qndl" ; open-in-browser ; set browser linkhandler
 macro a set browser "tsp youtube-dl --add-metadata -xic -f bestaudio/best" ; open-in-browser ; set browser linkhandler
 macro v set browser "dunstify 'Playing newsboat link' && i3 exec 'mpv --profile=podcast --fullscreen=no'" ; open-in-browser ; set browser linkhandler
 #macro v set browser "setsid -f mpv" ; open-in-browser ; set browser linkhandler
+#macro y set browser "mpv %u" ; open-in-browser ; set browser "elinks %u"
 macro w set browser "lynx" ; open-in-browser ; set browser linkhandler
-macro d set browser "dmenuhandler" ; open-in-browser ; set browser linkhandler
+#macro d set browser "dmenuhandler" ; open-in-browser ; set browser linkhandler
 macro c set browser "xsel -b <<<" ; open-in-browser ; set browser linkhandler
-macro C set browser "youtube-viewer --comments=%u" ; open-in-browser ; set browser linkhandler
-macro p set browser "peertubetorrent %u 480" ; open-in-browser ; set browser linkhandler
-macro P set browser "peertubetorrent %u 1080" ; open-in-browser ; set browser linkhandler
+#macro C set browser "youtube-viewer --comments=%u" ; open-in-browser ; set browser linkhandler
+#macro p set browser "peertubetorrent %u 480" ; open-in-browser ; set browser linkhandler
+#macro P set browser "peertubetorrent %u 1080" ; open-in-browser ; set browser linkhandler
+#macro p set browser "notify-send 'Playing newsboat link' && mpv --no-fullscreen %u >/dev/null 2>&1 &"; one; set browser firefox
+macro p set browser "mpv --no-fullscreen %u >/dev/null 2>&1 &"; one; set browser firefox
+macro d set browser "echo 'Downloading %u' &&  curl --progress-bar -C - --output-dir ~/Downloads -LO %u"; one; set browser firefox
+#macro d set browser "curl --output-dir ~/Downloads -LO"; one; set browser firefox
+
+
+
 
 highlight all "---.*---" yellow
 highlight feedlist ".*(0/0))" black
