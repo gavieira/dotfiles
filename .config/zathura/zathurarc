@@ -1,3 +1,4 @@
+set guioptions none #Disable bottom statusbar
 set sandbox none
 set selection-clipboard clipboard
 #set search-hadjust false
@@ -49,8 +50,8 @@ map [fullscreen] [ jumplist backward
 map m jumplist forward
 map [fullscreen] m jumplist forward
 
-map m jumplist backward
-map [fullscreen] m jumplist backward
+map n jumplist backward
+map [fullscreen] n jumplist backward
 
 map <C-l> jumplist forward
 map [fullscreen] <C-l> jumplist forward
