@@ -8,6 +8,8 @@ set selection-clipboard clipboard
 #set window-height 3000
 #set window-width 3000
 
+#set default-bg "#FFFFFF"
+
 map f toggle_fullscreen
 map [fullscreen] f toggle_fullscreen
 
@@ -58,3 +60,21 @@ map [fullscreen] <C-l> jumplist forward
 
 map <C-h> jumplist backward
 map [fullscreen] <C-h> jumplist backward
+
+map <S-Down> navigate next
+map [fullscreen] <S-Down> navigate next
+
+map <S-Up> navigate previous
+map [fullscreen] <S-Up> navigate previous
+
+map <S-Right> scroll half-down
+map [fullscreen] <S-Right> scroll half-down
+
+map <S-Left> scroll half-up
+map [fullscreen] <S-Left> scroll half-up
+
+map L scroll half-down
+map [fullscreen] L scroll half-down
+
+map H scroll half-up
+map [fullscreen] H scroll half-up
