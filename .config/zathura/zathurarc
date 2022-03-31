@@ -1,4 +1,5 @@
 set guioptions none #Disable bottom statusbar
+set adjust-open "width" # Open document in fit-width mode by default
 set sandbox none
 set selection-clipboard clipboard
 #set search-hadjust false
