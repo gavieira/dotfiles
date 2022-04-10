@@ -52,6 +52,7 @@ bind-key U show-urls
 bind-key x pb-delete
 bind-key p pb-play
 bind-key a pb-toggle-download-all
+bind-key f pb-mark-as-finished
 bind-key SPACE toggle-article-read
 
 
