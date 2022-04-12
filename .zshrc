@@ -232,8 +232,9 @@ export BLASTDB="$HOME/blastdb"
 #Setting termite as default TERM
 export TERM=termite
 
-#Setting shortcus to nnn extensions
+#Setting NNN plugins and sshfs options
 export NNN_PLUG='g:fzcd;p:mpv;s:subliminal;f:ffsubsync;j:autojump;t:nmount;v:imgview'
+export NNN_SSHFS='sshfs -o reconnect,idmap=user,cache_timeout=3600'
 
 #Setting default permissions for new files using umask (could be permanently changed in /etc/profile)"
 #umask 002
