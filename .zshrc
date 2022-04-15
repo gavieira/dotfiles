@@ -87,8 +87,8 @@ plugins=(git
 	 pass
 	 rsync
 	 sudo
-	 zsh-syntax-highlighting
 	 zsh-autosuggestions
+	 zsh-syntax-highlighting
 	)
 
 source $ZSH/oh-my-zsh.sh
@@ -132,11 +132,12 @@ alias n="nnn"
 #alias nnn="nnn -e" #The '-e' flag opens text in $VISUAL/$EDITOR/vi
 alias z="zathura"
 alias o="xdg-open"
-alias tka="tmux kill-server" #Kills all tmux sessions
+alias tkass="pkill -f tmux" #Kills all tmux sessions
 
 #Aliases for wps office
 alias wpspread="et"
 alias wpspres="wpp"
+
 
 # Activating vim mode
  set -o vi
@@ -232,10 +233,16 @@ export BLASTDB="$HOME/blastdb"
 #Setting termite as default TERM
 export TERM=termite
 
-#Setting NNN plugins and sshfs options
+#Setting NNN variables
 export NNN_PLUG='g:fzcd;p:mpv;s:subliminal;f:ffsubsync;j:autojump;t:nmount;v:imgview'
 export NNN_SSHFS='sshfs -o reconnect,idmap=user,cache_timeout=3600'
+export NNN_BMS="b:${XDG_CONFIG_HOME:-$HOME/.config}/nnn/bookmarks;m:${XDG_CONFIG_HOME:-$HOME/.config}/nnn/mounts;p:${XDG_CONFIG_HOME:-$HOME/.config}/nnn/plugins;s:${XDG_CONFIG_HOME:-$HOME/.config}/nnn/sessions"
 
 #Setting default permissions for new files using umask (could be permanently changed in /etc/profile)"
 #umask 002
 #
+#
+#Auto enter i3 on startup
+#if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+#	  exec startx
+#fi
