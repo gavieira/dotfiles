@@ -12,9 +12,11 @@ flat_list = [item for sublist in files_grabbed for item in sublist]
 
 
 sublist = {}
+srt_list = glob.glob("*.srt")
 for file in flat_list:
     basename = os.path.splitext(file)[0]
-    sublist[file] = glob.glob(f"{basename}*srt")
+    sublist[file] = [srt for srt in srt_list if srt.startswith(basename)] #Only associates subtitle to video if .srt file has same basename
+    print(sublist)
 
 
 for video, subtitles in sublist.items():
