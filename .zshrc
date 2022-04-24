@@ -132,7 +132,8 @@ alias n="nnn"
 #alias nnn="nnn -e" #The '-e' flag opens text in $VISUAL/$EDITOR/vi
 alias z="zathura"
 alias o="xdg-open"
-alias tkass="pkill -f tmux" #Kills all tmux sessions
+alias tka="tmux kill-server" #Kills all tmux sessions
+
 
 #Aliases for wps office
 alias wpspread="et"
