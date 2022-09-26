@@ -21,7 +21,8 @@ current_rotation() {
 
 
 #If the current_rotation is 'normal', changes it to 'left'. If it's not, reverts to 'normal'.
-if [ "$(current_rotation)" == "normal" ]; then
+#echo "$(current_rotation)"
+if [[ $(current_rotation) == *"normal"* ]]; then
 	#echo "Current rotation is normal"
 	xrandr --output $1 --rotate left --auto 
 else  
