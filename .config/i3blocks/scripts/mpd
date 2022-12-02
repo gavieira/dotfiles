@@ -15,8 +15,12 @@ TITLE=$(basename "${FILEPATH%%.*}")
 
 #Getting state of file (playing or paused)
 STATE=$(mpc status %state%)
+STATE=${STATE^^} #Getting uppercase
+
+#Getting playback percentage of track
 PERCENT=$(mpc status %percenttime%)
 
+#Getting other indicators
 if [[ "$(mpc status %repeat%)" == "on" ]];
 then REPEAT='R';
 else REPEAT='';
@@ -38,7 +42,8 @@ else TRACK='';
 fi
 
 #Printing a more concise status line
-echo "$TITLE ($STATE)"
+#echo "$TITLE ($STATE)"
+echo "$STATE: $TITLE"
 
 #Printing everything
 #echo "$TITLE ($STATE - $PERCENT) $REPEAT$SHUFFLE$TRACK"
