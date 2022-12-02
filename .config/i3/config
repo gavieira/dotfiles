@@ -91,7 +91,9 @@ bindsym $mod+Shift+plus exec mpc seek +5
 bindsym $mod+Shift+underscore exec mpc seek -5
 bindsym $mod+Shift+greater exec mpc next
 bindsym $mod+Shift+less exec mpc prev
-
+#bindsym $mod+o exec mpc single && notify-send -e "Repeat track: $(mpc status %single%)"
+bindsym $mod+o exec mpc single 
+bindsym $mod+Shift+o exec mpc random
 
 #bindsym $mod+p exec playerctl play-pause
 #bindsym $mod+Shift+plus exec playerctl position +5
@@ -264,10 +266,10 @@ bindsym $mod+equal scratchpad show
 #bindsym $mod+Shift+m scratchpad show
 
 #bindsym $mod+m move scratchpad 
-#bindsym $mod+n scratchpad show
+bindsym $mod+n scratchpad show
 
 #bindsym $mod+n move scratchpad 
-bindsym $mod+m scratchpad show
+bindsym $mod+Shift+m scratchpad show
 
 
 # If window goes to floating, set its size and position (works only once)
@@ -353,7 +355,7 @@ bindsym $mod+z exec $references
 bindsym $mod+Shift+z exec $conference
 bindsym $mod+b exec $browser
 #bindsym $mod+p exec $pdf # Haven't been using this at all
-bindsym $mod+Shift+m exec $music
+bindsym $mod+m exec $music
 #bindsym $mod+Shift+m exec $terminal -e $music; $ws10 #For pcs without alacritty
 #bindsym $mod+Shift+n exec $video
 bindsym $mod+t exec $text

@@ -1,13 +1,14 @@
 #General newsboat options
 #show-read-feeds no
 
-#browser "notify-send -t 2000 'opening link with xdg-open' && xdg-open %u >/dev/null 2>&1 || notify-send -u 'critical' -t 5000 'something went wrong' &"
-browser "notify-send -t 2000 'playing newsboat link' && mpv --profile=podcast %u >/dev/null 2>&1 || notify-send -u 'critical' -t 5000 'something went wrong' &"
+#browser "notify-send -t 2000 'playing newsboat link' && mpv --profile=podcast %u >/dev/null 2>&1 || notify-send -u 'critical' -t 5000 'something went wrong' &"
+browser "mpc clear && mpc add %u && mpc play" 
 
 #run-on-startup set browser 'mpv' #Working
 
 auto-reload yes
-external-url-viewer "scan -dc -r 'linkhandler {}'"
+#external-url-viewer "scan -dc -r 'linkhandler {}'"
+external-url-viewer "mpv %u"
 goto-next-feed no
 datetime-format "%d-%b-%Y"
 articlelist-format "%4i %f %D %?T?|%-17T| ?%t"
@@ -52,9 +53,7 @@ bind-key U show-urls
 bind-key x pb-delete
 bind-key p pb-play
 bind-key a pb-toggle-download-all
-bind-key f pb-mark-as-finished
 bind-key SPACE toggle-article-read
-
 
 color listnormal cyan default
 color listfocus black yellow standout bold
@@ -65,6 +64,7 @@ color article white default bold
 
 
 macro , open-in-browser
+macro o set browser "notify-send -t 2000 'playing newsboat link' && mpv --profile=podcast %u >/dev/null 2>&1 || notify-send -u 'critical' -t 5000 'something went wrong' &"; open-in-browser; set browser "mpc clear && mpc add %u && mpc play" 
 macro t set browser "qndl" ; open-in-browser ; set browser linkhandler
 macro a set browser "tsp youtube-dl --add-metadata -xic -f bestaudio/best" ; open-in-browser ; set browser linkhandler
 macro v set browser "dunstify 'Playing newsboat link' && i3 exec 'mpv --profile=podcast --fullscreen=no'" ; open-in-browser ; set browser linkhandler
