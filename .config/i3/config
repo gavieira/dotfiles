@@ -20,33 +20,27 @@ set $wallpapers ~/.config/i3/wallpapers
 
 #Setting default programs
 set $terminal lxterminal
-set $torrent transmission-gtk
 set $libreoffice_instance soffice
-set $pomodoro pomotroid
+set $pomodoro pomotroid --disable-gpu-sandbox
 set $references zotero
 set $conference zoom
-set $screencast obs
-set $ide rstudio-daily-bin
+set $ide rstudio-bin
 set $text emacs
 set $email neomutt
 set $browser firefox
-#set $browser brave
 #set $browser qutebrowser
-#set $pdf zathura
-set $pdf okular
+set $pdf zathura
 #set $music clementine
 #set $music cmus
-set $music alacritty --class cmus -e cmus 
+set $music lxterminal -e ncmpcpp
 set $video smplayer
-#set $localhost "firefox -new-window http://localhost:8888/"
+set $localhost "firefox -new-window http://localhost:8888/"
 set $stream_watch "~/.config/stream_watch.sh"
-set $animeyabu_script "python ~/.config/animeyabu_playlist.py $(xclip -o -selection clipboard)"
+set $goyabu_script "python ~/.config/goyabu_playlist.py $(xclip -o -selection clipboard)"
 set $screenshot flameshot gui
-set $sysmonitor conky
 
 #Setting monitors
 set $monitor1 LVDS1
-set $altmonitor1 eDP1
 set $monitor2 VGA1
 set $monitor3 HDMI1
 
@@ -76,9 +70,12 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+
 # use xbacklight to adjust screen brightness
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+
+
 
 # Alternative bindings to adjust screen brightness and volume
 
@@ -87,6 +84,20 @@ bindsym $mod+bracketleft exec --no-startup-id pactl set-sink-volume @DEFAULT_SIN
 
 bindsym $mod+period exec xbacklight -inc 10 # increase screen brightness
 bindsym $mod+comma exec xbacklight -dec 10 # decrease screen brightness
+
+# use mpc to pause, seek or go to next/previous songs
+bindsym $mod+p exec mpc toggle 
+bindsym $mod+Shift+plus exec mpc seek +5
+bindsym $mod+Shift+underscore exec mpc seek -5
+bindsym $mod+Shift+greater exec mpc next
+bindsym $mod+Shift+less exec mpc prev
+
+
+#bindsym $mod+p exec playerctl play-pause
+#bindsym $mod+Shift+plus exec playerctl position +5
+#bindsym $mod+Shift+underscore exec playerctl position -5
+#bindsym $mod+Shift+greater exec playerctl next
+#bindsym $mod+Shift+less exec playerctl previous
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -147,6 +158,7 @@ bindsym $mod+e layout toggle split
 # toggle tiling / floating
 #bindsym $mod+Shift+space floating toggle
 
+
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
@@ -167,17 +179,7 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10:Music"
-#set $ws1 "1"
-#set $ws2 "2"
-#set $ws3 "3"
-#set $ws4 "4"
-#set $ws5 "5"
-#set $ws6 "6"
-#set $ws7 "7"
-#set $ws8 "8"
-#set $ws9 "9"
-#set $ws10 "10"
+set $ws10 "10"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -202,19 +204,6 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
-
-# move workspace to current output
-bindsym $mod+Control+1 [workspace=1] move workspace to output current
-bindsym $mod+Control+2 [workspace=2] move workspace to output current
-bindsym $mod+Control+3 [workspace=3] move workspace to output current
-bindsym $mod+Control+4 [workspace=4] move workspace to output current
-bindsym $mod+Control+5 [workspace=5] move workspace to output current
-bindsym $mod+Control+6 [workspace=6] move workspace to output current
-bindsym $mod+Control+7 [workspace=7] move workspace to output current
-bindsym $mod+Control+8 [workspace=8] move workspace to output current
-bindsym $mod+Control+9 [workspace=9] move workspace to output current
-bindsym $mod+Control+0 [workspace=10] move workspace to output current
-
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -256,18 +245,14 @@ bar {
 	position top
 	separator_symbol "|"
 	workspace_buttons yes
-	tray_output primary
+	#tray_output primary
 	strip_workspace_numbers no
 	strip_workspace_name no
 	#i3bar_command i3bar --transparency
-        status_command i3status
+        #status_command i3status
+        #status_command $HOME/.config/i3/custom_i3status.sh
+        status_command i3blocks
 }
-
-#Start polybar
-
-#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
-
 
 ##### CUSTOM WORKSPACE KEYBINDINGS #####
 
@@ -282,7 +267,6 @@ bindsym $mod+equal scratchpad show
 #bindsym $mod+n scratchpad show
 
 #bindsym $mod+n move scratchpad 
-bindsym $mod+n scratchpad show
 bindsym $mod+m scratchpad show
 
 
@@ -322,16 +306,16 @@ bindsym $mod+g split toggle
 
 ##### ASSIGNING WORKSPACES TO MONITORS #####
 
-workspace $ws1 output primary
-workspace $ws2 output $monitor2 $monitor3
-workspace $ws3 output $monitor2 $monitor3
-workspace $ws4 output $monitor2 $monitor3
-workspace $ws5 output primary
-#workspace $ws6 output primary $monitor2 $monitor3
-#workspace $ws7 output primary $monitor2 $monitor3
-#workspace $ws8 output primary $monitor2 $monitor3
-#workspace $ws9 output primary $monitor2 $monitor3
-workspace $ws10 output $monitor2 $monitor3
+workspace $ws1  output $monitor2 $monitor1
+workspace $ws2  output $monitor2 $monitor3
+workspace $ws3  output $monitor2 $monitor3
+workspace $ws4  output $monitor2 $monitor3
+workspace $ws5  output $monitor1 $monitor2 $monitor3
+workspace $ws6  output $$monitor1 monitor2 $monitor3
+workspace $ws7  output $$monitor1 monitor2 $monitor3
+workspace $ws8  output $$monitor1 monitor2 $monitor3
+workspace $ws9  output $$monitor1 monitor2 $monitor3
+workspace $ws10  output $monitor1 $monitor2 $monitor3
 
 
 ##### SETTING CUSTOM OPTIONS/KEYBINDINGS #####
@@ -347,14 +331,10 @@ floating_maximum_size 852 x 480
 
 #Back and forth two workspaces
 workspace_auto_back_and_forth yes #Pressing the workspace key twice will return to previous workspace
-bindsym $mod+ccedilla workspace back_and_forth
+#bindsym $mod+Tab focus output right
 bindsym $mod+Tab workspace back_and_forth
 
-#Back and forth outputs (There is a wrap around so it seems to toggle between my two monitors)
-#bindsym $mod+Tab focus output right
-#bindsym $mod+Tab workspace back_and_forth
-
-#bindsym $mod+Mod1+h focus output left
+bindsym $mod+ccedilla workspace back_and_forth
 #bindsym $mod+Mod1+l focus output right
 
 #Mouse won't warp to center of focused window
@@ -377,15 +357,14 @@ bindsym $mod+Shift+m exec $music
 #bindsym $mod+Shift+m exec $terminal -e $music; $ws10 #For pcs without alacritty
 #bindsym $mod+Shift+n exec $video
 bindsym $mod+t exec $text
-bindsym $mod+Shift+t exec $torrent
 bindsym $mod+i exec $ide
 bindsym $mod+u exec $stream_watch
 bindsym $mod+Shift+u exec $animeyabu_script
-bindsym $mod+p exec $pomodoro
+bindsym $mod+Shift+p exec $pomodoro
 bindsym Print exec $screenshot
-bindsym $mod+o exec $screencast
+bindsym $mod+Control+r exec ~/.config/toggle_output_rotation.sh VGA1
 
-#bindsym $mod+y exec $localhost
+bindsym $mod+y exec $localhost
 #for_window [class="(?i)firefox" title="^Jupyter.*"] move to workspace $ws1, workspace $ws1
 
 
@@ -402,22 +381,13 @@ assign [class="(?i)$ide"] $ws1
 assign [class="(?i)$browser"] $ws2
 #for_window [class="(?i)$browser"] focus 
 
+assign [class="(?i)firefox"] $ws2
+for_window [class="(?i)firefox"] focus
+
 # Opens zathura in ws3 and focus on the newly created window
 assign [class="(?i)$references"] $ws3
-assign [class="(?i)$pdf"] $ws3
 #for_window [class="(?i)$pdf"] focus
 #for_window [class="(?i)$pdf"] fullscreen
-
-
-# Set layout tabbed for ws3 (pdf workspace)
-
-## Everytime a new window is opened on ws3, the layout reverts to tabbed
-#for_window [workspace=$ws3] layout tabbed 
-
-## Sets ws3 to tabbed on startup (executed once)
-#exec --no-startup-id "i3-msg 'workspace 2; layout tabbed'"
-
-
 
 # Opens pdf in ws3 and focus on the newly created window
 #assign [class="(?i)$pdf"] $ws3
@@ -426,11 +396,11 @@ assign [class="(?i)$pdf"] $ws3
 assign [class="Mendeley Desktop"] $ws3
 #for_window [class="Mendeley Desktop"] focus
 
-assign [class="(?i)$music"] $ws10
-for_window [class="(?i)$music"] focus 
+#assign [class="(?i)$music"] $ws10
+#for_window [class="(?i)$music"] focus 
 
 
-assign [class="Alacritty" instance="cmus"] $ws10
+#assign [class="Alacritty" instance="cmus"] $ws10
 #for_window [class="Alacritty" instance="cmus"] move scratchpad focus 
 
 assign [class="(?i)$video"] $ws4
@@ -454,29 +424,18 @@ for_window [class=".*"] title_format "<b>%title</b> | class=%class | instance=%i
 
 #Monitors
 
-#Autorandr - Only needed if autorandr.service is disabled
-#exec_always autorandr --change
-
 #Monitor 2 - 1920x1080
-#exec_always xrandr --output $monitor1 --primary --mode 1366x768 --pos 0x0 --rotate normal --output DP1 --off --output $monitor3 --off --output $monitor2 --mode 1366x768 --pos 1366x0 --rotate normal --output VIRTUAL1 --off
+exec_always xrandr --output $monitor1 --primary --mode 1366x768 --pos 0x0 --rotate normal --output DP1 --off --output $monitor3 --off --output $monitor2 --mode 1366x768 --pos 1366x0 --rotate normal --output VIRTUAL1 --off
 
 
 #Monitor 3 - 1920x1080
-#exec_always xrandr --output $monitor1 --primary --mode 1366x768 --pos 0x0 --rotate normal --output DP1 --off --output $monitor3 --mode 1920x1080 --pos 1366x0 --rotate normal --output $monitor2 --off --output VIRTUAL1 --off
+exec_always xrandr --output $monitor1 --primary --mode 1366x768 --pos 0x0 --rotate normal --output DP1 --off --output $monitor3 --mode 1920x1080 --pos 1366x0 --rotate normal --output $monitor2 --off --output VIRTUAL1 --off
 
 #Dropbox
 exec --no-startup-id dropbox 
 
-#dunst
-exec --no-startup-id dunst
-
-#System monitor
-#exec --no-startup-id $sysmonitor
-
-#Torrent
-#exec --no-startup-id $torrent
-#Line below works for transmission:
-exec --no-startup-id $torrent --minimized 
+#autorandr
+exec --no-startup-id autorandr -c
 
 #email client (NOT WORKING)
 #exec_always --no-startup-id 'alacritty --class $email -e $email'
@@ -492,10 +451,11 @@ exec --no-startup-id $torrent --minimized
 
 #Setting wallpapers permanetly (needs feh)
 #Will randomly pick one image from the wallpapers directory
-exec_always --no-startup-id feh --bg-scale --randomize $wallpapers/ankh-morpork.jpg
+#exec_always --no-startup-id feh --bg-scale --randomize $wallpapers/*
+exec_always --no-startup-id feh --bg-scale  $wallpapers/elden_ring.png
 
 #Keep screen always on:
-exec_always --no-startup-id xset s off && xset -dpms
+#exec_always --no-startup-id xset s off && xset -dpms
 
 #Add Menu and Caps_Lock keys to mod4 list (somehow Caps did not work with xmodmap)
 exec_always --no-startup-id setxkbmap -option caps:super && xmodmap -e "keycode 135 = Super_L"
@@ -569,8 +529,3 @@ mode "vim mode: h for left, j for down, k for up, l for right" {
 }
 
 bindsym $mod+Shift+v mode "vim mode: h for left, j for down, k for up, l for right"; exec $vim_mode_enter; 
-
-#Dunst close keybinding
-#bindsym Control+Mod1+space exec dunstctl close
-#bindsym Mod1+Shift+space exec dunstctl close
-bindsym Shift+space exec dunstctl close

@@ -1,0 +1,45 @@
+#!/bin/sh
+
+#[Add script documentation here]
+
+#Author: Gabriel Alves Vieira
+#email: gabrieldeusdeth@gmail.com
+#github: https://github.com/gavieira
+#Date: [Add date here]
+
+#Getting complete filepath:
+FILEPATH=$(mpc current)
+
+#Using bash to remove extension of audio file (Source: https://stackoverflow.com/questions/965053/extract-filename-and-extension-in-bash)
+TITLE=$(basename "${FILEPATH%%.*}")
+
+#Getting state of file (playing or paused)
+STATE=$(mpc status %state%)
+PERCENT=$(mpc status %percenttime%)
+
+if [[ "$(mpc status %repeat%)" == "on" ]];
+then REPEAT='R';
+else REPEAT='';
+fi
+
+if [[ "$(mpc status %repeat%)" == "on" ]];
+then REPEAT='R';
+else REPEAT='';
+fi
+
+if [[ "$(mpc status %random%)" == "on" ]];
+then SHUFFLE='S';
+else SHUFFLE='';
+fi
+
+if [[ "$(mpc status %single%)" == "on" ]];
+then TRACK='T';
+else TRACK='';
+fi
+
+#Printing a more concise status line
+echo "$TITLE ($STATE)"
+
+#Printing everything
+#echo "$TITLE ($STATE - $PERCENT) $REPEAT$SHUFFLE$TRACK"
+

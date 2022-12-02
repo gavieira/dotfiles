@@ -25,9 +25,16 @@
 # The top properties below are applied to every block, but can be overridden.
 # Each block command defaults to the script name to avoid boilerplate.
 # Change $SCRIPT_DIR to the location of your scripts!
-command=$SCRIPT_DIR/$BLOCK_NAME
+#command=$SCRIPT_DIR/$BLOCK_NAME
+command=$HOME/.config/i3blocks/scripts/$BLOCK_NAME
 separator_block_width=15
 markup=none
+
+#mpd current song
+[mpd]
+interval=1
+min_width=100
+align=left
 
 # Volume indicator
 #
@@ -46,15 +53,16 @@ signal=10
 #
 # The type defaults to "mem" if the instance is not specified.
 [memory]
-label=MEM
-separator=false
+label=RAM:
+#separator=false
 interval=30
 
-[memory]
-label=SWAP
-instance=swap
-separator=false
-interval=30
+#Uncomment to display SWAP memory
+#[memory]
+#label=SWAP
+#instance=swap
+#separator=false
+#interval=30
 
 # Disk usage
 #
@@ -62,7 +70,7 @@ interval=30
 # The script may be called with a optional argument to set the alert
 # (defaults to 10 for 10%).
 [disk]
-label=HOME
+label=HOME:
 #DIR=/mnt/data
 interval=30
 
@@ -80,7 +88,7 @@ separator=false
 #INTERFACE=wlp3s0
 label=wifi:
 interval=10
-separator=false
+#separator=false
 
 [bandwidth]
 #INTERFACE=eth0
@@ -104,14 +112,15 @@ interval=10
 #
 # The battery instance defaults to 0.
 [battery]
-label=BAT
+label=BAT:
 #label=⚡
 interval=30
 
 # Date Time
 #
 [time]
-command=date '+%Y-%m-%d %H:%M:%S'
+#command=date '+%Y-%m-%d %H:%M:%S'
+command=date '+%d/%b/%y %H:%M'
 interval=5
 
 # Generic media player support
@@ -158,12 +167,12 @@ interval=5
 #interval=once
 #signal=11
 
-[logout]
-full_text=Logout
-min_width=75
-align=center
-command=dm-tool switch-to-greeter
-interval=0
-background=#650000
-color=#FFAAAA
+#[logout]
+#full_text=Logout
+#min_width=75
+#align=center
+#command=dm-tool switch-to-greeter
+#interval=0
+#background=#650000
+#color=#FFAAAA
 
