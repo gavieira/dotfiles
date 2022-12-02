@@ -14,11 +14,12 @@ MUSIC_DIR=$HOME/Music
 FILEPATH=$(mpc current)
 
 
-#If music is not a file or a url, keep the title unmodified
-#Useful for not messing with stream titles coming from newsboat
-#Here, we use shell expansion to remove extension of audio file (Source: https://stackoverflow.com/questions/965053/extract-filename-and-extension-in-bash)
+#mpc only returns a filepath if metadata (e.g. "Artist") is not available
+#i.e. the outputs of `mpc current` and `mpc %file% current` can be different, though you can set a default format with the MPC_FORMAT variable
+#If music is not a file or a url, this block will keep the title unmodified
+#Useful for not messing with files with properly configured metadata
 if [[ -f $MUSIC_DIR/$FILEPATH ]] || [[ $FILEPATH == https* ]];
-then TITLE=$(basename "${FILEPATH%.*}"); #Shell expansion
+then TITLE=$(basename "${FILEPATH%.*}"); #Shell expansion to remove file extension
 else TITLE=$FILEPATH; #If not url or file, do not mess with title
 fi
 
