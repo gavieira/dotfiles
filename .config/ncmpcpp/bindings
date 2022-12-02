@@ -14,6 +14,40 @@ def_key "j"
 def_key "k"
     scroll_up
 
+def_key "x"
+    delete_playlist_items
+
+def_key "s"
+    page_up
+def_key "d"
+    page_down
+
+def_key "f"
+  toggle_crossfade
+def_key "F"
+  set_crossfade
+
+def_key "L"
+  seek_forward
+def_key "H"
+  seek_backward
+
+def_key "l"
+  enter_directory
+def_key "h"
+  jump_to_parent_directory
+
+#def_key "l"
+#  play_item
+#def_key "l"
+#  run_action
+
+#def_key "g"
+#    Home
+#def_key "G"
+#    End
+
+
 def_key "ctrl-u"
     page_up
 #push_characters "kkkkkkkkkkkkkkk"
