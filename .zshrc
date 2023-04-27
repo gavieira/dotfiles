@@ -236,7 +236,7 @@ export TERM=termite
 
 #Setting NNN variables
 export NNN_PLUG='g:fzcd;p:mpv;s:subliminal;f:ffsubsync;j:autojump;t:nmount;v:imgview'
-export NNN_SSHFS='sshfs -o reconnect,idmap=user,cache_timeout=3600'
+export NNN_SSHFS='sshfs -o follow_symlinks,reconnect,idmap=user,cache_timeout=3600'
 export NNN_BMS="b:${XDG_CONFIG_HOME:-$HOME/.config}/nnn/bookmarks;m:${XDG_CONFIG_HOME:-$HOME/.config}/nnn/mounts;p:${XDG_CONFIG_HOME:-$HOME/.config}/nnn/plugins;s:${XDG_CONFIG_HOME:-$HOME/.config}/nnn/sessions"
 
 #Setting default permissions for new files using umask (could be permanently changed in /etc/profile)"
