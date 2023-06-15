@@ -42,10 +42,11 @@ def_key "h"
 #def_key "l"
 #  run_action
 
-#def_key "g"
-#    Home
-#def_key "G"
-#    End
+
+def_key "g"
+  move_home
+def_key "G"
+  move_end
 
 
 def_key "ctrl-u"
