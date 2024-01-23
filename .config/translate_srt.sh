@@ -15,7 +15,7 @@ directory="${1%/}"
 translate_srt() {
     file="$1"
 	echo "Translating ${srt_file}"
-    trans -b "$source_lang:$target_lang" -i "$file" -o "${file%.srt}_translated.srt" > /dev/null
+    trans -b "$source_lang:$target_lang" -i "$file" -o "${file%.srt}.pt-BR.srt" > /dev/null
 	echo "Translated ${srt_file}"
 }
 
