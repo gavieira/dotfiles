@@ -6,7 +6,7 @@ source_lang="en"
 target_lang="pt-BR"  # Change this to your target language
 
 # Naming pattern for translated files
-translated_pattern="translated.srt"
+translated_pattern="pt-BR.srt"
 
 # Directory containing the .srt files
 directory="${1%/}"
