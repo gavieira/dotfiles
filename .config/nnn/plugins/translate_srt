@@ -6,17 +6,16 @@ source_lang="en"
 target_lang="pt-BR"  # Change this to your target language
 
 # Naming pattern for translated files
-translated_pattern="translated.srt"
+translated_pattern="pt-BR.srt"
 
 # Directory containing the .srt files
-#directory="${1%/}" #Add any directory
-directory="."
+directory="${1%/}"
 
 # Function to translate an SRT file
 translate_srt() {
     file="$1"
 	echo "Translating ${srt_file}"
-    trans -b "$source_lang:$target_lang" -i "$file" -o "${file%.srt}_translated.srt" > /dev/null
+    trans -b "$source_lang:$target_lang" -i "$file" -o "${file%.srt}.pt-BR.srt" > /dev/null
 	echo "Translated ${srt_file}"
 }
 

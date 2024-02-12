@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Save current IFS
+SAVEIFS=$IFS
+# Change IFS to newline
+IFS=$(echo -en "\n\b")
+
+# Find all video files in current directory and subdirectories
+video_files=$(find . -type f -name "*.mp4" -o -name "*.mkv" -o -name "*.avi" -o -name "*.mov")
+
+#echo "$video_files"
+
+# Iterate through each video file
+for file in $video_files; do
+    # Extract the subdirectory relative path
+    subdirectory=$(dirname $file)
+
+    # Check if the SRT file already exists
+    srt_file="${subdirectory}/$(basename "$file" | cut -f 1 -d '.').srt"
+    if [ -e "$srt_file" ]; then
+        echo "SRT file already exists for $file. Skipping."
+    else
+
+    	# Generate the SRT file using 'whisper'
+    	whisper "$file" --output_format srt --output_dir "$subdirectory"
+   fi
+done
+
+# Restore IFS
+IFS=$SAVEIFS
