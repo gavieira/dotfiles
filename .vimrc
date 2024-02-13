@@ -1,5 +1,6 @@
 set number 
 set linebreak
+set paste
 set hls "Search highlighting
 set ic 
 set clipboard+=unnamedplus "use system clipboard
