@@ -9,7 +9,8 @@ target_lang="pt-BR"  # Change this to your target language
 translated_pattern="pt-BR.srt"
 
 # Directory containing the .srt files
-directory="${1%/}"
+#directory="${1%/}" #Will require user to provide path
+directory="." #Assumes that path is current directory
 
 # Function to translate an SRT file
 translate_srt() {
