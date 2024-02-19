@@ -44,7 +44,7 @@ terminal = guess_terminal()
 browser = 'firefox'
 music = 'lxterminal -e ncmpcpp'
 ref_manager = 'zotero'
-print_screen = "flameshot"
+print_screen = "flameshot gui"
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -58,7 +58,7 @@ keys = [
     Key([mod], "right", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "down", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "up", lazy.layout.up(), desc="Move focus up"),
-  #Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
+    Key([mod], "space", lazy.window.toggle_floating(), desc="Toggle floating"),
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
     Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
@@ -92,7 +92,7 @@ keys = [
     ),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod], "b", lazy.spawn(browser), desc="Launch browser"),
-    #Key("Print", lazy.spawn(print_screen), desc="Prints screen"),
+    Key([], "Print", lazy.spawn(print_screen), desc="Prints screen"),
     Key([mod], "m", lazy.spawn(music), desc="Launch music player"),
     Key([mod], "p", lazy.spawn('mpc toggle'), desc="Launch music player"),
     Key([mod, "shift"], "period", lazy.spawn('mpc next'), desc="Previous track"),
@@ -105,9 +105,8 @@ keys = [
     Key([mod], "comma", lazy.spawn('brightnessctl set 10%-'), desc="Decrease brigthness"),
     Key([mod], "z", lazy.spawn(ref_manager), desc="Launch reference manager"),
     # Toggle between different layouts as defined below
-  #Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "Tab", lazy.screen.toggle_group(warp = False), desc="Toggle between screens"),
-    Key([mod], "Space", lazy.next_layout(), desc="Toggle between layouts"),
+    Key([mod], "Caps_Lock", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
     Key(
         [mod],
@@ -236,7 +235,8 @@ screens = [
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 widget.Systray(),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
+                widget.TextBox("|"),
+                widget.Clock(format="%d-%b %H:%M"),
                 widget.QuickExit(),
             ],
             24,
@@ -261,7 +261,7 @@ screens = [
                 widget.TextBox("|"),
                 widget.Volume(fmt = 'Vol: {}'),
                 widget.TextBox("|"),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p")
+                widget.Clock(format="%d-%b %H:%M"),
             ],
             24,
         ),
