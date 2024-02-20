@@ -69,7 +69,8 @@ keys = [
     Key([mod], "right", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "down", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "up", lazy.layout.up(), desc="Move focus up"),
-    Key([mod], "space", lazy.next_layout(), desc="Toggle between layouts"),
+    Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
+    Key([mod], "space", lazy.screen.toggle_group(warp = False), desc="Toggle between screens"),
     Key([mod, "shift"], "space", lazy.window.toggle_floating(), desc="Toggle floating"),
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
@@ -117,7 +118,6 @@ keys = [
     Key([mod], "comma", lazy.spawn('brightnessctl set 10%-'), desc="Decrease brigthness"),
     Key([mod], "z", lazy.spawn(ref_manager), desc="Launch reference manager"),
     # Toggle between different layouts as defined below
-    Key([mod], "Tab", lazy.screen.toggle_group(warp = False), desc="Toggle between screens"),
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
     Key(
         [mod],
@@ -174,7 +174,7 @@ for i in groups:
 
 layouts = [
     layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
-    layout.Max(),
+    #layout.Max(),
     # Try more layouts by unleashing below layouts.
     #layout.Stack(num_stacks=2),
     #layout.Bsp(),
@@ -183,7 +183,7 @@ layouts = [
     #layout.MonadWide(),
     #layout.RatioTile(),
     #layout.Tile(),
-    #layout.TreeTab(),
+    layout.TreeTab(),
     #layout.VerticalTile(),
     #layout.Zoomy(),
 ]
