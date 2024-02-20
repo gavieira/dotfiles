@@ -42,6 +42,7 @@ def autostart():
 def start_fullscreen(window):
     rules = [
         Match(wm_class="mpv")
+        #Add other applications in this list
     ]
 
     if any(window.match(rule) for rule in rules):
@@ -109,8 +110,8 @@ keys = [
     Key([mod, "shift"], "comma", lazy.spawn('mpc prev'), desc="Next track"),
     Key([mod], "o", lazy.spawn('mpc single'), desc="Repeat single track"),
     Key([mod, "shift"], "o", lazy.spawn(os.path.expanduser('~/.config/switch_monitors.sh'), shell = True), desc="Switch notebook mode"),
-    Key([mod], "bracketleft", lazy.spawn('amixer set Master 5%-'), desc="Decrease volume"),
-    Key([mod], "bracketright", lazy.spawn('amixer set Master 5%+'), desc="Increase volume"),
+    Key([mod], "bracketleft", lazy.spawn('pactl -- set-sink-volume 0 -5%'), desc="Decrease volume"),
+    Key([mod], "bracketright", lazy.spawn('pactl -- set-sink-volume 0 +5%'), desc="Increase volume"),
     Key([mod], "period", lazy.spawn('brightnessctl set 10%+'), desc="Increase brigthness"),
     Key([mod], "comma", lazy.spawn('brightnessctl set 10%-'), desc="Decrease brigthness"),
     Key([mod], "z", lazy.spawn(ref_manager), desc="Launch reference manager"),
@@ -221,7 +222,12 @@ screens = [
                 widget.Mpd2(status_format = '{play_status} {file} [{repeat}{random}{single}{consume}{updating_db}]',
                 format_fns = {'file': lambda file: get_filename_no_ext(file) } ),
                 widget.TextBox("|"),
-                widget.Volume(fmt = 'Vol: {}'),
+                widget.Volume(
+                    fmt = 'Vol: {}',
+                    volume_app = 'pactl',
+                    volume_down_command = 'pactl -- set-sink-volume 0 -5%',
+                    volume_up_command = 'pactl -- set-sink-volume 0 +5%',
+                    ),
                 widget.TextBox("|"),
                 widget.DF(
                     visible_on_warn = False,
@@ -269,7 +275,12 @@ screens = [
                 widget.Mpd2(status_format = '{play_status} {file} [{repeat}{random}{single}{consume}{updating_db}]',
                 format_fns = {'file': lambda file: get_filename_no_ext(file) } ),
                 widget.TextBox("|"),
-                widget.Volume(fmt = 'Vol: {}'),
+                widget.Volume(
+                    fmt = 'Vol: {}',
+                    volume_app = 'pactl',
+                    volume_down_command = 'pactl -- set-sink-volume 0 -5%',
+                    volume_up_command = 'pactl -- set-sink-volume 0 +5%',
+                    ),
                 widget.TextBox("|"),
                 widget.Clock(format="%d-%b %H:%M"),
             ],
@@ -323,4 +334,3 @@ wl_input_rules = None
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
-
