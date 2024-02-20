@@ -69,7 +69,8 @@ keys = [
     Key([mod], "right", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "down", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "up", lazy.layout.up(), desc="Move focus up"),
-    Key([mod], "space", lazy.window.toggle_floating(), desc="Toggle floating"),
+    Key([mod], "space", lazy.next_layout(), desc="Toggle between layouts"),
+    Key([mod, "shift"], "space", lazy.window.toggle_floating(), desc="Toggle floating"),
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
     Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
@@ -117,7 +118,6 @@ keys = [
     Key([mod], "z", lazy.spawn(ref_manager), desc="Launch reference manager"),
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.screen.toggle_group(warp = False), desc="Toggle between screens"),
-    Key([mod], "Caps_Lock", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
     Key(
         [mod],
