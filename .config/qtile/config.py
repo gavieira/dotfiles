@@ -37,6 +37,16 @@ def autostart():
     home = os.path.expanduser('~/.config/qtile/autostart.sh')
     subprocess.Popen([home])
 
+#programs to be opened in fullscreen
+@hook.subscribe.client_new
+def start_fullscreen(window):
+    rules = [
+        Match(wm_class="mpv")
+    ]
+
+    if any(window.match(rule) for rule in rules):
+        window.togroup(qtile.current_group.name)
+        window.toggle_fullscreen()
 
 mod = "mod4"
 mod1 = "Menu"
@@ -313,3 +323,4 @@ wl_input_rules = None
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
+
