@@ -31,24 +31,6 @@ from libqtile.utils import guess_terminal
 import os, subprocess
 
 
-#startup programs
-@hook.subscribe.startup_once
-def autostart():
-    home = os.path.expanduser('~/.config/qtile/autostart.sh')
-    subprocess.Popen([home])
-
-#programs to be opened in fullscreen
-@hook.subscribe.client_new
-def start_fullscreen(window):
-    rules = [
-        Match(wm_class="mpv")
-        #Add other applications in this list
-    ]
-
-    if any(window.match(rule) for rule in rules):
-        window.togroup(qtile.current_group.name)
-        window.toggle_fullscreen()
-
 mod = "mod4"
 mod1 = "Menu"
 terminal = guess_terminal()
@@ -61,17 +43,17 @@ keys = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
     # Switch between windows
-    Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
-    Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
+    Key([mod], "h", lazy.layout.left(), lazy.group.prev_window().when(layout = 'max'),  desc="Move focus to left"),
+    Key([mod], "l", lazy.layout.right(), lazy.group.next_window().when(layout = 'max'), desc="Move focus to right"),
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
     Key([mod], "left", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "right", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "down", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "up", lazy.layout.up(), desc="Move focus up"),
-    Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
-    Key([mod], "space", lazy.screen.toggle_group(warp = False), desc="Toggle between screens"),
+    Key([mod], "space", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod, "shift"], "space", lazy.window.toggle_floating(), desc="Toggle floating"),
+    Key([mod], "Tab", lazy.screen.toggle_group(warp = False), desc="Toggle between screens"),
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
     Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
@@ -174,7 +156,7 @@ for i in groups:
 
 layouts = [
     layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
-    #layout.Max(),
+    layout.Max(),
     # Try more layouts by unleashing below layouts.
     #layout.Stack(num_stacks=2),
     #layout.Bsp(),
@@ -183,7 +165,7 @@ layouts = [
     #layout.MonadWide(),
     #layout.RatioTile(),
     #layout.Tile(),
-    layout.TreeTab(),
+    #layout.TreeTab(),
     #layout.VerticalTile(),
     #layout.Zoomy(),
 ]
@@ -211,7 +193,7 @@ screens = [
                 widget.CurrentLayoutIcon(),
                 widget.GroupBox(),
                 widget.Prompt(),
-                widget.WindowName(),
+                widget.TaskList(),
                 widget.Chord(
                     chords_colors={
                         "launch": ("#ff0000", "#ffffff"),
@@ -270,6 +252,7 @@ screens = [
                 widget.CurrentLayoutIcon(),
                 widget.GroupBox(),
                 widget.Prompt(),
+                widget.TaskList(),
                 widget.Spacer(),
                 widget.TextBox("|"),
                 widget.Mpd2(status_format = '{play_status} {file} [{repeat}{random}{single}{consume}{updating_db}]',
