@@ -25,10 +25,29 @@
 # SOFTWARE.
 
 from libqtile import bar, layout, qtile, widget, hook
-from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile.config import Click, Drag, Group, Key, Match, Screen, KeyChord
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 import os, subprocess
+
+
+#startup programs
+@hook.subscribe.startup_once
+def autostart():
+    home = os.path.expanduser('~/.config/qtile/autostart.sh')
+    subprocess.Popen([home])
+
+#programs to be opened in fullscreen
+@hook.subscribe.client_new
+def start_fullscreen(window):
+    rules = [
+        Match(wm_class="mpv")
+        #Add other applications in this list
+    ]
+
+    if any(window.match(rule) for rule in rules):
+        window.togroup(qtile.current_group.name)
+        window.toggle_fullscreen()
 
 
 mod = "mod4"
@@ -112,6 +131,10 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key([mod], "d", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+	KeyChord([mod, "shift"], "e", [
+		Key([], "s", lazy.spawn('shutdown now'), desc = "Shutdown computer"),
+    	Key([], "r", lazy.spawn('reboot'), desc = "Reboot computer")],
+    	mode="Exit mode: [s]hutdown, [r]eboot")
 ]
 
 # Add key bindings to switch VTs in Wayland.
@@ -194,15 +217,15 @@ screens = [
                 widget.GroupBox(),
                 widget.Prompt(),
                 widget.TaskList(theme_mode = 'preferred'),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
+                widget.Chord(foreground = '#FF0000'),
                 widget.TextBox("|"),
-                widget.Mpd2(status_format = '{play_status} {file} [{repeat}{random}{single}{consume}{updating_db}]',
-                format_fns = {'file': lambda file: get_filename_no_ext(file) } ),
+                widget.Mpd2(status_format = '{file}' ,
+                format_fns = {'file': lambda file: get_filename_no_ext(file) },
+                scroll = True,
+                scroll_step = 1.5,
+                width = 200
+                ),
+                widget.Mpd2(status_format = '[{play_status}{repeat}{random}{single}{consume}{updating_db}]'),
                 widget.TextBox("|"),
                 widget.Volume(
                     fmt = 'Vol: {}',
@@ -235,7 +258,6 @@ screens = [
                 widget.Systray(),
                 widget.TextBox("|"),
                 widget.Clock(format="%d-%b %H:%M"),
-                widget.QuickExit(),
             ],
             24,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
@@ -254,9 +276,15 @@ screens = [
                 widget.Prompt(),
                 widget.TaskList(theme_mode = 'preferred'),
                 widget.Spacer(),
+                widget.Chord(foreground = "FF0000"),
                 widget.TextBox("|"),
-                widget.Mpd2(status_format = '{play_status} {file} [{repeat}{random}{single}{consume}{updating_db}]',
-                format_fns = {'file': lambda file: get_filename_no_ext(file) } ),
+                widget.Mpd2(status_format = '{file}' ,
+                format_fns = {'file': lambda file: get_filename_no_ext(file) },
+                scroll = True,
+                scroll_step = 1.5,
+                width = 200
+                ),
+                widget.Mpd2(status_format = '[{play_status}{repeat}{random}{single}{consume}{updating_db}]'),
                 widget.TextBox("|"),
                 widget.Volume(
                     fmt = 'Vol: {}',
@@ -266,6 +294,11 @@ screens = [
                     ),
                 widget.TextBox("|"),
                 widget.Clock(format="%d-%b %H:%M"),
+                widget.QuickExit(mouse_callbacks = {
+                'Button1': lambda: qtile.cmd_spawn('shutdown now'),
+                'Button2': lambda: lazy.shutdown(),
+                'Button3': lambda: qtile.cmd_spawn('reboot'),
+                }),
             ],
             24,
         ),
