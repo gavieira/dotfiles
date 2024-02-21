@@ -193,7 +193,7 @@ screens = [
                 widget.CurrentLayoutIcon(),
                 widget.GroupBox(),
                 widget.Prompt(),
-                widget.TaskList(),
+                widget.TaskList(theme_mode = 'preferred'),
                 widget.Chord(
                     chords_colors={
                         "launch": ("#ff0000", "#ffffff"),
@@ -252,7 +252,7 @@ screens = [
                 widget.CurrentLayoutIcon(),
                 widget.GroupBox(),
                 widget.Prompt(),
-                widget.TaskList(),
+                widget.TaskList(theme_mode = 'preferred'),
                 widget.Spacer(),
                 widget.TextBox("|"),
                 widget.Mpd2(status_format = '{play_status} {file} [{repeat}{random}{single}{consume}{updating_db}]',
