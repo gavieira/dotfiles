@@ -214,7 +214,7 @@ screens = [
         top=bar.Bar(
             [
                 widget.CurrentLayoutIcon(),
-                widget.GroupBox(),
+                widget.GroupBox(hide_unused = True),
                 widget.Prompt(),
                 widget.TaskList(theme_mode = 'preferred'),
                 widget.Chord(foreground = '#FF0000'),
@@ -272,7 +272,7 @@ screens = [
         top=bar.Bar(
             [
                 widget.CurrentLayoutIcon(),
-                widget.GroupBox(),
+                widget.GroupBox(hide_unused = True),
                 widget.Prompt(),
                 widget.TaskList(theme_mode = 'preferred'),
                 widget.Spacer(),
