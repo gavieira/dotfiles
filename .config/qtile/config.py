@@ -133,8 +133,9 @@ keys = [
     Key([mod], "d", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 	KeyChord([mod, "shift"], "e", [
 		Key([], "s", lazy.spawn('shutdown now'), desc = "Shutdown computer"),
-    	Key([], "r", lazy.spawn('reboot'), desc = "Reboot computer")],
-    	mode="Exit mode: [s]hutdown, [r]eboot")
+    	Key([], "r", lazy.spawn('reboot'), desc = "Reboot computer"), 
+        Key([], "l", lazy.shutdown(), desc = "Shutdown Qtile")],
+    	mode="Exit mode: [s]hutdown, [r]eboot, [l]ogout")
 ]
 
 # Add key bindings to switch VTs in Wayland.
@@ -151,7 +152,8 @@ for vt in range(1, 8):
     )
 
 
-groups = [Group(i) for i in "123456789"]
+groups = [Group(i) for i in "123456789"] #Defining groups
+groups[0] = Group("1", layout='monadtall') #Changing group 1 default layout
 
 for i in groups:
     keys.extend(
@@ -184,7 +186,7 @@ layouts = [
     #layout.Stack(num_stacks=2),
     #layout.Bsp(),
     #layout.Matrix(),
-    #layout.MonadTall(),
+    layout.MonadTall(ratio=0.4),
     #layout.MonadWide(),
     #layout.RatioTile(),
     #layout.Tile(),
