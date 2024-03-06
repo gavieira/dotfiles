@@ -71,6 +71,7 @@ keys = [
     Key([mod], "down", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "up", lazy.layout.up(), desc="Move focus up"),
     Key([mod], "space", lazy.next_layout(), desc="Toggle between layouts"),
+    Key([mod], "Tab", lazy.screen.toggle_group(warp = False), desc="Toggle between screens"),
     Key([mod], "n", lazy.next_screen(), desc="Next monitor"),
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
