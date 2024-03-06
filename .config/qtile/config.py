@@ -71,8 +71,7 @@ keys = [
     Key([mod], "down", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "up", lazy.layout.up(), desc="Move focus up"),
     Key([mod], "space", lazy.next_layout(), desc="Toggle between layouts"),
-    Key([mod, "shift"], "space", lazy.window.toggle_floating(), desc="Toggle floating"),
-    Key([mod], "Tab", lazy.screen.toggle_group(warp = False), desc="Toggle between screens"),
+    Key([mod], "n", lazy.next_screen(), desc="Next monitor"),
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
     Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
@@ -153,7 +152,7 @@ for vt in range(1, 8):
 
 
 groups = [Group(i) for i in "123456789"] #Defining groups
-groups[0] = Group("1", layout='monadtall') #Changing group 1 default layout
+#groups[0] = Group("1", layout='monadtall') #Changing group 1 default layout
 
 for i in groups:
     keys.extend(
