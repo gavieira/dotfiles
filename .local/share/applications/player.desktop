@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Exec=mpv --quiet %U
+Name=mpv Media Player
+Icon=mpv
+Categories=Player;
+MimeType=video/*;

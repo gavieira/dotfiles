@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Exec=okular %U
+Name=Okular
+Icon=okular
+Categories=Office;Viewer;PDF;
+MimeType=application/pdf;application/x-bzpdf;application/x-gzpdf;application/x-xzpdf;application/postscript;application/x-cb7;application/x-cbr;application/x-cbt;application/x-cbz;application/x-dvi;application/x-fictionbook+xml;application/x-mobipocket-ebook;application/x-tex;application/x-ext-tex;application/x-texinfo;application/x-xps;image/vnd.djvu;image/tiff;application/vnd.comicbook+zip;application/vnd.comicbook+rar;
