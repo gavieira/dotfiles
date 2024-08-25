@@ -236,7 +236,7 @@ export BLASTDB="$HOME/blastdb"
 export TERM=termite
 
 #Setting NNN variables
-export NNN_PLUG='g:fzcd;p:mpv;s:whisper;f:ffsubsync;j:autojump;t:translate_srt;n:nmount;v:imgview'
+export NNN_PLUG='g:fzcd;p:mpv;s:whisper;f:ffsubsync;j:autojump;t:translate_srt;e:extract_srt;n:nmount;v:imgview'
 export NNN_SSHFS='sshfs -o follow_symlinks,reconnect,idmap=user,cache_timeout=3600'
 export NNN_BMS="b:${XDG_CONFIG_HOME:-$HOME/.config}/nnn/bookmarks;m:${XDG_CONFIG_HOME:-$HOME/.config}/nnn/mounts;p:${XDG_CONFIG_HOME:-$HOME/.config}/nnn/plugins;s:${XDG_CONFIG_HOME:-$HOME/.config}/nnn/sessions"
 

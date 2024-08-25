@@ -1,0 +1,9 @@
+#!/bin/bash
+
+for file in *.{mkv,mp4,avi,mov,flv,wmv}; do
+    # Check if the file exists to handle cases where no files match the pattern
+    if [[ -f "$file" ]]; then
+        ffmpeg -i "$file" -map 0:s:0 "${file%.*}.srt"
+    fi
+done
+
