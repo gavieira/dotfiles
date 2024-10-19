@@ -33,6 +33,7 @@ video/mp4=player.desktop
 video/x-matroska=player.desktop
 video/webm=player.desktop
 video/x-msvideo=player.desktop
+application/vnd.comicbook-rar=reader.desktop
 application/x-bzpdf=reader.desktop
 application/x-gzpdf=reader.desktop
 application/x-xzpdf=reader.desktop
@@ -93,6 +94,7 @@ audio/x-tta=player.desktop
 audio/x-vorbis=player.desktop
 audio/x-vorbis+ogg=player.desktop
 audio/x-xm=player.desktop
+x-scheme-handler/discord-618471189722955807=discord-618471189722955807.desktop
 
 [Added Associations]
 x-scheme-handler/http=userapp-Firefox-2GI9X1.desktop;
@@ -120,6 +122,7 @@ x-scheme-handler/spice=org.remmina.Remmina.desktop;
 x-scheme-handler/vnc=org.remmina.Remmina.desktop;
 x-scheme-handler/remmina=org.remmina.Remmina.desktop;
 application/x-remmina=org.remmina.Remmina.desktop;
-application/x-ms-dos-executable=wine-extension-html.desktop;
+application/x-ms-dos-executable=wine-extension-html.desktop;org.gnome.FileRoller.desktop;
 image/jpeg=firefox.desktop;
 text/csv=vim.desktop;wine-extension-txt.desktop;
+text/x-r-source=vim.desktop;
