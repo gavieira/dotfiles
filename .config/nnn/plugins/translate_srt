@@ -30,7 +30,7 @@ translate_srt() {
         echo "Translating ${srt_file}"
         trans -b "$source_lang:$target_lang" -i "$srt_file" -o "$translated_file" > /dev/null
         
-	# Fix timestamp formatting in the translated file (',' as decimal separator in EN, '.' as pt-BR)
+	# Fix timestamp formatting in the translated file (changing '.' to ',' as decimal separator)
         fix_srt_format "$translated_file"
         
         echo "Translated and fixed ${srt_file}"
