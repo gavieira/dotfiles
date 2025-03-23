@@ -15,8 +15,7 @@ translated_file_suffix=".pt-BR.srt"
 # Maximum number of concurrent processes
 max_processes=12  # Adjust this value as needed
 
-
-# Find all video files in current directory and subdirectories
+# Find all SRT files in current directory and subdirectories
 srt_files=$(find . -type f -name "*.srt" -not -name "*$translated_file_suffix")
 
 
@@ -29,18 +28,28 @@ translate_srt() {
         echo "Translated SRT file $translated_file already exists. Skipping."
     else
         echo "Translating ${srt_file}"
-        trans -b "$source_lang:$target_lang" -i "$srt_file" -o "${srt_file%.srt}$translated_file_suffix" > /dev/null
-        echo "Translated ${srt_file}"
+        trans -b "$source_lang:$target_lang" -i "$srt_file" -o "$translated_file" > /dev/null
+        
+	# Fix timestamp formatting in the translated file (',' as decimal separator in EN, '.' as pt-BR)
+        fix_srt_format "$translated_file"
+        
+        echo "Translated and fixed ${srt_file}"
     fi
+}
+
+fix_srt_format() {
+    local file="$1"
+    sed -E -i 's/([0-9]{2}): ([0-9]{2}): ([0-9]{2})[.,]([0-9]{3}) -> ([0-9]{2}): ([0-9]{2}): ([0-9]{2})[.,]([0-9]{3})/\1:\2:\3,\4 --> \5:\6:\7,\8/g' "$file"
 }
 
 # Export the function to make it accessible by subshells
 export -f translate_srt
+export -f fix_srt_format
 
 # Counter for concurrent processes
-process_count=0
+process_count=4
 
-# Iterate through each video file
+# Iterate through each SRT file
 for srt_file in $srt_files; do
     # Check if the maximum number of processes is reached
     if [ "$process_count" -ge "$max_processes" ]; then
@@ -57,6 +66,6 @@ done
 # Wait for remaining background processes to finish
 wait 
 
-
 # Restore IFS
 IFS=$SAVEIFS
+
