@@ -22,15 +22,15 @@ srt_files=$(find . -type f -name "*.srt" -not -name "*$translated_file_suffix")
 translate_srt() {
     srt_file="$1"
     subdirectory=$(dirname "$srt_file")
-    translated_file="${subdirectory}/$(basename "$srt_file" | cut -f 1 -d '.')$translated_file_suffix"
-    
+    translated_file="${subdirectory}/$(basename "${srt_file%.*}")$translated_file_suffix"
+
     if [ -e "$translated_file" ]; then
         echo "Translated SRT file $translated_file already exists. Skipping."
     else
         echo "Translating ${srt_file}"
         trans -b "$source_lang:$target_lang" -i "$srt_file" -o "$translated_file" > /dev/null
         
-	# Fix timestamp formatting in the translated file (changing '.' to ',' as decimal separator)
+	# Fix timestamp formatting in the translated file (',' as decimal separator in EN, '.' as pt-BR)
         fix_srt_format "$translated_file"
         
         echo "Translated and fixed ${srt_file}"
