@@ -22,7 +22,7 @@ for file in $video_files; do
     else
 
     	# Generate the SRT file using 'whisper'
-    	whisper "$file" --output_format srt --output_dir "$subdirectory"
+    	whisper "$file" --output_format srt --model base.en --output_dir "$subdirectory"
    fi
 done
 
