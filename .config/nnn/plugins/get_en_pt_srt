@@ -48,3 +48,8 @@ done
 
 # Restore IFS
 IFS=$SAVEIFS
+
+
+# Now, call the Python script to translate all .en.srt files to .pt.srt
+echo "Starting translation of .en.srt files to Portuguese..."
+python3 /home/gabriel/.config/nnn/plugins/translate_srt.py
