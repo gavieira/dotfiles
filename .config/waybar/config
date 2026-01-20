@@ -5,12 +5,18 @@
     "height": 30,
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["mpd"],
-    "modules-right": ["pulseaudio", "network", "disk", "cpu", "memory", "clock", "tray"],
+    "modules-right": ["hyprland/submap","pulseaudio", "network", "disk", "cpu", "memory", "clock", "tray"],
 
     "hyprland/workspaces": {
         "disable-scroll": true,
-        "all-outputs": true,
+        "all-outputs": false,
         "format": "{name}"
+    },
+
+    "hyprland/submap": {
+        "format": "󰘖  Modo: {}",
+        "max-length": 20,
+        "tooltip": false
     },
 
     "clock": {
@@ -106,4 +112,3 @@
         }
     }
 }
-

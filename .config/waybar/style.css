@@ -1,7 +1,6 @@
 /* ~/.config/waybar/style.css */
 window#waybar {
     background: #1e1e1e;
-    border-bottom: 2px solid #4C7899;
     color: #ffffff;
     font-family: "monospace";
     font-size: 13px;
@@ -54,4 +53,12 @@ window#waybar {
 
 #clock {
     color: #f9e2af; /* Yellow */
+}
+
+#submap {
+    background: #f38ba8; /* Vermelho */
+    color: #1e1e2e;
+    padding: 0 10px;
+    border-radius: 5px;
+    font-weight: bold;
 }
