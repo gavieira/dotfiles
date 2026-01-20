@@ -44,7 +44,7 @@
     	"on-click": "mpc toggle",               // Play/Pause rápido
 	"on-scroll-up": "mpc next",                    // Girar para cima: Próxima
 	"on-scroll-down": "mpc prev",                   // Girar para baixo: Anterior
-	"on-click-right": "kitty --class ncmpcpp -e ncmpcpp" // Abre o player
+	"on-click-right": "kitty --class rmpc -e rmpc" // Abre o player
     },
 
 
