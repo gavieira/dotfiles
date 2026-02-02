@@ -1,6 +1,6 @@
 // ~/.config/waybar/config
 {
-    "layer": "top",
+    "layer": "bottom",
     "position": "top",
     "height": 30,
     "modules-left": ["hyprland/workspaces"],
