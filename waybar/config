@@ -25,6 +25,7 @@
       "return-type": "json",
       "format": "{}",
       "on-click": "tomat toggle",
+      "on-click-middle": "tomat stop",
       "on-click-right": "tomat skip"
     },
 
