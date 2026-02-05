@@ -1,0 +1,13 @@
+# Estilo minimalista e escuro
+background-color=#1e1e2e
+text-color=#cdd6f4
+border-color=#89b4fa
+border-size=2
+border-radius=5
+font=monospace 10
+
+# Duração discreta (4 segundos)
+default-timeout=4000
+
+# Posição (ex: canto superior direito)
+anchor=top-right

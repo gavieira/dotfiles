@@ -1,0 +1,123 @@
+// ~/.config/waybar/config
+{
+    "layer": "bottom",
+    "position": "top",
+    "height": 30,
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["mpd"],
+    "modules-right": ["hyprland/submap", "custom/tomat", "pulseaudio", "network", "disk", "cpu", "memory", "clock", "tray"],
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": false,
+        "format": "{name}"
+    },
+
+    "hyprland/submap": {
+        "format": "󰘖  Modo: {}",
+        "max-length": 20,
+        "tooltip": false
+    },
+
+    "custom/tomat": {
+      "exec": "tomat status",
+      "interval": 1,
+      "return-type": "json",
+      "format": "{}",
+      "on-click": "tomat toggle",
+      "on-click-right": "tomat skip"
+    },
+
+    "clock": {
+        "format": "{:%H:%M | %d-%m-%Y}"
+    },
+
+    "mpd": {
+    	"format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{filename} ",
+	
+	"tooltip-format": "{elapsedTime:%M:%S} / {totalTime:%M:%S}",
+    	"format-disconnected": "Disconnected ",
+    	"format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+    	"interval": 2,
+    	"consume-icons": {
+    		"on": " " // Icon shows only when "consume" is on
+    	},
+    	"random-icons": {
+    		"on": " "
+    	},
+    	"repeat-icons": {
+		// Quando desligado (off), mostramos o ícone em vermelho usando <span color='...'>
+        	"off": "<span color='#f38ba8'> </span>"
+    	},
+    	"single-icons": {
+    		"on": "1 "
+    	},
+    	"state-icons": {
+    		"paused": "",
+    		"playing": ""
+    	},
+    	"on-click": "mpc toggle",               // Play/Pause rápido
+	"on-scroll-up": "mpc next",                    // Girar para cima: Próxima
+	"on-scroll-down": "mpc prev",                   // Girar para baixo: Anterior
+	"on-click-right": "kitty --class rmpc -e rmpc" // Abre o player
+    },
+
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": " Muted",
+        "on-click": "pavucontrol", // Opens your mixer on click
+        "scroll-step": 5, // How much volume changes per scroll
+        "format-icons": {
+            "headphone": "",
+            "default": ["", "", ""]
+        },
+	"on-click-middle": "mpc toggle",
+	"on-click-middle": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+	"on-click-right": "~/.config/waybar/scripts/toggle_audio.sh"
+    },
+
+    "network": {
+        "format-wifi": "  {essid}", // Icon for WiFi
+        "format-ethernet": "󰈀  {ifname}", // Icon for Ethernet
+        "format-disconnected": "⚠ Disconnected"
+    },
+
+
+    "disk": {
+        "interval": 30,
+        "format": "󰋊 {percentage_used}%",
+        "path": "/",
+        "tooltip-format": "{used} usados de {total} em {path} ({percentage_used}%)",
+        "on-click": "kitty --class float_kitty -e sh -c 'duf; read'" // Opcional: abre um visualizador de disco ao clicar
+    },
+
+    "cpu": {
+        "format": "  {usage}%"
+    },
+    "memory": {
+        "format": "  {}%"
+    },
+
+    "clock": {
+        "format": " {:%d/%b - %H:%M}",
+        "tooltip-format": "<tt><big>{calendar}</big></tt>",
+        "calendar": {
+            "mode"          : "month",
+            "weeks-pos"     : "right",
+            "on-scroll"     : 1,
+            "format": {
+                "months":     "<span color='#ffead3'><b>{}</b></span>",
+                "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                "today":      "<span color='#ff6699'><b><u>{}</u></b></span>" // Highlights Today
+            }
+        },
+        "actions":  {
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    }
+}
