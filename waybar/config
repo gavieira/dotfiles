@@ -58,8 +58,9 @@
     		"playing": ""
     	},
     	"on-click": "mpc toggle",               // Play/Pause rápido
-	"on-scroll-up": "mpc next",                    // Girar para cima: Próxima
-	"on-scroll-down": "mpc prev",                   // Girar para baixo: Anterior
+        //"on-click-middle": "mpc next",
+        "on-scroll-up": "mpc next",
+        "on-scroll-down": "mpc prev",
 	"on-click-right": "kitty --class rmpc -e rmpc" // Abre o player
     },
 
