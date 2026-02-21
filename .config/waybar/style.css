@@ -62,3 +62,24 @@ window#waybar {
     border-radius: 5px;
     font-weight: bold;
 }
+
+/* tomat pomodoro app styles */ 
+/* Cor quando você está focado (Trabalho) */
+#custom-tomat.work {
+    color: #ff5555; 
+}
+
+/* Cor durante o descanso (Break) */
+#custom-tomat.break {
+    color: #50fa7b; /* Um verde relaxante */
+}
+
+/* Cor durante o descanso longo */
+#custom-tomat.long-break {
+    color: #8be9fd; /* Ciano/Azul */
+}
+
+/* Cor quando o timer está parado ou em standby */
+#custom-tomat.idle {
+    color: #6272a4; /* Cinza/Azul discreto */
+} 

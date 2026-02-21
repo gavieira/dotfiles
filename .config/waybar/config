@@ -5,7 +5,7 @@
     "height": 30,
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["mpd"],
-    "modules-right": ["hyprland/submap","pulseaudio", "network", "disk", "cpu", "memory", "clock", "tray"],
+    "modules-right": ["hyprland/submap", "custom/tomat", "pulseaudio", "network", "disk", "cpu", "memory", "clock", "tray"],
 
     "hyprland/workspaces": {
         "disable-scroll": true,
@@ -17,6 +17,16 @@
         "format": "󰘖  Modo: {}",
         "max-length": 20,
         "tooltip": false
+    },
+
+    "custom/tomat": {
+      "exec": "tomat status",
+      "interval": 1,
+      "return-type": "json",
+      "format": "{}",
+      "on-click": "tomat toggle",
+      "on-click-middle": "tomat stop",
+      "on-click-right": "tomat skip"
     },
 
     "clock": {
@@ -48,8 +58,9 @@
     		"playing": ""
     	},
     	"on-click": "mpc toggle",               // Play/Pause rápido
-	"on-scroll-up": "mpc next",                    // Girar para cima: Próxima
-	"on-scroll-down": "mpc prev",                   // Girar para baixo: Anterior
+        //"on-click-middle": "mpc next",
+        "on-scroll-up": "mpc next",
+        "on-scroll-down": "mpc prev",
 	"on-click-right": "kitty --class rmpc -e rmpc" // Abre o player
     },
 
@@ -59,6 +70,7 @@
         "format-muted": " Muted",
         "on-click": "pavucontrol", // Opens your mixer on click
         "scroll-step": 5, // How much volume changes per scroll
+	"max-volume": 200, // This allows scrolling up to 200%
         "format-icons": {
             "headphone": "",
             "default": ["", "", ""]
